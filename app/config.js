@@ -17,7 +17,26 @@ module.exports = {
   useHttps: 'true',
 
   // Cookie warning - update link to service's cookie page.
-  cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#" title="Find out more about cookies">Find out more about cookies</a>'
+  cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="#" title="Find out more about cookies">Find out more about cookies</a>',
+
+  // this could be accessed from a variety of required js modules so placed here in config
+  prototypePaths: {
+    version: '/versions/:phase/:version*',                     // e.g '/versions/alpha/alpha-01/'
+    step: '/versions/:phase/:version*/app/:step*',              // e.g '/versions/alpha/alpha-01/app/address'
+    startPage: 'index',
+    appsGlob: [
+      __dirname + '/views/versions/**/index.html',
+      '!' + __dirname + '/views/versions/**/app/index.html',
+    ],
+    routesGlob: [
+      __dirname + '/views/versions/**/version_routes.js'
+    ]
+  },
+  
+  // service design stages with iterations (used to generate automatic directory)
+  stages: ['design-sprint'],
+  
+  versionRoutesFile: 'version_routes.js'
 
 };
 	

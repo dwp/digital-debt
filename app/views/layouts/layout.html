@@ -1,4 +1,6 @@
-{% extends "govuk_template.html" %}
+{% extends "layouts/govuk_template_enhanced.html" %}
+
+{% import "macros/macros.html" as macro %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -18,5 +20,5 @@
 
 {% block body_end %}
   {% include "includes/scripts.html" %}
-  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+  <!-- GOV.UK Prototype kit {{ releaseVersion }} -->
 {% endblock %}
