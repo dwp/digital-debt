@@ -29,13 +29,16 @@ router.get('/', function (req, res) {
  * loop each version route file and bring it in passing router and some config
  */
 glob.sync(prototypePaths.routesGlob).forEach(function(p){
-  var appRoute = prototypePaths.version.replace(':version*', utils.getVersionName(p).title) + '/app/',
-      stepRoute = prototypePaths.step.replace(':version*', utils.getVersionName(p).title);
+  
+  var thisTitle = utils.getVersionName(p).title,
+      appRoute = prototypePaths.version.replace(':version*', thisTitle) + '/app/',
+      stepRoute = prototypePaths.step.replace(':version*', thisTitle);
   // redirect / to the start page for all versions
   router.all(appRoute, function(req,res,next){
     res.redirect(prototypePaths.startPage);
     next();
   });
+  
   // hack to get around the prototyping kit and dynamically routing versions
   // this will render the file it finds exists rather than via static middleware
   router.get(appRoute + 'assets/:type/:file', function(req,res,next){
@@ -48,6 +51,7 @@ glob.sync(prototypePaths.routesGlob).forEach(function(p){
         return res.send('Not Found');
       }
   });
+  
   // load in the routes file specific to this version
   require(p)(router, { 
     path: p,
@@ -57,6 +61,7 @@ glob.sync(prototypePaths.routesGlob).forEach(function(p){
       step: stepRoute
     }
   });
+  
 });
 
 /**
