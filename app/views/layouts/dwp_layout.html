@@ -8,8 +8,12 @@
 
 {% block body_classes %}{% if page.body_classes %}{% for class in page.body_classes %}{{ class }}{% if not loop.last and loop.length > 1 %} {% endif %}{% endfor %}{% endif %} {{ prototype.current.body_class }}{% endblock %}
 
+
+
 {% block content %}
-  <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>    
+
+  <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>  
+     {% include "includes/phase_banner_alpha.html" %}  
     {% block main %}
       {% block prepend_main %}{% endblock %}
       <div class="grid-row">
