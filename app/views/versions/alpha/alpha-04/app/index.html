@@ -1,0 +1,38 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Your DWP debt</h1>
+
+<div class="govuk-box-highlight">
+  <h2 class="bold-large">Balance of your debt today</h2>
+  <br>
+  <strong class="heading-xlarge">£ 650.00</strong>
+  <br><br>
+  <p>Your original debt was £800.00</p>
+</div>
+
+<h3 class="heading-medium">How you're paying us back</h3>
+<p>You're currently repaying £54.16 a month. This money is taken directly from your regular benefit payments.</p>
+<h3 class="heading-medium">When you'll have paid this back</h3>
+<p>At this rate your debt will be paid off by 17 January 2017.</p>
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
