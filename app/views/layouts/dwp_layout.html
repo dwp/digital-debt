@@ -45,4 +45,21 @@
     {{ (serviceName + " context data: ") | log(true) }}
     {{ __locals__ | log }}
   {% endif %}
+
+  <script>
+$(document).ready(function () {
+      $('span').each(function () {
+        if ($(this).attr('data-start')) {
+          $(this).html($(this).attr('data-start'));
+        }
+      });
+    });
+
+    $(document).on('keyup', '#text-area', function () {
+      var span = $(this).parents('.form-group').find('.form-hint span');
+      var start = $(this).parents('.form-group').find('.form-hint span').attr('data-start');
+      remaning = start - $(this).val().length;
+      span.html(remaning);
+    });
+</script>
 {% endblock %}

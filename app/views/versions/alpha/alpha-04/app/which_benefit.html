@@ -1,0 +1,69 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="index" class="link-back">Back</a>
+
+  <h1 class="heading-large">Which of these benefits do you get?</h1>
+
+            <form action="reduce_value" method="post">
+                <fieldset class="form-group">
+
+		          <legend class="visuallyhidden">Which of these benefits do you get?</legend>
+
+		          <label class="block-label" for="benefit1">
+		            <input id="benefit1" type="radio" name="benefit" value="pc" data-parsley-multiple="benefit" data-parsley-id="5">
+		            Pension Credit
+		          </label>
+
+		          <label class="block-label" for="benefit2">
+		            <input id="benefit2" type="radio" name="benefit" value="is" data-parsley-multiple="benefit">
+		            Income Support
+		          </label>
+
+					<label class="block-label" for="benefit2a">
+		            <input id="benefit2a" type="radio" name="benefit" value="uc" data-parsley-multiple="benefit">
+		            Universal Credit
+		          </label>
+
+		          <label class="block-label" for="benefit3">
+		            <input id="benefit3" type="radio" name="benefit" value="esa" data-parsley-multiple="benefit">
+		            Employment and Support Allowance
+		          </label>
+
+		          <label class="block-label" for="benefit4">
+		            <input id="benefit4" type="radio" name="benefit" value="jsa" data-parsley-multiple="benefit">
+		            Jobseeker’s Allowance
+		          </label>
+
+		          <label class="block-label" for="benefit5">
+		            <input id="benefit5" type="radio" name="benefit" value="none" data-parsley-multiple="benefit">
+		            None of the above
+		          </label>
+
+		        </fieldset>
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

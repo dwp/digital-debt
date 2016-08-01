@@ -3,8 +3,13 @@
 
 .alpha{
   
-  &-01 {
-    
+  &-01, &-04{
+
+		 .payment{
+
+				width: 70px;
+			}	
+			    
   }
   
 }
@@ -12,3 +17,5 @@
 .hide{
 	display:none;
 }
+
+
