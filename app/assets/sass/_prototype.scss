@@ -3,19 +3,45 @@
 
 .alpha{
   
-  &-01, &-04{
+  &-01, &-04, &-05{
 
-		 .payment{
+		.payment{
+			width: 70px;
+			}
 
-				width: 70px;
+		.off.date-change{
+			background: rgba($yellow, 0.2);
+			clear: both;
+			visibility: visible;
+			border-left: 5px solid $yellow;
+			padding: 15px;
+			margin-top: 15px;
 			}	
+
+		.off{
+			display: none;
+		}
+
+		.form-group.border-error{
+			border-left: 5px solid $error-colour;
+			padding-left: 15px;
+			input{
+				border: 4px solid $error-colour;
+			}
+			.off.show-error-message{
+				display: block;
+				color: $error-colour;
+				font-weight: bold;
+			}
+		}
+		.off.date-change{
+			display:block;
+		}
 			    
   }
   
 }
 
-.hide{
-	display:none;
-}
+
 
 

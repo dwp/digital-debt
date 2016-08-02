@@ -47,13 +47,15 @@
   {% endif %}
 
   <script>
-$(document).ready(function () {
+////////////////////////////////////////////
+
+  $(document).ready(function () {
       $('span').each(function () {
         if ($(this).attr('data-start')) {
           $(this).html($(this).attr('data-start'));
         }
       });
-    });
+  });
 
     $(document).on('keyup', '#text-area', function () {
       var span = $(this).parents('.form-group').find('.form-hint span');
@@ -61,5 +63,25 @@ $(document).ready(function () {
       remaning = start - $(this).val().length;
       span.html(remaning);
     });
+
+///////////////////////////////
+
+    var totalDebt = 650.00; ///////// Total Debt /////////////
+    var locale = "en-gb";
+    var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+
+    $(document).on('keyup', '#value-adjust-1', function () {
+      var that = $(this)[0];
+      if(that.value > minRepaymentAmmount){
+          var months = Math.ceil(totalDebt / that.value)
+          var endDate = new Date();
+          endDate.setMonth(endDate.getMonth() + months);
+          
+          $('#payed-by').css('font-weight','bold');
+          $('#payed-by').html("1 " + endDate.toLocaleString(locale, { month: "long" }) + " " + endDate.getUTCFullYear());
+      }
+    });
+///////////////////////////////////
+
 </script>
 {% endblock %}

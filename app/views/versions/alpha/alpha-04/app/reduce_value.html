@@ -14,20 +14,25 @@
 
             <form action="reduce_reasons" method="post">
                 <fieldset class="">
-					 <legend class="visuallyhidden">You are currently paying £54.16 a month.</legend>
+           <legend class="visuallyhidden">You are currently paying £54.16 a month.</legend>
 
-		         
-		          <div class="form-group">
-		            <label class="form-label-bold" for="example-form-label-bold">
-		              Enter new proposed payment amount
-		              <span class="form-hint">
-		                Monthly amount in pounds (&pound;)
-		              </span>
-		            </label>
-		            <input class="form-control payment" id="example-form-label-bold" type="text">
-               
-		          </div>
-			      <p>Based on the amount you entered your debt will be paid off by 17 January 2017.</p>
+             
+              <div id="reduce-error" class="form-group"><!-- border-error -->
+                <label class="form-label-bold" for="example-form-label-bold">
+                  Enter new proposed amount in (£)
+                  <span class="form-hint">
+                    Minimum monthly amount £11.04
+                  </span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £11.40</span>
+                </label>
+                <input class="form-control payment" id="value-adjust-1" type="text">
+
+                <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
+                <span id="payed-by">1 January 2017</span>.
+                </div>
+              </div>
+             
+
 
                 </fieldset>
 
@@ -41,26 +46,5 @@
 
 
 
-
-{% endblock %}
-
-{% block secondary %}
-<!-- 1 Third Column -->
-<script>
-$(document).ready(function () {
-      $('span').each(function () {
-        if ($(this).attr('data-start')) {
-          $(this).html($(this).attr('data-start'));
-        }
-      });
-    });
-
-    $(document).on('keyup', '#text-area', function () {
-      var span = $(this).parents('.form-group').find('.form-hint span');
-      var start = $(this).parents('.form-group').find('.form-hint span').attr('data-start');
-      remaning = start - $(this).val().length;
-      span.html(remaning);
-    });
-</script>
 
 {% endblock %}
