@@ -1,0 +1,55 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="how_often" class="link-back">Back</a>
+
+  <h1 class="heading-large">You are currently paying £54.16 a month.</h1>
+
+            <form action="reduce_reasons" autocomplete="off" method="post">
+                <fieldset class="">
+           <legend class="visuallyhidden">You are currently paying £54.16 a month.</legend>
+
+              <script>
+                  var totalDebt = 650.00; ///////// Total Debt /////////////
+                  var locale = "en-gb";
+                  var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+              </script>
+             
+              <div id="reduce-error" class="form-group"><!-- border-error -->
+                <label class="form-label-bold" for="example-form-label-bold">
+                  Enter new proposed amount in (£)
+                  <span class="form-hint">
+                    Minimum monthly amount £16.03
+                  </span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £16.03</span>
+                </label>
+                <input class="form-control payment" id="value-adjust-1" type="text">
+
+                <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
+                <span id="payed-by">1 January 2017</span>.
+                </div>
+              </div>
+             
+
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton-rv" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+
+
+
+{% endblock %}
