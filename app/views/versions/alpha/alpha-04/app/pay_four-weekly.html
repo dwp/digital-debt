@@ -10,25 +10,25 @@
 {% block primary %}
 <a href="how_often" class="link-back">Back</a>
 
-  <h1 class="heading-large">You are currently paying £54.16 a month.</h1>
+  <h1 class="heading-large">You are currently paying £54.16 every four weeks.</h1>
 
             <form action="reduce_reasons" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You are currently paying £54.16 a month.</legend>
+           <legend class="visuallyhidden">You are currently paying £54.16 every four weeks.</legend>
 
               <script>
                   var totalDebt = 650.00; ///////// Total Debt /////////////
                   var locale = "en-gb";
-                  var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+                  var minRepaymentAmmount = 14.80; ///////// Min Payment /////////////
               </script>
              
               <div id="reduce-error" class="form-group"><!-- border-error -->
                 <label class="form-label-bold" for="example-form-label-bold">
                   Enter new proposed amount in (£)
                   <span class="form-hint">
-                    Minimum monthly amount £11.04
+                    Minimum four weekly amount £14.80
                   </span>
-                  <span class="off show-error-message">Minimum payment cannot be lower than £11.40</span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £14.80</span>
                 </label>
                 <input class="form-control payment" id="value-adjust-1" type="text">
 

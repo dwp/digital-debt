@@ -8,19 +8,25 @@
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
-<a href="reduce_value" class="link-back">Back</a>
+<a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">Explain why you would like to reduce your payments</h1>
+  <h1 class="heading-large">Explain why you would like to change your payments</h1>
 
-            <form action="reduce_finish" method="post">
+            <form action="reduce_finish" autocomplete="off" method="post">
                 <fieldset class="">
-					 <legend class="visuallyhidden">Explain why you would like to reduce this payments</legend>
+					 <legend class="visuallyhidden">Explain why you would like to change this payments</legend>
+          <ul class="list list-bullet">
+              <li>Reductions are only allowed when facing hardship or extreme circumstances.</li>
+              <li>We may ask you to provide evidence of your claim of hardship or circumstance.</li>
+              <li>You need to provide legitimate reasons if applying for a reduction.</li>
+              <li>Increases in payments need no explination.</li>
+          </ul>
                			
                			
 
                        
                         <div class="form-group">
-                          <label class="form-label" for="text-area">Reductions are only allowed when facing hardship.</label>
+                          <label class="form-label" for="text-area">Tell us why you want to change your current payment plan</label>
                           
                           <textarea class="form-control form-control-3-4" rows="10" id="text-area" name="text-area"></textarea>
                             <p class="form-hint"><span data-start="1000">0</span> characters remaining</p>

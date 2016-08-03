@@ -12,8 +12,8 @@ module.exports = function(router, config) {
     switch(requestedPage) {
 
 
-    	// Self employed main page  
-      case 'reduce_value':
+    // How often 
+      case 'pay_weekly':
       	if(postData['benefits'] == 'weekly') {
           res.redirect('pay_weekly');
         }
