@@ -1,0 +1,164 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="index" class="link-back">Back</a>
+  <h1></h1>
+  <h1 class="heading-large">Breakdown of your £650 debt</h1>
+  <p>You're currently repaying £20.00 from benefit.</p>
+  <p>At this rate your debt will be paid off by 1 January 2017.</p>
+
+      <p>Would like to <a href="how_often">change your payments</a>    
+
+<div class="bene_foot">
+  <div class="benefit_list">
+      <div class="owed">Amount remaining £350</div>
+      <div class="benefit_titles heading-medium">Incapacity benefit</div>
+
+      <details>
+      <summary class="benefit_expand">
+        <span>Expand</span>
+      </summary>
+
+      <div class="">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Date range</th>
+                  <th class="numeric" scope="col">Orginal Debt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  
+                  
+                </tr>
+                <tr>
+                  <td>1/2/2003 - 31/3/2003</td>
+                  <td class="numeric">£150</td>
+                </tr>
+                <tr>
+                 <td>10/5/2015 - 10/10/2015 </td>
+                  <td class="numeric">£200</td>
+                </tr>
+              </tbody>
+          </table>
+         
+      </div>
+ <div class="appeal">If you think this information is inaccurate visit the <a href="https://www.gov.uk/incapacity-benefit">Incapacity benefit</a> section on Gov.uk</div>
+    </details>
+
+
+
+
+<!-- //////////////////////////// -->
+
+
+  <div class="benefit_list">
+      <div class="owed">Amount remaining £150</div>
+      <div class="benefit_titles heading-medium">JSA</div>
+
+      <details>
+      <summary class="benefit_expand">
+        <span>Expand</span>
+      </summary>
+
+      <div class="">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Date range</th>
+                  <th class="numeric" scope="col">Orginal Debt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  
+                  
+                </tr>
+                <tr>
+                  <td>1/2/2003 - 31/3/2003</td>
+                  <td class="numeric">£75</td>
+                </tr>
+                <tr>
+                 <td>10/5/2015 - 10/10/2015 </td>
+                  <td class="numeric">£75</td>
+                </tr>
+              </tbody>
+          </table>
+         
+      </div>
+ <div class="appeal">If you think this information is inaccurate visit the <a href="https://www.gov.uk/jobseekers-allowance/how-to-claim">Incapacity benefit</a> section on Gov.uk</div>
+    </details>
+
+
+
+
+<!-- /////////////////////// -->
+
+
+
+  <div class="benefit_list">
+      <div class="owed">Amount remaining £200</div>
+      <div class="benefit_titles heading-medium">Housing Benefit</div>
+
+      <details>
+      <summary class="benefit_expand">
+        <span>Expand</span>
+      </summary>
+
+      <div class="">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Date range</th>
+                  <th class="numeric" scope="col">Orginal Debt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  
+                  
+                  
+                </tr>
+                <tr>
+                  <td>1/2/2003 - 31/3/2003</td>
+                  <td class="numeric">£150</td>
+                </tr>
+                <tr>
+                 <td>10/5/2015 - 10/10/2015 </td>
+                  <td class="numeric">£50</td>
+                </tr>
+              </tbody>
+          </table>
+         
+      </div>
+ <div class="appeal">If you think this information is inaccurate visit the <a href="https://www.gov.uk/housing-benefit/overview">Housing benefit</a> section on Gov.uk</div>
+    </details>
+
+
+
+
+<!-- //////////////////////////// -->
+
+
+
+</div>  
+
+
+
+{% endblock %}
+
+
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
