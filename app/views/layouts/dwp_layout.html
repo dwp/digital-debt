@@ -11,7 +11,25 @@
 
 
 {% block content %}
+<script type="text/javascript">
+var cookieName  ='debt-ammount';
 
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+</script>
   <main id="content"{{ (' class="' + page.contentClasses + '"') | safe if page.contentClasses }}>  
      {% include "includes/phase_banner_alpha.html" %}  
     {% block main %}
@@ -78,6 +96,9 @@
           $('#payed-by').css('font-weight','bold');
           $('#payed-by').html("1 " + endDate.toLocaleString(locale, { month: "long" }) + " " + endDate.getUTCFullYear());
           $('#paid-off').addClass('date-change');
+      } else 
+      {
+        $('#paid-off').removeClass('date-change');
       }
     });
 
@@ -91,6 +112,37 @@
     });
     
 ///////////////////////////////////
+
+
+
+$(document).on('click','#Start-Submit',function(){
+var ammount = $('#Debt-Start')[0].value;
+setCookie(cookieName,ammount, 30);
+
+//alert(getCookie(cookieName))
+//return false;
+});
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }
+}
 
 </script>
 {% endblock %}
