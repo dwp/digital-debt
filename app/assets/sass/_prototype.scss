@@ -4,6 +4,9 @@
 .alpha{
   
   &-01, &-02, &-03, &-04, &-05{
+  		.money-ad{
+  		margin-bottom: 25px;
+  		}
 
 		.payment{
 			width: 70px;
@@ -37,7 +40,9 @@
 		.off.date-change{
 			display:block;
 		}
-
+		.debt-history{
+			margin-right: -330px;
+		}
 		.bold{
 			font-weight:bold;
 		}
@@ -103,7 +108,18 @@
 .hide{
 	display: none;
 }
-
+.clear {
+background: aqua;
+clear:both;
+	&:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+     }
 
 
 

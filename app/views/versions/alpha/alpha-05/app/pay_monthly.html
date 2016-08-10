@@ -8,17 +8,17 @@
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
-<a href="how_often" class="link-back">Back</a>
+<a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">You are currently paying £20.00 a month.</h1>
+  <h1 class="heading-large">You are currently paying £<script>document.write(regularAmmount);</script> a month.</h1>
 
-            <form action="reduce_reasons" autocomplete="off" method="post">
+            <form action="reduce_finish" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You are currently paying £20.00 a month.</legend>
+           <legend class="visuallyhidden">You are currently paying £<script>document.write(regularAmmount);</script> a month.</legend>
 
               <script>
-                  var totalDebt = 650.00; ///////// Total Debt /////////////
-                  var locale = "en-gb";
+                  var totalDebt = totalOutstanding; ///////// Total Debt /////////////
+                
                   var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
               </script>
              
@@ -33,7 +33,7 @@
                 <input class="form-control payment" id="value-adjust-1" type="text">
 
                 <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
-                <span id="payed-by">1 January 2017</span>.
+                <span id="payed-by"><script>ed()</script></span>.
                 </div>
               </div>
              
@@ -43,7 +43,7 @@
 
                    <fieldset class="primary-nav form-group">
                       <legend class="visuallyhidden">Form Navigation</legend>
-                      <input type="submit" value="Continue" class="button" id="submitButton-rv" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                      <input type="submit" value="Submit-Amount" class="button" id="submitButton-rv" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </fieldset>
               </form>
 
