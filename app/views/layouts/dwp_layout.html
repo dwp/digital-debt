@@ -13,6 +13,32 @@
 {% block content %}
 <script type="text/javascript">
 var cookieName  ='debt-ammount';
+var regularAmmountCookieName = 'regular-ammount';
+var locale = "en-gb";
+var defaultRegularAmmount = 20;
+
+var regularAmmount = defaultRegularAmmount;
+
+if (getCookie(regularAmmountCookieName) !== ''){
+ regularAmmount = getCookie(regularAmmountCookieName)
+}
+
+var totalOutstanding = getCookie(cookieName);
+
+function ed(){
+  var d = calculateEndDateMonths(totalOutstanding, regularAmmount);
+  document.write("1 " + d.toLocaleString(locale, { month: "long" }) + " " + d.getUTCFullYear());
+}
+
+function calculateEndDateMonths(ammountTotal, ammountRepay){
+
+      var months = Math.ceil(ammountTotal / ammountRepay)
+      var endDate = new Date();
+      endDate.setMonth(endDate.getMonth() + months);
+
+      return endDate;
+    }
+
 
   function getCookie(cname) {
     var name = cname + "=";
@@ -108,19 +134,20 @@ var cookieName  ='debt-ammount';
         $('#paid-off').removeClass('date-change');
         $('#reduce-error').addClass('border-error');
         return false;
+      } else{
+        setCookie(regularAmmountCookieName, $('#value-adjust-1')[0].value, 30);
       }
     });
+
+    
     
 ///////////////////////////////////
 
 
 
 $(document).on('click','#Start-Submit',function(){
-var ammount = $('#Debt-Start')[0].value;
-setCookie(cookieName,ammount, 30);
-
-//alert(getCookie(cookieName))
-//return false;
+  var ammount = $('#Debt-Start')[0].value;
+  setCookie(cookieName,ammount, 30);
 });
 
 function setCookie(cname, cvalue, exdays) {

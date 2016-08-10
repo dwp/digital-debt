@@ -8,17 +8,17 @@
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
-<a href="how_often" class="link-back">Back</a>
+<a href="javascript:history.back()" class="link-back">Back</a>
 
   <h1 class="heading-large">You are currently paying £20.00 a fortnight.</h1>
 
-            <form action="reduce_reasons" autocomplete="off" method="post">
+            <form action="reduce_finish" autocomplete="off" method="post">
                 <fieldset class="">
            <legend class="visuallyhidden">You are currently paying £20.00 a fortnight.</legend>
 
               <script>
-                  var totalDebt = getCookie(cookieName); ///////// Total Debt /////////////
-                  var locale = "en-gb";
+                  var totalDebt = totalOutstanding; ///////// Total Debt /////////////
+           
                   var minRepaymentAmmount = 7.40; ///////// Min Payment /////////////
               </script>
              
@@ -33,7 +33,7 @@
                 <input class="form-control payment" id="value-adjust-1" type="text">
 
                 <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
-                <span id="payed-by">1 January 2017</span>.
+                <span id="payed-by"><script>ed()</script></span>.
                 </div>
               </div>
              
