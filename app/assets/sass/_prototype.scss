@@ -3,7 +3,10 @@
 
 .alpha{
   
-  &-01, &-04, &-05{
+  &-01, &-02, &-03, &-04, &-05{
+  		.money-ad{
+  		margin-bottom: 25px;
+  		}
 
 		.payment{
 			width: 70px;
@@ -37,15 +40,86 @@
 		.off.date-change{
 			display:block;
 		}
-
+		.debt-history{
+			margin-right: -330px;
+		}
 		.bold{
 			font-weight:bold;
+		}
+
+		.benefit_list{
+			border-top: 1px solid $border-colour;
+			position:relative;
+			width: 100%;
+			&:after {
+			     visibility: hidden;
+			     display: block;
+			     font-size: 0;
+			     content: " ";
+			     clear: both;
+			     height: 0;
+			     }
+			.benefit_titles{
+				padding: 0px 15px 15px 0px;
+				margin: 15px 0px 0px 0px;
+			}
+			.owed{
+				position: absolute;
+			    top: 18px;
+			    left: 265px;
+			    span{
+			    	font-weight:bold;
+			    }
+			}
+		}
+		.benefit_expand{
+			
+		    width: 100%;
+		    height: 40px;
+		    padding-top: 15px;
+		    text-align: right;
+		    position: absolute;
+    		top: 2px;
+
+    		span{
+    		padding-right: 20px;
+    		}
+		}
+		.bene_foot{
+			border-bottom: 1px solid $border-colour;
+			&:after {
+			     visibility: hidden;
+			     display: block;
+			     font-size: 0;
+			     content: " ";
+			     clear: both;
+			     height: 0;
+			     }
+
+			     .appeal{
+			     padding: 15px 0px 50px 0px;
+			     }
 		}
 			    
   }
   
 }
 
+.hide{
+	display: none;
+}
+.clear {
+background: aqua;
+clear:both;
+	&:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+     }
 
 
 
