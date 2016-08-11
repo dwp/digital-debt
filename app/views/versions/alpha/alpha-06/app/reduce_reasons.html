@@ -1,0 +1,93 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-large">Do you want reduce or increase your payments?</h1>
+
+            <form action="how_often" autocomplete="off" method="post">
+                <fieldset class="">
+					 <legend class="visuallyhidden">Do you want reduce or increase your payments?<</legend>
+          
+            <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="sms-open"  for="sms">
+                  <input id="sms" type="radio" name="contact" value="sms">
+                  Reduce payments
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
+                  <h3 class="heading-small">What reasons do you have for reducing your payments</h3>
+                  <span class="hint">We may ask you to provide evidence of hardship or extreme circumstance.</span>
+                        <textarea class="form-control form-control-3-4" rows="7" id="text-area" name="text-area"></textarea>
+                        <p class="form-hint"><span data-start="300">0</span> characters remaining</p>
+                </div>
+
+                
+                <label class="block-label" data-target="call-only-open"  for="call-only">
+                  <input id="call-only" type="radio" name="contact" value="phone">
+                  Increase payments
+                </label>
+                
+
+
+
+               
+              </div>
+
+               <div class="money-ad">If you are having difficulties budgeting the Money Advice Service helps you manage your money better. Visit the <a href="moneyadviceservice.org.uk" rel="external">Money Advice Service</a> for more information</div>
+
+
+               <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+          <!--<ul class="list list-bullet">
+              <li>Reductions are only allowed when facing hardship or extreme circumstances.</li>
+              <li>We may ask you to provide evidence of your claim of hardship or circumstance.</li>
+              <li>You need to provide legitimate reasons if applying for a reduction.</li>
+              <li>Increases in payments need no explination.</li>
+          </ul>
+               			
+               			
+
+                       
+                        <div class="form-group">
+                          <label class="form-label" for="text-area">Tell us why you want to change your current payment plan</label>
+                          
+                          <textarea class="form-control form-control-3-4" rows="10" id="text-area" name="text-area"></textarea>
+                            <p class="form-hint"><span data-start="1000">0</span> characters remaining</p>
+                        </div>
+                    
+                      
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+-->
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

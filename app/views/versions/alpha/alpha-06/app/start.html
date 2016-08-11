@@ -1,0 +1,54 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+<!-- 3 Third Column -->
+<!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
+
+
+<h1 class="heading-large">DWP debt starting figure</h1>
+  
+  
+            <form action="index" autocomplete="off" method="post">
+                <fieldset class="">
+                    <legend class="visuallyhidden">DWP debt starting figure<</legend>
+                    
+                    
+
+                       
+                        <div class="form-group">
+                          <label class="form-label" for="debt">Enter debt</label>
+                          
+                          <input class="form-control" id="Debt-Start" type="text">
+                        </div>
+                    
+                      
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="Start-Submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br><p>&nbsp;</p>
+                      <input type="submit" value="Reset" class="button" id="Start-Reset" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    
+                    </fieldset>
+              </form>
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

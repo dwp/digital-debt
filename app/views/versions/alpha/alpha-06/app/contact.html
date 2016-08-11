@@ -1,0 +1,64 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  
+
+
+      <h1 class="heading-large">If we need to contact you, how do you want to be contacted?</h1>
+
+          <form action="reduce_finish" method="post">
+            <fieldset>
+
+              <legend class="visuallyhidden">If we need to contact you, how do you want to be contacted?</legend>
+              <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="sms-open"  for="sms">
+                  <input id="sms" type="radio" name="contact" value="sms">
+                  Mobile phone - including text messages
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
+                  <label class="form-label" for="mobile">Mobile number</label>
+                  <input class="form-control" name="mobile" type="text" id="mobile">
+                </div>
+
+                
+                <label class="block-label" data-target="call-only-open"  for="call-only">
+                  <input id="call-only" type="radio" name="contact" value="phone">
+                  Landline - for voice calls only
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="call-only-open">     
+                  <label class="form-label" for="tel-number">Telephone number</label>
+                  <input class="form-control" name="tel-number" type="text" id="tel-number">
+                </div>
+
+               
+              </div>
+
+            </fieldset>
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+          
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}
