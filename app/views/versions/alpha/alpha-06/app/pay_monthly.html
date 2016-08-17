@@ -14,7 +14,7 @@
 
             <form action="contact" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You're currently paying £<script>document.write(regularAmmount);</script> a month.</legend>
+           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month.</legend>
 
               <script>
                   var totalDebt = totalOutstanding; ///////// Total Debt /////////////
