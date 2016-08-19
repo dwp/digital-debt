@@ -1,0 +1,59 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+<!-- 3 Third Column -->
+<!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
+
+<div class="govuk-box-highlight">
+
+  <h2 class="bold-large">Your DWP debt today</h2>
+  <br>
+  <strong class="heading-xlarge">£<script>document.write(getCookie(cookieName));</script></strong>
+  <p>At the current rate your debt will be <span class="bold">paid off by <script>ed()</script></span></p>
+</div>
+
+<h3 class="heading-medium">How you're paying us back</h3>
+<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script></span> from benefit.</br>This money is taken directly from your main benefit payments.</p>
+<a href="reduce_reasons">Change your payments</a>
+
+<h3 class="heading-medium">What this debt is for</h3>
+<p>You may have this debt for various reasons.</p>
+<a href="debt_overview">Breakdown of your debt</a>
+<!--
+
+<h3 class="heading-medium">When you'll have paid this back</h3>
+<p>At this rate your debt will be paid off by <script>ed()</script>.</p>
+
+-->
+
+
+<!--
+<form action="{{ proto.path }}/working" method="post">
+<h3 class="heading-medium">I would like to reduce my payments</h3>
+
+ <fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Reduce my payments" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+ </form>
+-->
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
