@@ -10,15 +10,18 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">Do you want to reduce or increase your payments?</h1>
+  <h1 class="heading-large">Do you want to increase or reduct your payments?</h1>
 
             <form action="pay_monthly" autocomplete="off" method="post">
                 <fieldset class="">
-					 <legend class="visuallyhidden">Do you want to reduce or increase your payments?<</legend>
+					 <legend class="visuallyhidden">Do you want to increase or reduce your payments?</legend>
 
             <div class="form-group">
 
-
+                <label class="block-label" data-target="call-only-open"  for="call-only">
+                  <input id="call-only" type="radio" name="contact" value="phone">
+                  Increase payments
+                </label>
 
                <label class="block-label" data-target="sms-open"  for="sms">
                   <input id="sms" type="radio" name="contact" value="sms">
@@ -29,13 +32,15 @@
                   <span class="hint">You may have to provide evidence of hardship or extreme circumstances.</span>
                         <textarea class="form-control form-control-3-4" rows="7" id="text-area" name="text-area"></textarea>
                         <p class="form-hint"><span data-start="300">0</span> characters remaining</p>
+
+                      <div class="panel panel-border-wide alert-default">
+                        Reducing your payments means it will taker longer to clear your debt.
+                      </div>
                 </div>
+                
 
 
-                <label class="block-label" data-target="call-only-open"  for="call-only">
-                  <input id="call-only" type="radio" name="contact" value="phone">
-                  Increase payments
-                </label>
+                
 
 
 

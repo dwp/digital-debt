@@ -13,22 +13,99 @@
 <!-- 3 Third Column -->
 <!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
 
+<div class="debt-history">
 
-<h1 class="heading-large">DWP debt starting figure</h1>
+
+
+<h1 class="heading-large">Configure your debts</h1>
   
-  
-            <form action="index" autocomplete="off" method="post">
-                <fieldset class="">
-                    <legend class="visuallyhidden">DWP debt starting figure<</legend>
+
+      <form action="index" autocomplete="off" method="post">
+          <fieldset class="">
+              <legend class="visuallyhidden">Configure your debts</legend>
                     
-                    
+              <div class="form-group">
+                <label class="form-label-bold" for="debt">Example total debt</label>
+                <input class="form-control input-debt" id="Debt-Start" type="text">
+                <p>&nbsp;</p>
+              </div>
+
+        <div class="grid-row">
+
+          <div class="column-one-half">
+            
+
+
+              <div class="form-group">
+                   <span class="form-label-bold">Reasons for the debt</span>
+                      <legend class="visuallyhidden">Reasons for the debt</legend>
+
+                      <label class="block-label" for="social">
+                        <input id="social" name="overp" type="checkbox" value="social-funt">
+                        Social fund loan
+                      </label>
+                      <label class="block-label" for="esa">
+                        <input id="esa" name="overp" type="checkbox" value="esa-over">
+                        ESA overpayment
+                      </label>
+                      <label class="block-label" for="jsa">
+                        <input id="jsa" name="overp" type="checkbox" value="jsa-over">
+                        JSA overpayment
+                      </label>
+                      <label class="block-label" for="is">
+                        <input id="is" name="overp" type="checkbox" value="is-over">
+                        Income support overpayment
+                      </label>
+                      <label class="block-label" for="pip">
+                        <input id="pip" name="overp" type="checkbox" value="pip-over">
+                        Pip/DLA overpayment
+                      </label>
+              </div>
+
+          </div>
+
+
+
+          <div class="column-one-half">
+            
+              <div class="form-group">
+               <span class="form-label-bold">How often do you get your benefits</span>
+                  <legend class="visuallyhidden">How often do you get your benefits</legend>
+
+                  <label class="block-label" for="weekly">
+                    <input id="weekly" name="frequency" type="checkbox" value="weekly">
+                    Weekly
+                  </label>
+                  <label class="block-label" for="fortnightly">
+                    <input id="fortnightly" name="frequency" type="checkbox" value="esa-over">
+                    Fortnightly
+                  </label>
+                  <label class="block-label" for="four-weekly">
+                    <input id="four-weekly" name="frequency" type="checkbox" value="jsa-over">
+                    Four weekly
+                  </label>
+                  <label class="block-label" for="monthly">
+                    <input id="monthly" name="frequency" type="checkbox" value="is-over">
+                    Monthly
+                  </label>
+              </div>
+
+          </div>
+
+        </div>
+
+
+
 
                        
-                        <div class="form-group">
-                          <label class="form-label" for="debt">Enter debt</label>
-                          
-                          <input class="form-control" id="Debt-Start" type="text">
-                        </div>
+                        
+
+
+
+
+                       
+
+
                     
                       
 
@@ -36,8 +113,8 @@
 
                    <fieldset class="primary-nav form-group">
                       <legend class="visuallyhidden">Form Navigation</legend>
-                      <input type="submit" value="Continue" class="button" id="Start-Submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br><p>&nbsp;</p>
-                      <input type="submit" value="Reset" class="button" id="Start-Reset" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                      <input type="submit" value="Start now" class="button button-start" id="Start-Submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br><p>&nbsp;</p>
+                      <input type="submit" value="Reset" class="button greyb" id="Start-Reset" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     
                     </fieldset>
               </form>
@@ -45,7 +122,7 @@
 
 
 
-
+</div>
 
 {% endblock %}
 

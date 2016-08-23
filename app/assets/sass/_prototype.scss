@@ -11,6 +11,17 @@
 		.payment{
 			width: 70px;
 			}
+		.greyb{
+			background: $panel-colour;
+			color: $text-colour;
+		}
+		.input-debt{
+			width: 25%;
+		}
+		.alert-default {
+		    border-color: #2b8cc4;
+		    background-color: #eaf4f9;
+		}
 
 		.off.date-change{
 			background: rgba($yellow, 0.2);
