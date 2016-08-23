@@ -10,21 +10,21 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">Do you want to increase or reduct your payments?</h1>
+  <h1 class="heading-large">Do you want to increase or reduce your payments?</h1>
 
-            <form action="pay_monthly" autocomplete="off" method="post">
+            <form action="increase_value" autocomplete="off" method="post">
                 <fieldset class="">
 					 <legend class="visuallyhidden">Do you want to increase or reduce your payments?</legend>
 
             <div class="form-group">
 
                 <label class="block-label" data-target="call-only-open"  for="call-only">
-                  <input id="call-only" type="radio" name="contact" value="phone">
+                  <input id="call-only" type="radio" name="increase" value="increase-v'">
                   Increase payments
                 </label>
 
                <label class="block-label" data-target="sms-open"  for="sms">
-                  <input id="sms" type="radio" name="contact" value="sms">
+                  <input id="sms" type="radio" name="increase" value="decrease-v">
                   Reduce payments
                 </label>
                 <div class="panel panel-border-narrow js-hidden" id="sms-open">
@@ -34,7 +34,10 @@
                         <p class="form-hint"><span data-start="300">0</span> characters remaining</p>
 
                       <div class="panel panel-border-wide alert-default">
-                        Reducing your payments means it will taker longer to clear your debt.
+                        <p>Reducing payments means it will take longer to clear your debt.</p>
+                        <p class="money-ad">If you are having difficulties managing your money, <a href="http://www.moneyadviceservice.org.uk" target="_blank" rel="external">the Money Advice Service</a> can give you free and impartial advice.
+
+                        </p>
                       </div>
                 </div>
                 
@@ -48,7 +51,7 @@
 
               </div>
 
-               <div class="money-ad">If you are having difficulties managing your money, <a href="http://www.moneyadviceservice.org.uk" target="_blank" rel="external">the Money Advice Service</a> can give you free and impartial advice.</div>
+               
 
 
                <fieldset class="primary-nav form-group">

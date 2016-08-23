@@ -13,19 +13,13 @@ module.exports = function(router, config) {
 
 
     // How often 
-      case 'pay_weekly':
-      	if(postData['benefits'] == 'weekly') {
-          res.redirect('pay_weekly');
+      case 'increase_value':
+      	if(postData['increase'] == 'increase-v') {
+          res.redirect('increase_value');
         }
-        else if (postData['benefits'] == 'fortnightly') {
-          res.redirect('pay_fortnightly');
+        else if (postData['increase'] == 'decrease-v') {
+          res.redirect('reduce_value');
         } 
-        else if (postData['benefits'] == 'four-weekly') {
-          res.redirect('pay_four-weekly');
-        } 
-        else if (postData['benefits'] == 'monthly') {
-          res.redirect('pay_monthly');
-        }
 
         break;
 
