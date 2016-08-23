@@ -63,6 +63,7 @@
 			border-top: 1px solid $border-colour;
 			position:relative;
 			width: 100%;
+			display:none;
 			&:after {
 			     visibility: hidden;
 			     display: block;
@@ -83,6 +84,9 @@
 			    	font-weight:bold;
 			    }
 			}
+		}
+		.benefit_list.show{
+			display:block;
 		}
 		.benefit_expand{
 			
