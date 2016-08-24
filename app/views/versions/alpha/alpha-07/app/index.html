@@ -26,7 +26,7 @@
 </div>
 
 <h3 class="heading-medium">About this debt</h3>
-<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a #month# </span>from benefit.</br>This money is taken directly from your main benefit payments.<br>
+<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payments.<br>
 <a href="reasons">Change your payments</a>
 </p>
 <p>
