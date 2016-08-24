@@ -40,13 +40,13 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
 
     <div class="debt-history">
 
-       <h3 class="heading-large">Your £<script>document.write(getCookie(cookieName));</script> debt breakdown</h1></h3>
+       <h3 class="heading-large">Your £<script>document.write(do_debtAmmount);</script> debt breakdown</h1></h3>
 
        <div class="bene_foot">
               <!-- ////////////// Social Fund ///////////// -->
               <div class="benefit_list js-benefit_list" id="social-fund-over">
                   <div class="benefit_titles heading-medium">Social Fund</div>
-                  <div class="owed">Amount outstanding £<script>document.write(getCookie(cookieName));</script></div>
+                  <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
                   
                   <details>
                       <summary class="benefit_expand">
@@ -78,7 +78,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                               </thead>
                                <tr>
                                   <td>&nbsp;</td>
-                                  <td class="numeric" scope="col">£<script>document.write(getCookie(cookieName));</script></td>
+                                  <td class="numeric" scope="col">£<span class="ammount-left"></span></td>
                                 </tr>
 
                               </tbody>
@@ -95,7 +95,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
               <!-- ////////////// ESA ///////////// -->
               <div class="benefit_list js-benefit_list" id="esa-over">
                   <div class="benefit_titles heading-medium">ESA</div>
-                  <div class="owed">Amount outstanding £<script>document.write(getCookie(cookieName));</script></div>
+                  <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
                   
                   <details>
                       <summary class="benefit_expand">
@@ -127,7 +127,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                               </thead>
                                <tr>
                                   <td>&nbsp;</td>
-                                  <td class="numeric" scope="col">£<script>document.write(getCookie(cookieName));</script></td>
+                                  <td class="numeric" scope="col">£<span class="ammount-left"></span></td>
                                 </tr>
 
                               </tbody>
@@ -145,7 +145,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
               <!-- ////////////// JSA ///////////// -->
               <div class="benefit_list js-benefit_list" id="jsa-over">
                   <div class="benefit_titles heading-medium">JSA</div>
-                  <div class="owed">Amount outstanding £<script>document.write(getCookie(cookieName));</script></div>
+                  <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
                   
                   <details>
                       <summary class="benefit_expand">
@@ -177,7 +177,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                               </thead>
                                <tr>
                                   <td>&nbsp;</td>
-                                  <td class="numeric" scope="col">£<script>document.write(getCookie(cookieName));</script></td>
+                                  <td class="numeric" scope="col">£<span class="ammount-left"></span></td>
                                 </tr>
 
                               </tbody>
@@ -195,7 +195,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
               <!-- ////////////// Income Support ///////////// -->
               <div class="benefit_list js-benefit_list" id="is-over">
                   <div class="benefit_titles heading-medium">Income support </div>
-                  <div class="owed">Amount outstanding £<script>document.write(getCookie(cookieName));</script></div>
+                  <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
                   
                   <details>
                       <summary class="benefit_expand">
@@ -227,7 +227,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                               </thead>
                                <tr>
                                   <td>&nbsp;</td>
-                                  <td class="numeric" scope="col">£<script>document.write(getCookie(cookieName));</script></td>
+                                  <td class="numeric" scope="col">£<span class="ammount-left"></span></td>
                                 </tr>
 
                               </tbody>
@@ -244,7 +244,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                  <!-- ////////////// PIP / DLA ///////////// -->
               <div class="benefit_list js-benefit_list" id="pip-over">
                   <div class="benefit_titles heading-medium">PIP</div>
-                  <div class="owed">Amount outstanding £<script>document.write(getCookie(cookieName));</script></div>
+                  <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
                   
                   <details>
                       <summary class="benefit_expand">
@@ -276,7 +276,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                               </thead>
                                <tr>
                                   <td>&nbsp;</td>
-                                  <td class="numeric" scope="col">£<script>document.write(getCookie(cookieName));</script></td>
+                                  <td class="numeric" scope="col">£<span class="ammount-left"></span></td>
                                 </tr>
 
                               </tbody>
@@ -326,13 +326,61 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
 {% block body_end %}
   {{ super() }}
   <script type="text/javascript">
+
     $(function(){
+     
       var overpaidVals = getCookie('overpaid-benefits').split(',');
+var per;
+
+
+
+
+
+      //$('.ammount-left').html(do_debtAmmount / overpaidVals.length);
+
       if(overpaidVals !== "") {
         $.each(overpaidVals, function(index,item){
           $('#' + item).addClass('show');
         });
       }
-    })();
+
+      if(overpaidVals.length === 1){
+
+per = [1];
+ $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+
+}else if(overpaidVals.length === 2){
+per = [0.60, 0.40];
+  $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+}else if (overpaidVals.length === 3){
+  per = [0.20,0.50,0.30];
+
+  $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+}
+else if (overpaidVals.length === 4){
+per = [0.20,0.20,0.30,0.30];
+  $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+}
+else if (overpaidVals.length === 5){
+per = [0.10,0.20,0.10,0.40,0.20];
+  $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+}
+else if (overpaidVals.length === 6){
+per = [0.30,0.10,0.10,0.30,0.10,0.10];
+  $.each(overpaidVals, function(index,item){
+          $('#' + item + ' .ammount-left').html(do_debtAmmount * per[index]);
+        });
+}
+    });
   </script>
 {% endblock %}
