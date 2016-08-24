@@ -1,0 +1,57 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-large">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month.#Variable Time#</h1>
+
+            <form action="contact" autocomplete="off" method="post">
+                <fieldset class="">
+           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month. #Variable Time#</legend>
+
+              <script>
+                  var totalDebt = 650.00; ///////// Total Debt /////////////
+                  var locale = "en-gb";
+                  var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+              </script>
+             
+              <div id="reduce-error" class="form-group"><!-- border-error -->
+                <label class="form-label-bold" for="example-form-label-bold">
+                  Enter new proposed reduced amount in (£)
+                  <span class="form-hint">
+                    Minimum monthly#Variable time#  amount £11.04 #Variable figure#
+                  </span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £11.40 #Variable figure#</span>
+                </label>
+                <input class="form-control payment" id="value-adjust-1" type="text">
+
+                <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
+                <span id="payed-by">1 January 2017</span>.
+                </div>
+              </div>
+             
+
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Submit amount" class="button" id="submitButton-rv" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+
+                    Did you want to <a href="reasons">increase your payments?</a>
+              </form>
+
+
+
+
+
+
+{% endblock %}

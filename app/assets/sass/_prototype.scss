@@ -3,7 +3,7 @@
 
 .alpha{
   
-  &-01, &-02, &-03, &-04, &-05, &-06{
+  &-01, &-02, &-03, &-04, &-05, &-06, &-07{
   		.money-ad{
   		margin-bottom: 25px;
   		}
@@ -11,12 +11,24 @@
 		.payment{
 			width: 70px;
 			}
+		.greyb{
+			background: $panel-colour;
+			color: $text-colour;
+		}
+		.input-debt{
+			width: 25%;
+		}
+		.alert-default {
+		    border-color: #2b8cc4;
+		    background-color: #eaf4f9;
+		}
 
 		.off.date-change{
-			background: rgba($yellow, 0.2);
+			border-color: #2b8cc4;
+		    background-color: #eaf4f9;
 			clear: both;
 			visibility: visible;
-			border-left: 5px solid $yellow;
+			border-left: 10px solid #2b8cc4;
 			padding: 15px;
 			margin-top: 15px;
 			}	
@@ -51,6 +63,7 @@
 			border-top: 1px solid $border-colour;
 			position:relative;
 			width: 100%;
+			display:none;
 			&:after {
 			     visibility: hidden;
 			     display: block;
@@ -71,6 +84,9 @@
 			    	font-weight:bold;
 			    }
 			}
+		}
+		.benefit_list.show{
+			display:block;
 		}
 		.benefit_expand{
 			
