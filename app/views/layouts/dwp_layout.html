@@ -12,11 +12,12 @@
 
 {% block content %}
 <script type="text/javascript">
-var cookieName  ='debt-ammount';
-var regularAmmountCookieName = 'regular-ammount';
-var locale = "en-gb";
-var defaultRegularAmmount = '48.10';
-var paymentIntervalCookieName = "boo";
+var cookieName  ='debt-ammount',
+    regularAmmountCookieName = 'regular-ammount',
+    locale = "en-gb",
+    defaultRegularAmmount = '48.10',
+    paymentIntervalCookieName = "boo",
+    overpaymentBenefits = "overpaid-benefits";
 
 var regularAmmount = defaultRegularAmmount;
 
@@ -214,45 +215,40 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
         setCookie(regularAmmountCookieName, $('#value-adjust-1')[0].value, 30);
       }
     });
-////////////
-
-
-  $(document).on('click', '#ho_submitButton', function () {
-      var that = $("input[name='benefits']:checked")[0];
-      
-        setCookie(paymentIntervalCookieName, that.value, 30);
-      
-    });  
     
-///////////////////////////////////
-
-
-
-$(document).on('click','#Start-Submit',function(){
-  var ammount = $('#Debt-Start')[0].value;
-  setCookie(cookieName,ammount, 30);
+////////////
   
-  var that = $("input[name='frequency']:checked")[0];
-      
-        setCookie(paymentIntervalCookieName, that.value, 30);
+$(document).on('click', '#ho_submitButton', function () {
+  var that = $("input[name='benefits']:checked")[0];
+  setCookie(paymentIntervalCookieName, that.value, 30);
+});
 
+$(document).on('click','#Start-Submit',function(e){
+  var $overpaidBenefitInputs = $('.js-benefit-overpaid:checked'),
+      overpaidBenefits = '';
+  if(!! $overpaidBenefitInputs.length) {
+    $overpaidBenefitInputs.each(function(index,elm){
+      overpaidBenefits += $(this).val() + ((index + 1) < $overpaidBenefitInputs.length ? ',' : '');
+    });
+  }
+  setCookie(cookieName, (!! $('#Debt-Start').val() ? $('#Debt-Start').val() : 0), 30);
+  setCookie(paymentIntervalCookieName, $("input[name='frequency']:checked").val(), 30);
+  setCookie(overpaymentBenefits, overpaidBenefits, 30);
 });
 
 $(document).on('click','#Start-Reset',function(){
- 
   setCookie(cookieName, 300, 30);
   setCookie(regularAmmountCookieName, defaultRegularAmmount, 30);
   setCookie(paymentIntervalCookieName, "monthly", 30);
+  setCookie(overpaymentBenefits, '', 30);
 });
 
 function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
 }
-
-
 
 function checkCookie() {
     var user = getCookie("username");
