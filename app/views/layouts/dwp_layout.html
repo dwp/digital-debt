@@ -36,7 +36,7 @@ function edBalls(){
 
   var d;
 
-var pInt = getCookie(paymentIntervalCookieName);
+  var pInt = getCookie(paymentIntervalCookieName);
 
   if(pInt === "weekly"){
     d = calculateEndDateWeekley(totalOutstanding, regularAmmount);
@@ -51,6 +51,32 @@ var pInt = getCookie(paymentIntervalCookieName);
   }
 
   return d;
+}
+
+
+
+function minAmount(){
+
+  var pInt = getCookie(paymentIntervalCookieName);
+  var minAmmountForInterval = 99999999;
+
+  if(pInt === "weekly"){
+   
+    minAmmountForInterval = 3.70;
+  }else if(pInt === "fortnightly"){
+  
+    minAmmountForInterval = 7.40;
+  }else if(pInt === "four-weekly"){
+  
+    minAmmountForInterval = 14.80;
+  }else if(pInt === "monthly"){
+   
+    minAmmountForInterval = 16.03;
+  }
+
+
+
+  return minAmmountForInterval;
 }
 
 function calculateEndDateMonths(ammountTotal, ammountRepay){
@@ -205,6 +231,11 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
 $(document).on('click','#Start-Submit',function(){
   var ammount = $('#Debt-Start')[0].value;
   setCookie(cookieName,ammount, 30);
+  
+  var that = $("input[name='frequency']:checked")[0];
+      
+        setCookie(paymentIntervalCookieName, that.value, 30);
+
 });
 
 $(document).on('click','#Start-Reset',function(){

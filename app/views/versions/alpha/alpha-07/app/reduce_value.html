@@ -10,11 +10,11 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month.#Variable Time#</h1>
+  <h1 class="heading-large">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</h1>
 
             <form action="contact" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month. #Variable Time#</legend>
+           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</legend>
 
               <script>
                   var totalDebt = 650.00; ///////// Total Debt /////////////
@@ -26,9 +26,9 @@
                 <label class="form-label-bold" for="example-form-label-bold">
                   Enter new proposed reduced amount in (£)
                   <span class="form-hint">
-                    Minimum monthly#Variable time#  amount £11.04 #Variable figure#
+                    Minimum <script>document.write(getCookie(paymentIntervalCookieName));</script>  amount £<script>document.write(parseFloat(minAmount()).toFixed(2));</script>
                   </span>
-                  <span class="off show-error-message">Minimum payment cannot be lower than £11.40 #Variable figure#</span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £<script>document.write(parseFloat(minAmount()).toFixed(2));</script></span>
                 </label>
                 <input class="form-control payment" id="value-adjust-1" type="text">
 
