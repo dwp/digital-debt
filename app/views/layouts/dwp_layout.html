@@ -205,14 +205,42 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
       }
     });
 
+    $(document).on('keyup', '#value-adjust-2', function () {
+      var that = $(this)[0];
+      if(that.value > regularAmmount){
+
+          regularAmmount = that.value;
+         
+          var endDate = edBalls();
+
+          $('#payed-by').css('font-weight','bold');
+          $('#payed-by').html("1 " + endDate.toLocaleString(locale, { month: "long" }) + " " + endDate.getUTCFullYear());
+          $('#paid-off').addClass('date-change');
+      } else 
+      {
+        $('#paid-off').removeClass('date-change');
+      }
+    });
+
     $(document).on('click', '#submitButton-rv', function () {
       var that = $('#value-adjust-1')[0];
-      if(that.value < minRepaymentAmmount){
+      if(that.value < minAmount()){
         $('#paid-off').removeClass('date-change');
         $('#reduce-error').addClass('border-error');
         return false;
       } else{
         setCookie(regularAmmountCookieName, $('#value-adjust-1')[0].value, 30);
+      }
+    });
+
+    $(document).on('click', '#submitButton-in', function () {
+      var that = $('#value-adjust-2')[0];
+      if(that.value < regularAmmount){
+        $('#paid-off').removeClass('date-change');
+        $('#reduce-error').addClass('border-error');
+        return false;
+      } else{
+        setCookie(regularAmmountCookieName, $('#value-adjust-2')[0].value, 30);
       }
     });
     

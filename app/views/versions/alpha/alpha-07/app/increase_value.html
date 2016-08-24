@@ -26,11 +26,11 @@
                 <label class="form-label-bold" for="example-form-label-bold">
                   Enter new proposed increased amount in (£)
                   <span class="form-hint">
-                    Minimum <script>document.write(getCookie(paymentIntervalCookieName));</script> amount £<script>document.write(parseFloat(minAmount()).toFixed(2));</script>.
+                    Minimum <script>document.write(getCookie(paymentIntervalCookieName));</script> amount £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script>.
                   </span>
-                  <span class="off show-error-message">Minimum payment cannot be lower than £<script>document.write(parseFloat(minAmount()).toFixed(2));</script>.</span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script>.</span>
                 </label>
-                <input class="form-control payment" id="value-adjust-1" type="text">
+                <input class="form-control payment" id="value-adjust-2" type="text">
 
                 <div id="paid-off" class="off"><!-- date-change -->Based on the amount you entered your debt will be paid off by: <br /> 
                 <span id="payed-by">1 January 2017</span>.
@@ -43,7 +43,7 @@
 
                    <fieldset class="primary-nav form-group">
                       <legend class="visuallyhidden">Form Navigation</legend>
-                      <input type="submit" value="Submit amount" class="button" id="submitButton-rv" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                      <input type="submit" value="Submit amount" class="button" id="submitButton-in" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </fieldset>
 
                 
