@@ -1,0 +1,131 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+<!-- 3 Third Column -->
+<!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
+
+<div class="debt-history">
+
+
+
+<h1 class="heading-large">Configure your debts</h1>
+  
+
+      <form action="index" autocomplete="off" method="post">
+          <fieldset class="">
+              <legend class="visuallyhidden">Configure your debts</legend>
+                    
+              <div class="form-group">
+                <label class="form-label-bold" for="debt">Example total debt</label>
+                <input class="form-control input-debt" id="Debt-Start" type="text">
+                <p>&nbsp;</p>
+              </div>
+
+        <div class="grid-row">
+
+          <div class="column-one-half">
+            
+
+
+              <div class="form-group">
+                   <span class="form-label-bold">Reasons for the debt</span>
+                      <legend class="visuallyhidden">Reasons for the debt</legend>
+
+                      <label class="block-label" for="social">
+                        <input id="social" name="overp_social-fund" type="checkbox" value="social-fund-over" class="js-benefit-overpaid">
+                        Social fund loan
+                      </label>
+                      <label class="block-label" for="esa">
+                        <input id="esa" name="overp_esa" type="checkbox" value="esa-over" class="js-benefit-overpaid">
+                        ESA overpayment
+                      </label>
+                      <label class="block-label" for="jsa">
+                        <input id="jsa" name="overp_jsa" type="checkbox" value="jsa-over" class="js-benefit-overpaid">
+                        JSA overpayment
+                      </label>
+                      <label class="block-label" for="is">
+                        <input id="is" name="overp_is" type="checkbox" value="is-over" class="js-benefit-overpaid">
+                        Income support overpayment
+                      </label>
+                      <label class="block-label" for="pip">
+                        <input id="pip" name="overp_pip" type="checkbox" value="pip-over" class="js-benefit-overpaid">
+                        Pip/DLA overpayment
+                      </label>
+              </div>
+
+          </div>
+
+
+
+          <div class="column-one-half">
+            
+              <div class="form-group">
+               <span class="form-label-bold">How often do you get your benefits</span>
+                  <legend class="visuallyhidden">How often do you get your benefits</legend>
+
+                  <label class="block-label" for="weekly">
+                    <input id="weekly" name="frequency" type="radio" value="weekly">
+                    Weekly
+                  </label>
+                  <label class="block-label" for="fortnightly">
+                    <input id="fortnightly" name="frequency" type="radio" value="fortnightly">
+                    Fortnightly
+                  </label>
+                  <label class="block-label" for="four-weekly">
+                    <input id="four-weekly" name="frequency" type="radio" value="four-weekly">
+                    Four weekly
+                  </label>
+                  <label class="block-label" for="monthly">
+                    <input id="monthly" name="frequency" type="radio" value="monthly">
+                    Monthly
+                  </label>
+              </div>
+
+          </div>
+
+        </div>
+
+
+
+
+                       
+                        
+
+
+
+
+                       
+
+
+                    
+                      
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Start now" class="button button-start" id="Start-Submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br><p>&nbsp;</p>
+                      <input type="submit" value="Reset" class="button greyb" id="Start-Reset" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    
+                    </fieldset>
+              </form>
+
+
+
+
+</div>
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
