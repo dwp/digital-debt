@@ -208,6 +208,110 @@ module.exports = function(env) {
 	filters.toHyphenated = function toHyphenated(s) {
 		return s.trim().toLowerCase().replace(/\s+/g, '-');
 	};
+  
+  /**
+   * takes the session data object and calculates an end payment date based on
+   * the users answers
+   * @method calculateEndDate
+   * @param  {object}         session the users data submitted in the form-hint
+   * @return {String}                 Date string derived from the user's input
+   */
+  filters.calculateEndDate = function calculateEndDate(data) {
+    
+    if (data) {
+      // we need the payment frequency
+      if(!! data.payment_frequency) {
+        // calculate the number of payments that will need to be made
+        var numberOfPayments = Math.ceil(data.debt_ammount / data.payment_ammount),
+            endDate = new Date();
+        
+        // use the frequency to calculate the date
+        switch(data.payment_frequency) {
+          case 'weekly':
+            endDate.setDate(numberOfPayments * 7);
+          break;        
+          case 'fortnightly': 
+            // console.log("It's fortnightly");
+            endDate.setDate(numberOfPayments * 14);
+          break;
+          case 'four-weekly': 
+            endDate.setDate(numberOfPayments * 28);
+          break;
+          case 'monthly': 
+            endDate.setMonth(endDate.getMonth() + numberOfPayments);
+          break;
+        }
+        
+        // return the date in a formatted string
+        return ("1 " + endDate.toLocaleString("en-gb", { month: "long" }) + " " + endDate.getUTCFullYear());
+        
+      } else {
+        return filters.log('There is no payment frequency in the session data!');
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getPaymentAmmount = function getPaymentAmmount(data) {
+    if(data) {
+      if(!! data.payment_ammount) {
+        return parseFloat(data.payment_ammount).toFixed(2);
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getPaymentCycle = function getPaymentCycle(data) {
+    if(data) {
+      if(!! data.payment_frequency) {
+        return data.payment_frequency;
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getTotalDebt = function getTotalDebt(data) {
+    if(data) {
+      if(!! data.debt_ammount) {
+        return data.debt_ammount;
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getMinimalAmmount = function getMinimalAmmount(data) {
+    if(data) {
+      if(!! data.payment_frequency) {
+        
+        var minimalAmmount = 3.40;
+        
+        // use the frequency to calculate the date
+        switch(data.payment_frequency) {
+          case 'weekly':
+            return minimalAmmount;
+          break;        
+          case 'fortnightly': 
+            // console.log("It's fortnightly");
+            return minimalAmmount * 2;
+          break;
+          case 'four-weekly': 
+            return minimalAmmount * 4;
+          break;
+          case 'monthly': 
+            return ((minimalAmmount * 4) + minimalAmmount));
+          break;
+        }        
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app

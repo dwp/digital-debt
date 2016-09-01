@@ -1,1 +1,6 @@
 {% extends "layouts/dwp_layout.html" %}
+
+{% block body_end %}
+  {{ super() }}
+  <script src="assets/scripts/app.js" charset="utf-8"></script>
+{% endblock %}
