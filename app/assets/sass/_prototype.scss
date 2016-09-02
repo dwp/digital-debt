@@ -3,7 +3,7 @@
 
 .alpha{
   
-  &-01, &-02, &-03, &-04, &-05, &-06, &-07{
+  &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-08{
   		.money-ad{
   		margin-bottom: 25px;
   		}
@@ -52,9 +52,7 @@
 		.off.date-change{
 			display:block;
 		}
-		.debt-history{
-			margin-right: -330px;
-		}
+		
 		.bold{
 			font-weight:bold;
 		}
@@ -139,6 +137,17 @@ clear:both;
 
 .ammount-left{
 	font-weight: normal!important;
+}
+.alpha{
+	&-07, &-06{
+		.debt-history{
+			margin-right: -330px;
+		}
+	}
+}
+
+.column-one-whole{
+	padding: 0 15px 0 15px;
 }
 
 
