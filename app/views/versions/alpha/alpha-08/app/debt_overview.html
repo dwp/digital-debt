@@ -1,7 +1,10 @@
 {% set page = {
   title: 'index',
   dev: true,
-  secondary: true,
+  secondary: false,
+  primary:{
+    col: 'one-whole'
+  },
   html_classes: ['page-class']
 } %}
 
@@ -38,7 +41,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
 
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-    <div class="debt-history">
+
 
        <h3 class="heading-large">Your £<script>document.write(do_debtAmmount);</script> debt breakdown</h1></h3>
 
@@ -242,6 +245,8 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
                  </div>
 
                  <!-- ////////////// PIP / DLA ///////////// -->
+
+                 <!-- ////////////// PIP ///////////// -->
               <div class="benefit_list js-benefit_list" id="pip-over">
                   <div class="benefit_titles heading-medium">PIP</div>
                   <div class="owed">Amount outstanding £<span class="ammount-left"></span></div>
@@ -290,9 +295,7 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
 
                  </div>
 
-            
-    </div>
-
+    
 
 
   <h2 class="heading-medium">Your current agreement</h2>
@@ -318,10 +321,6 @@ var pct_90 = ((do_debtAmmount/100)*90).toFixed(2);
 {% endblock %}
 
 
-
-{% block secondary %}
-<!-- 1 Third Column -->
-{% endblock %}
 
 {% block body_end %}
   {{ super() }}
