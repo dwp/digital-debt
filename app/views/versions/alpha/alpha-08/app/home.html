@@ -1,0 +1,57 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+<!-- 3 Third Column -->
+<!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
+
+<div class="govuk-box-highlight">
+
+  <h2 class="bold-large">Your DWP debt today</h2>
+  <br>
+  <strong class="heading-xlarge">£<script>document.write(getCookie(cookieName));</script></strong>
+  <p class="form-lable-bold">
+    At the current rate your debt will be <br>
+    <span class="heading-medium">paid off by <script>ed()</script>
+    </span>
+  </p>
+</div>
+
+<h3 class="heading-medium">About this debt</h3>
+<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
+<a href="reasons">Change your payments</a>.
+</p>
+<p>
+<!--<h3 class="heading-medium">What this debt is for</h3>
+<p>You may have this debt for various reasons.</p>-->
+View your <a href="debt_overview">debt in detail</a>.
+</p>
+
+<div class="panel panel-border-wide alert-default">
+  <p class="font-xsmall" >
+On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval
+  </p>
+<p class="font-xsmall">
+  Reductions in payments can take up to XX working days to process
+</p>
+  
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
