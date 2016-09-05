@@ -10,48 +10,52 @@
 {% block primary %}
 
 
-<!-- 3 Third Column -->
-<!--<h1 class="heading-xlarge">Your DWP debt</h1>-->
 
-<div class="govuk-box-highlight">
 
-  <h2 class="bold-large">Your DWP debt today</h2>
-  <br>
-  <strong class="heading-xlarge">£<script>document.write(getCookie(cookieName));</script></strong>
-  <p class="form-lable-bold">
-    At the current rate your debt will be <br>
-    <span class="heading-medium">paid off by <script>ed()</script>
-    </span>
-  </p>
-</div>
+<h1 class="heading-xlarge">
+   Manage your benefit overpayments
+</h1>
 
-<h3 class="heading-medium">About this debt</h3>
-<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
-<a href="reasons">Change your payments</a>
-</p>
+<p>Use this service to get information about any money that you have been overpaid and how you are paying it back.</p>
+
+<p>With this service you can:</p>
+
+<ul class="list list-bullet">
+  <li>view details of benefit overpayments and social fund loans that you’ve received</li>
+  <li>view how you’re paying the money back and when your final payment will be</li>
+  <li>ask for your payments to be increased or reduced</li>
+</ul>
+
+<p>Registering takes around 5 minutes.</p>
+
 <p>
-<!--<h3 class="heading-medium">What this debt is for</h3>
-<p>You may have this debt for various reasons.</p>-->
-You may have this debt for various reasons, <a href="debt_overview">see a breakdown of your debt</a>
+  <a class="button button-start" href="home" role="button">Start now</a>
 </p>
 
-<div class="panel panel-border-wide alert-default">
-  <p class="font-xsmall" >
-On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval
-  </p>
-<p class="font-xsmall">
-  Reductions in payments can take up to XX working days to process
-</p>
-  
-</div>
+<h2 class="heading-medium">Over ways to manage overpayments</h2>
 
+<p>You can get information and manage your payments by phone:</p>
 
-
-
+<p>Telephone: 0845 850 0293<br />
+Monday to Friday 8am to 8pm, Saturday 9am to 4pm<br />
+<a href="">Find out about call charges</a></p>
 
 
 {% endblock %}
 
 {% block secondary %}
-<!-- 1 Third Column -->
+
+
+    <!--  <aside class="govuk-related-items" role="complementary">
+        <h2 class="heading-medium" id="subsection-title">Subsection</h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="font-xsmall">
+            <li><a href="#">Related link</a></li>
+            <li><a href="#">Related link</a></li>
+            <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
+          </ul>
+        </nav>
+      </aside>-->
+
+
 {% endblock %}
