@@ -3,7 +3,7 @@
 
 .alpha{
   
-  &-01, &-02, &-03, &-04, &-05, &-06, &-07{
+  &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-08{
   		.money-ad{
   		margin-bottom: 25px;
   		}
@@ -52,9 +52,7 @@
 		.off.date-change{
 			display:block;
 		}
-		.debt-history{
-			margin-right: -330px;
-		}
+		
 		.bold{
 			font-weight:bold;
 		}
@@ -62,7 +60,7 @@
 		.benefit_list{
 			border-top: 1px solid $border-colour;
 			position:relative;
-			width: 100%;
+			/*width: 100%;*/
 			display:none;
 			&:after {
 			     visibility: hidden;
@@ -116,6 +114,11 @@
 			     padding: 15px 0px 50px 0px;
 			     }
 		}
+		.js-benefit_list{
+			h3{
+			margin-top:0px;
+			}
+		}
 			    
   }
   
@@ -140,6 +143,33 @@ clear:both;
 .ammount-left{
 	font-weight: normal!important;
 }
+.alpha{
+	&-07, &-06{
+		.debt-history{
+			margin-right: -330px;
+		}
+	}
+}
+
+.column-one-whole{
+	padding: 0 15px 0 15px;
+}
+.whole-border{
+	padding: 30px;
+	margin-bottom: 30px;
+	border: 1px solid #a1acb2;
+}
+
+.more-info{
+  margin-top: 30px;
+  width: 66.6%;  
+}
+.explination-of-benefits{
+  margin-top: 15px; 
+  margin-top: 15px;  
+  width: 66.6%; 
+}
+	
 
 
 

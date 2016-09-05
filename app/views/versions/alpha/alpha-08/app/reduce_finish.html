@@ -1,0 +1,41 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="govuk-box-highlight">
+  <h2 class="bold-large">Request sent</h2>
+
+  <h3 class="heading-small">Your request to reduce your payments to<br>
+  <span class="heading-medium">£<script>document.write(parseFloat(regularAmmount).toFixed(2));</script></span><br>
+  is being reviewed</h3>
+</div>
+
+
+<h4 class="heading-small">If your request is accepted</h4>
+<p>You'll receive a text message confirming the new amount you'll be paying. Your online account will also be updated to reflect this change.</p>
+
+<h4 class="heading-small">If more information is needed</h4>
+<p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>
+
+
+<form action="home" method="post">
+      <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
