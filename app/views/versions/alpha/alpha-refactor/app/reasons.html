@@ -12,26 +12,25 @@
 
   <h1 class="heading-large">Do you want to increase or reduce your payments?</h1>
 
-  <form action="increase_value" autocomplete="off" method="post">
+  <form action="change_payment" autocomplete="off" method="post">
     <fieldset class="">
       <legend class="visuallyhidden">Do you want to increase or reduce your payments?</legend>
 
       <div class="form-group">
 
-        <label class="block-label" data-target="call-only-open"  for="call-only">
-          <input id="call-only" type="radio" name="increase" value="increase-v'">
+        <label class="block-label" for="increase_input">
+          <input id="increase_input" type="radio" name="change_choice" value="increase">
           Increase payments
         </label>
 
-        <label class="block-label" data-target="sms-open"  for="sms">
-          <input id="sms" type="radio" name="increase" value="decrease-v">
+        <label class="block-label" data-target="reduce-reason" for="reduce_input">
+          <input id="reduce_input" type="radio" name="change_choice" value="decrease">
           Reduce payments
         </label>
         
-        <div class="panel panel-border-narrow js-hidden" id="sms-open">
+        <div class="panel panel-border-narrow js-hidden" id="reduce-reason">
           
           <h3 class="heading-small">What reasons do you have for reducing your payments</h3>
-          
           <span class="hint">You may have to provide evidence of hardship or extreme circumstances.</span>
           
           <textarea class="form-control form-control-3-4 js-limit-characters" rows="7" id="text-area" name="text-area" data-limit="300" data-hint="Characters remaining"></textarea>
