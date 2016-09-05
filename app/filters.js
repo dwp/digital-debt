@@ -283,28 +283,46 @@ module.exports = function(env) {
     }
   };
   
+  /**
+   * converts number to decimal 
+   * @method toDecimal
+   * @param  {Number}  num the number to be converted
+   * @param  {Number}  p   the number of decimal places (defaults to 2)
+   * @return {Number}      the converted number
+   */
+  filters.toDecimal = function toDecimal(num,p){
+    if(num && typeof num == 'number'){
+      return Number(num).toFixed(!! p ? p : 2);
+    }
+  };
+  
   filters.getMinimalAmmount = function getMinimalAmmount(data) {
     if(data) {
       if(!! data.payment_frequency) {
         
-        var minimalAmmount = 3.40;
+        var finalAmmount,
+            minimalAmmount = 3.40;
         
         // use the frequency to calculate the date
         switch(data.payment_frequency) {
           case 'weekly':
-            return minimalAmmount;
+            finalAmmount = minimalAmmount;
           break;        
           case 'fortnightly': 
             // console.log("It's fortnightly");
-            return minimalAmmount * 2;
+            finalAmmount = minimalAmmount * 2;
           break;
           case 'four-weekly': 
-            return minimalAmmount * 4;
+            finalAmmount = minimalAmmount * 4;
           break;
           case 'monthly': 
-            return ((minimalAmmount * 4) + minimalAmmount));
+            finalAmmount = (minimalAmmount * 4) + minimalAmmount;
           break;
-        }        
+        }
+        
+        // return ammount but converted to 2 decimal places
+        return filters.toDecimal(finalAmmount);
+        
       }
     } else {
       return filters.log('There is no session data!');

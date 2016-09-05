@@ -3,7 +3,7 @@
 
 .alpha{
   
-  &-01, &-02, &-03, &-04, &-05, &-06, &-07{
+  &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-refactor{
   		.money-ad{
   		margin-bottom: 25px;
   		}
@@ -23,7 +23,7 @@
 		    background-color: #eaf4f9;
 		}
 
-		.off.date-change{
+		.date-change{
 			border-color: #2b8cc4;
 		    background-color: #eaf4f9;
 			clear: both;
@@ -49,6 +49,7 @@
 				font-weight: bold;
 			}
 		}
+    
 		.off.date-change{
 			display:block;
 		}
@@ -116,6 +117,14 @@
 			     padding: 15px 0px 50px 0px;
 			     }
 		}
+    
+    .js-hidden.error-message {
+      display: none;
+    }
+    
+    .error-message {
+      display: inline-block;
+    }
 			    
   }
   
