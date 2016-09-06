@@ -329,7 +329,10 @@ module.exports = function(env) {
     }
   };
   
-  
+  filters.getFromSession = function getFromSession(path){
+    var session = env.globals.sessionData;
+    return path && session ? _.get(session,path) : 'No path or session present';
+  };
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app

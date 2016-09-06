@@ -10,23 +10,23 @@
 {% block primary %}
   <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">You're currently paying &pound;{{ session | getPaymentAmmount }} {{ session | getPaymentCycle }}.</h1>
+  <h1 class="heading-large">You're currently paying &pound;{{ 'payment_ammount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}.</h1>
 
   <form action="increase_finish" autocomplete="off" method="post" class="js-validate-form">
     <fieldset>
 
       <div class="form-group payment-adjust-field js-payment-adjust-field"
-        data-payment-frequency="{{ session | getPaymentCycle }}" 
-        data-debt-ammount="{{ session | getTotalDebt }}" 
-        data-min-ammount="{{ session | getPaymentAmmount }}" 
-        data-max-ammount="{{ session | getTotalDebt }}" 
+        data-payment-frequency="{{ 'payment_frequency' | getFromSession }}" 
+        data-debt-ammount="{{ 'debt_ammount' | getFromSession }}" 
+        data-min-ammount="{{ 'payment_ammount' | getFromSession }}" 
+        data-max-ammount="{{ 'debt_ammount' | getFromSession }}" 
         data-text-greaterthan="You have entered too much for proposed ammount" 
         data-text-lessthan="You have entered less than the minimum ammount"
       >
         
         <label class="form-label-bold" for="payment_ammount">
           Enter new proposed increased amount in (£)
-          <span class="form-hint">Minimum {{ session | getPaymentCycle }} amount &pound;{{ session | getPaymentAmmount }}.</span>
+          <span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ 'payment_ammount' | getFromSession }}.</span>
           <div><span class="payment-adjust-field__error error-message js-error-message js-hidden"></span></div>
         </label>
         

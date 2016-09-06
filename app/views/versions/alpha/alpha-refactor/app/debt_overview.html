@@ -10,7 +10,8 @@
 {% block primary %}
 
 <a href="javascript:history.back()" class="link-back">Back</a>
+<h3 class="heading-large">Your &pound;{{ 'debt_ammount' | getFromSession }} debt breakdown</h3>
 
-<h3 class="heading-large">Your &pound;{{ session | getTotalDebt }} debt breakdown</h3>
+{{ 'payment_ammount' | getFromSession }}
 
 {% endblock %} 
