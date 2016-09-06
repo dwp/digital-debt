@@ -19,7 +19,7 @@
         data-payment-frequency="{{ session | getPaymentCycle }}" 
         data-debt-ammount="{{ session | getTotalDebt }}" 
         data-min-ammount="{{ session | getMinimalAmmount }}" 
-        data-max-ammount="{{ session | getTotalDebt }}" 
+        data-max-ammount="{{ session | getPaymentAmmount }}" 
         data-text-greaterthan="You have entered too much for proposed ammount" 
         data-text-lessthan="You have entered less than the minimum ammount"
       >
@@ -45,9 +45,7 @@
       <input type="submit" value="Submit amount" class="button" id="submitButton-in" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     </fieldset>
     
-          <p>
-            Did you want to <a href="reasons">increase your payments?</a>
-          </p>
+    <p>Did you want to <a href="reasons">increase your payments?</a></p>
 
   </form>
 

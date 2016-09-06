@@ -169,17 +169,23 @@
             maxAmmount = this.makeCurrency(moduleData.maxAmmount);
         
         if(currentValue.length < 1) {
-          this.errorHandler($module, 'Please enter an ammount');
+          if(e.type == "blur") {
+              this.errorHandler($module, 'Please enter an ammount');
+          }
         } else {
           if(currentValueNum > minAmmount) {
             if(currentValueNum < maxAmmount) {
               this.errorHandler($module, 'reset');
               this.handleRepaymentPrediction($module, moduleData, currentValueNum);
             } else {
-              this.errorHandler($module, moduleData.textGreaterthan);
+              if(e.type == "blur") {
+                  this.errorHandler($module, moduleData.textGreaterthan);
+              }
             }
           } else {
-            this.errorHandler($module, moduleData.textLessthan);
+            if(e.type == "blur") {
+                this.errorHandler($module, moduleData.textLessthan);
+            }
           }  
         }
       },
@@ -199,7 +205,7 @@
         
         $ammountInput.on('keyup blur', debounce(function(e){
           this.processInput(e, $module, $ammountInput, moduleData);
-        }.bind(this),350).bind(this));
+        }.bind(this), (moduleData.typeDelay ? moduleData.typeDelay : 250)).bind(this));
         
       },
       
@@ -222,7 +228,7 @@
       config: settings,
       
       /**
-       * basic validation, prevents the form submitting if there are any errors 
+       * basic temp validation, prevents the form submitting if there are any errors 
        * and the catch 'prevented' class is present on the form
        * @method handleForm
        * @param  {Object}   $form jQuery object for the individual form being handled
@@ -236,7 +242,7 @@
           if($errors.length > 0 || $form.hasClass(this.config.preventedClass)) {
             // hack for now to trigger the field validation... time is against me at the moment.
             $form.find('input').trigger('blur');
-            $errors.find('.js-error-message').animate({ backgroundColor: jQuery.Color('yellow') }, 450).animate({ backgroundColor: jQuery.Color('transparent') }, 450);
+            $errors.find(this.config.errorMessageSel).animate({ backgroundColor: jQuery.Color('yellow') }, 450).animate({ backgroundColor: jQuery.Color('transparent') }, 450);
             return false;
           } else {
             return true;
