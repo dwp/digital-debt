@@ -29,13 +29,13 @@
             <tr>
               <td>Loan - 2 March 2005</td>
               <td class="numeric" scope="col">
-                {# £<script>document.write(pct_80);</script> #}
+                &pound;{{ session.debt_ammount | pct(76) }}
               </td>
             </tr>
             <tr>
               <td>Loan - 29 November 2007 </td>
               <td class="numeric" scope="col">
-                {# £<script>document.write(pct_70);</script> #}
+                &pound;{{ session.debt_ammount | pct(50) }}
               </td>
             </tr>
             <tr>
@@ -64,11 +64,11 @@
             <tr>
               <td>Overpayment amount</td>
               <td class="numeric" scope="col">
-                {# £<script>document.write(pct_90);</script> #}
+                &pound;{{ session.debt_ammount | pct(60) }}
               </td>
             </tr>
             <tr>
-            <td>Amount still owed</td>
+              <td>Amount still owed</td>
               <td class="numeric" scope="col">
                 &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
               </td>
@@ -82,18 +82,84 @@
         
       {% endif %}
       
+      {% if thisDebt == 'jsa' %}
+      
+        <h3 class="heading-medium breakdown-item__title ">JSA</h3>
+        <p class="explination-of-benefits">An overpayment was made from 4 April 2012 to 10 August 2012 because you were working full time.</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Overpayment amount</td>
+              <td class="numeric" scope="col">&pound;{{ session.debt_ammount | pct(70) }}</td>
+            </tr>
+            <tr>
+              <td>Amount still owed</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more-info">If you think this information is inaccurate visit the <a href="https://www.gov.uk/jobseekers-allowance">Jobseeker's Allowance</a> section for more information.</div>
+        
+      {% endif %}
+      
+      {% if thisDebt == 'is' %}
+        <h3 class="heading-medium breakdown-item__title">Income Support</h3>
+        <p class="explination-of-benefits">An overpayment was made from 6 January 2008 to 5 March 2008 because you were working full time.</p>
+          <table>
+          <tbody>
+            <tr>
+              <td>Overpayment amount</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | pct(70) }}
+              </td>
+            </tr>
+            <tr>
+              <td>Amount still owed</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+          </table>
+
+          <div class="more-info">
+           If you think this information is inaccurate visit the <a href="https://www.gov.uk/income-support/overview">Income Support</a> section for more information.
+          </div>
+      {% endif %}
+      
+      {% if thisDebt == 'pip' %}
+      
+        <h3 class="heading-medium breakdown-item__title">PIP</h3>
+        <p class="explination-of-benefits">An overpayment was made from 6 January 2008 to 5 March 2008 because you were working full time.</p>
+          <table>
+          <tbody>
+            <tr>
+              <td>Overpayment amount</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | pct(60) }}
+              </td>
+            </tr>
+            <tr>
+             <td>Amount still owed</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+          </table>
+
+          <div class="more-info">
+             If you think this information is inaccurate visit the <a href="https://www.gov.uk/pip/overview">Personal Independence Payment (PIP)</a> section for more information.
+          </div>
+          
+      {% endif %}
+      
     </div>
     {# / whole-border #}
-  
-    {# {{ 
-      version_macros.debt_item({
-        name: thisDebt,
-        splitBy: loop.count,
-        splitIndex: loop.index,
-        debt_ammount: session.debt_ammount,
-        payment_frequency: session.payment_frequency  
-      }) 
-    }} #}
+
   {% endfor %}
 
 {% endblock %} 

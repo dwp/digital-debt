@@ -334,6 +334,10 @@ module.exports = function(env) {
     return path && session ? _.get(session,path) : 'No path or session present';
   };
   
+  filters.pct = function pct(ammount, percent) {
+    return ((parseInt(ammount)/100)* parseInt(percent)).toFixed(2);
+  };
+  
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
     if(total && divisions && index) {
       
