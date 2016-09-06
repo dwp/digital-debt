@@ -177,5 +177,18 @@
     {# / whole-border #}
 
   {% endfor %}
+  
+  <h2 class="heading-medium">Your current agreement</h2>
+  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_ammount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
+  <p>At this rate your debt will be <span class="bold">paid off by {{ session | calculateEndDate }}</span>.</p>
+
+  <p>Would you like to <a href="reasons">change your payments?</a>    
+
+  <form action="index" method="post">
+    <fieldset class="primary-nav form-group">
+    <legend class="visuallyhidden">Form Navigation</legend>
+    <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+  </form>
 
 {% endblock %} 
