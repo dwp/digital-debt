@@ -2,7 +2,10 @@
   title: 'index',
   dev: true,
   secondary: false,
-  html_classes: ['page-class']
+  html_classes: ['page-class'],
+  primary: {
+    col: 'one-whole'
+  }
 } %}
 
 {% extends page.layout | d(prototype.current.layout) %}
@@ -10,8 +13,87 @@
 {% block primary %}
 
 <a href="javascript:history.back()" class="link-back">Back</a>
-<h3 class="heading-large">Your &pound;{{ 'debt_ammount' | getFromSession }} debt breakdown</h3>
+<h3 class="heading-large">Your &pound;{{ session.debt_ammount }} debt breakdown</h3>
+  
+  {% for thisDebt in session.debt_reason %}
+    
+    <div class="whole-border breakdown-item">
+    
+      {% if thisDebt == 'social-fund' %}
+      
+        <h3 class="heading-medium breakdown-item__title">Social fund</h3>
+      
+        <p class="explination-of-benefits">You would of got a Social fund loan to help pay for essential things like furniture, clothes, moving costs or hire purchase debts. </p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Loan - 2 March 2005</td>
+              <td class="numeric" scope="col">
+                {# £<script>document.write(pct_80);</script> #}
+              </td>
+            </tr>
+            <tr>
+              <td>Loan - 29 November 2007 </td>
+              <td class="numeric" scope="col">
+                {# £<script>document.write(pct_70);</script> #}
+              </td>
+            </tr>
+            <tr>
+             <td>Amount still owed</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-{{ 'payment_ammount' | getFromSession }}
+        <div class="more-info">
+          If you think this information is inaccurate contact the social fund for more information on 0345 6036967.
+        </div>  
+        
+      {% endif %}
+      
+      {% if thisDebt == 'esa' %}
+        
+        <h3 class="heading-medium breakdown-item__title">ESA</h3>
+        
+        <p class="explination-of-benefits">An overpayment was made from 4 April 2012 to 10 August 2012 because you were working full time.</p>
+        
+        <table>
+          <tbody>
+            <tr>
+              <td>Overpayment amount</td>
+              <td class="numeric" scope="col">
+                {# £<script>document.write(pct_90);</script> #}
+              </td>
+            </tr>
+            <tr>
+            <td>Amount still owed</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more-info">
+        If you think this information is inaccurate visit the <a href="https://www.gov.uk/employment-support-allowance/overview">Employment and Support Allowance (ESA)</a> section for more information.
+        </div>
+        
+      {% endif %}
+      
+    </div>
+    {# / whole-border #}
+  
+    {# {{ 
+      version_macros.debt_item({
+        name: thisDebt,
+        splitBy: loop.count,
+        splitIndex: loop.index,
+        debt_ammount: session.debt_ammount,
+        payment_frequency: session.payment_frequency  
+      }) 
+    }} #}
+  {% endfor %}
 
 {% endblock %} 

@@ -164,22 +164,33 @@ clear:both;
 .column-one-whole{
 	padding: 0 15px 0 15px;
 }
-.whole-border{
-	padding: 30px;
-	margin-bottom: 30px;
-	border: 1px solid #a1acb2;
-}
 
-.more-info{
-  margin-top: 30px;
-  width: 66.6%;  
-}
-.explination-of-benefits{
-  margin-top: 15px; 
-  margin-top: 15px;  
-  width: 66.6%; 
-}
-	
+.alpha {
+  &-08, &-refactor {
+    .whole-border{
+    	padding: 30px;
+    	margin-bottom: 30px;
+    	border: 1px solid #a1acb2;
+    }
 
-
+    .more-info{
+      margin-top: 30px;
+      width: 66.6%;  
+    }
+    .explination-of-benefits{
+      margin-top: 15px; 
+      margin-top: 15px;  
+      width: 66.6%; 
+    }
+    
+    .breakdown-item {
+      
+      &__title {
+        margin-top: 0;
+      }
+      
+    }
+       
+  }
+}
 

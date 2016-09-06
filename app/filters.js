@@ -333,6 +333,39 @@ module.exports = function(env) {
     var session = env.globals.sessionData;
     return path && session ? _.get(session,path) : 'No path or session present';
   };
+  
+  filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
+    if(total && divisions && index) {
+      
+      var splitInto = (divisions.constructor === Array ? divisions.length : parseInt(divisions)),
+          percentageSplits,
+          index = index -1;
+          
+      switch (splitInto) {
+        case 1:
+          percentageSplits = [1];
+        break;
+        case 2:
+          percentageSplits = [0.60, 0.40];
+        break;
+        case 3:
+          percentageSplits = [0.20,0.50,0.30];
+        break;
+        case 4:
+          percentageSplits = [0.20,0.20,0.30,0.30];
+        break;
+        case 5:
+          percentageSplits = [0.10,0.20,0.10,0.40,0.20];
+        break;
+        case 6:
+          percentageSplits = [0.30,0.10,0.10,0.30,0.10,0.10];
+        break;
+      }
+      
+      return (parseInt(total) * percentageSplits[parseInt(index)]);
+      
+    }
+  };
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
