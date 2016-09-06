@@ -13,6 +13,22 @@
 {% block primary %}
 
 <a href="javascript:history.back()" class="link-back">Back</a>
+
+<div class="govuk-box-highlight">
+  <span class="heading-medium">Total debt still owed</span>
+  
+  <h2 class="bold-large">
+    &pound;{{ session.debt_ammount }}
+  </h2>
+
+  <p class="form-lable-bold">
+    At the current rate your debt will be
+    <span class="form-lable-bold">paid off by {{ session | calculateEndDate }}
+    </span>
+  </p>
+  
+</div>
+
 <h3 class="heading-large">Your &pound;{{ session.debt_ammount }} debt breakdown</h3>
   
   {% for thisDebt in session.debt_reason %}
