@@ -10,7 +10,7 @@ module.exports = function(router, config) {
       // kills the current session
       case 'kill_session': 
         req.session.destroy();
-        return res.redirect('start');
+        return res.redirect('configure');
       break;
       // redirects the correct payment choice screen
       case 'change_payment':         
