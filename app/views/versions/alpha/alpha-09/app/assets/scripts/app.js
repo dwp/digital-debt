@@ -205,7 +205,7 @@
         
         $ammountInput.on('keyup blur', debounce(function(e){
           this.processInput(e, $module, $ammountInput, moduleData);
-        }.bind(this), (moduleData.typeDelay ? moduleData.typeDelay : 250)).bind(this));
+        }.bind(this), (moduleData.typeDelay ? moduleData.typeDelay : 700)).bind(this));
         
       },
       
