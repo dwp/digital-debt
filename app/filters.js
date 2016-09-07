@@ -359,7 +359,7 @@ module.exports = function(env) {
           percentageSplits = [0.20,0.20,0.30,0.30];
         break;
         case 5:
-          percentageSplits = [0.10,0.20,0.10,0.40,0.20];
+          percentageSplits = [0.05,0.25,0.10,0.40,0.20];
         break;
         case 6:
           percentageSplits = [0.30,0.10,0.10,0.30,0.10,0.10];
