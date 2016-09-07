@@ -1,0 +1,104 @@
+{% set page = { 
+  title: 'Configure your debts', 
+  dev: true, 
+  secondary: false, 
+  html_classes: ['debt-history'] } 
+%}
+
+{% extends page.layout | d(prototype.current.layout) %} {% block primary %}
+
+<h1 class="heading-large">{{ page.title }}</h1>
+
+<form action="index" autocomplete="off" method="post">
+  
+  <input type="hidden" name="payment_ammount" value="48.10">
+
+  <fieldset>
+    
+    <legend class="visuallyhidden">{{ page.title }}</legend>
+
+    <div class="form-group">
+        <label class="form-label-bold" for="debt">Example total debt</label>
+        <input name="debt_ammount" class="form-control input-debt" type="text">
+        <p>&nbsp;</p>
+    </div>
+
+    <div class="grid-row">
+          
+        <div class="column-one-half">
+
+          <div class="form-group">
+            
+            <span class="form-label-bold">Reasons for the debt</span>
+
+            <label class="block-label" for="social">
+              <input id="social" name="debt_reason" type="checkbox" value="social-fund" class="js-benefit-overpaid">
+              Social fund loan
+            </label>
+            
+            <label class="block-label" for="esa">
+              <input id="esa" name="debt_reason" type="checkbox" value="esa" class="js-benefit-overpaid">
+              ESA overpayment
+            </label>
+            
+            <label class="block-label" for="jsa">
+              <input id="jsa" name="debt_reason" type="checkbox" value="jsa" class="js-benefit-overpaid">
+              JSA overpayment
+            </label>
+            
+            <label class="block-label" for="is">
+              <input id="is" name="debt_reason" type="checkbox" value="is" class="js-benefit-overpaid">
+              Income support overpayment
+            </label>
+            
+            <label class="block-label" for="pip">
+              <input id="pip" name="debt_reason" type="checkbox" value="pip" class="js-benefit-overpaid">
+              Pip/DLA overpayment
+            </label>
+                
+          </div>
+
+        </div>{# /one-half #}
+
+        <div class="column-one-half">
+
+          <div class="form-group">
+              <span class="form-label-bold">How often do you get your benefits</span>
+              <legend class="visuallyhidden">How often do you get your benefits</legend>
+
+              <label class="block-label" for="weekly">
+                <input id="weekly" name="payment_frequency" type="radio" value="weekly">
+                Weekly
+              </label>
+              
+              <label class="block-label" for="fortnightly">
+                <input id="fortnightly" name="payment_frequency" type="radio" value="fortnightly">
+                Fortnightly
+              </label>
+              
+              <label class="block-label" for="four-weekly">
+                <input id="four-weekly" name="payment_frequency" type="radio" value="four-weekly">
+                Four weekly
+              </label>
+              
+              <label class="block-label" for="monthly">
+                <input id="monthly" name="payment_frequency" type="radio" value="monthly">
+                Monthly
+              </label>
+              
+          </div>
+
+        </div>{# / one-half #}
+
+      </div>{# grid-row #}
+      
+  </fieldset>
+
+  <fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Start now" class="button button-start" id="Start-Submit" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><br>
+  </fieldset>
+  
+</form>
+
+{% endblock %}

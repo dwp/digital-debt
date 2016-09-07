@@ -95,6 +95,7 @@ router.all([prototypePaths.version], function(req, res, next){
       version: formatTitle(req.params.version),
       body_class: req.params.phase + ' ' + req.params.version,
       path: appPath,
+      pathRel: appPath.substring(1),
       layout: appPath.substring(1) + 'layout.html'
     }
   });

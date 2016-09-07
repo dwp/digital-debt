@@ -1,0 +1,40 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="govuk-box-highlight">
+  <h2 class="bold-large">Your DWP debt today</h2>
+  <br>
+  <strong class="heading-xlarge">&pound;{{ 'debt_ammount' | getFromSession }}</strong>
+  <p class="form-lable-bold">
+    At the current rate your debt will be <br>
+    <span class="heading-medium">paid off by {{ session | calculateEndDate }}
+    </span>
+  </p>
+</div>
+
+<h3 class="heading-medium">About this debt</h3>
+<p>You're <span class="bold">currently repaying &pound;{{ 'payment_ammount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}</span> from benefit.</br>This money is taken directly from your main benefit payment.<br><a href="reasons">Change your payments</a></p>
+
+<p>
+  View your <a href="debt_overview">debt in detail</a>
+</p>
+
+<div class="panel panel-border-wide alert-default">
+  <p class="font-xsmall" >
+On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval
+  </p>
+<p class="font-xsmall">
+  Reductions in payments can take up to XX working days to process
+</p>
+  
+</div>
+
+{% endblock %}

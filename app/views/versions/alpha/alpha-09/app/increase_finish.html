@@ -1,0 +1,30 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  <div class="govuk-box-highlight">
+    <h2 class="bold-large">Request approved</h2>
+    <h3 class="heading-small">Your new payment is
+    <span class="heading-medium">&pound;{{ session | getPaymentAmmount }}</span><br>
+    </h3>
+  </div>
+
+  <h3 class="heading-medium">What's next</h3>
+  <p>Your request to increase the amount you're paying back has been accepted. You don't need to do anything else.</p>
+  <p>Your online account has been updated to reflect this change.</p>
+
+  <form action="index" method="post">
+    <fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Go to the debt homepage" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+  </form>
+
+{% endblock %}
