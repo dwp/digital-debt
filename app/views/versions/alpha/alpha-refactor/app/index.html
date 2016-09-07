@@ -1,5 +1,5 @@
 {% set page = {
-  title: 'index',
+  title: 'Overview',
   dev: true,
   secondary: false,
   html_classes: ['page-class']
@@ -9,19 +9,32 @@
 
 {% block primary %}
 
-<div class="govuk-box-highlight">
-  <h2 class="bold-large">Your DWP debt today</h2>
-  <br>
-  <strong class="heading-xlarge">&pound;{{ 'debt_ammount' | getFromSession }}</strong>
-  <p class="form-lable-bold">
-    At the current rate your debt will be <br>
-    <span class="heading-medium">paid off by {{ session | calculateEndDate }}
-    </span>
-  </p>
-</div>
+<h1 class="heading-xlarge">
+   Manage your benefit overpayments
+</h1>
 
-<h3 class="heading-medium">About this debt</h3>
-<p>You're <span class="bold">currently repaying &pound;{{ 'payment_ammount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}</span> from benefit.</br>This money is taken directly from your main benefit payment.<br><a href="reasons">Change your payments</a></p>
-<p>You may have this debt for various reasons, <a href="debt_overview">see a breakdown of your debt</a></p>
+<p>Use this service to get information about any money that you have been overpaid and how you are paying it back.</p>
+
+<p>With this service you can:</p>
+
+<ul class="list list-bullet">
+  <li>view details of benefit overpayments and social fund loans that you’ve received</li>
+  <li>view how you’re paying the money back and when your final payment will be</li>
+  <li>ask for your payments to be increased or reduced</li>
+</ul>
+
+<p>Registering takes around 5 minutes.</p>
+
+<p>
+  <a class="button button-start" href="home" role="button">Start now</a>
+</p>
+
+<h2 class="heading-medium">Other ways to manage overpayments</h2>
+
+<p>You can get information and manage your payments by phone:</p>
+
+<p>Telephone: 0845 850 0293<br />
+Monday to Friday 8am to 8pm, Saturday 9am to 4pm<br />
+<a href="">Find out about call charges</a></p>
 
 {% endblock %}

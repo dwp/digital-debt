@@ -19,9 +19,10 @@
         data-payment-frequency="{{ 'payment_frequency' | getFromSession }}" 
         data-debt-ammount="{{ 'debt_ammount' | getFromSession }}" 
         data-min-ammount="{{ session | getMinimalAmmount }}" 
-        data-max-ammount="{{ 'payment_frequency' | getFromSession }}" 
-        data-text-greaterthan="You have entered too much for proposed ammount" 
-        data-text-lessthan="You have entered less than the minimum ammount"
+        data-max-ammount="{{ session.payment_ammount }}" 
+        data-text-greaterthan="You have entered more than you are currently paying" 
+        data-text-lessthan="You have entered less than the minimum ammount" 
+        data-type-delay="700"
       >
         
         <label class="form-label-bold" for="payment_ammount">

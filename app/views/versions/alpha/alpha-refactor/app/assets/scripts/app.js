@@ -169,23 +169,23 @@
             maxAmmount = this.makeCurrency(moduleData.maxAmmount);
         
         if(currentValue.length < 1) {
-          if(e.type == "blur") {
+          // if(e.type == "blur") {
               this.errorHandler($module, 'Please enter an ammount');
-          }
+          // }
         } else {
           if(currentValueNum > minAmmount) {
             if(currentValueNum < maxAmmount) {
               this.errorHandler($module, 'reset');
               this.handleRepaymentPrediction($module, moduleData, currentValueNum);
             } else {
-              if(e.type == "blur") {
+              // if(e.type == "blur") {
                   this.errorHandler($module, moduleData.textGreaterthan);
-              }
+              // }
             }
           } else {
-            if(e.type == "blur") {
+            // if(e.type == "blur") {
                 this.errorHandler($module, moduleData.textLessthan);
-            }
+            // }
           }  
         }
       },

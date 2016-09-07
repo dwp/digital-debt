@@ -366,7 +366,7 @@ module.exports = function(env) {
         break;
       }
       
-      return (parseInt(total) * percentageSplits[parseInt(index)]);
+      return parseFloat(parseInt(total) * percentageSplits[parseInt(index)]).toFixed(2);
       
     }
   };
