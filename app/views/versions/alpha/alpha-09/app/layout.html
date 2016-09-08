@@ -6,4 +6,5 @@
   {{ super() }}
   <script src="/public/javascripts/jquerycolor.js" charset="utf-8"></script>
   <script src="assets/scripts/app.js" charset="utf-8"></script>
+  {# {{ ((prototype.current.path + (session | querystringify)) | log) if session }} #}
 {% endblock %}
