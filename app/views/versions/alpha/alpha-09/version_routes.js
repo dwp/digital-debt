@@ -1,3 +1,6 @@
+var qs = require('qs');
+var url = require('url');
+
 module.exports = function(router, config) {
   
   router.all(config.routes.step, function(req,res, next){
@@ -19,7 +22,14 @@ module.exports = function(router, config) {
         } else {
           return res.redirect('reduce_value');
         }
-      break;      
+      break;
+      // this will create (or override) a session from querystring parameters
+      // see the qs documentation here:
+      // https://github.com/ljharb/qs/blob/master/README.md
+      case 'create_session':         
+        Object.assign(req.session.data,qs.parse(url.parse(req.url).query));
+        return res.redirect('home');
+      break;   
     }
     
     next();

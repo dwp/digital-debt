@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var qs = require('qs');
 module.exports = function(env) {
   var nunjucksSafe = env.getFilter('safe');
   /**
@@ -369,6 +370,24 @@ module.exports = function(env) {
       return parseFloat(parseInt(total) * percentageSplits[parseInt(index)]).toFixed(2);
       
     }
+  };
+  
+  filters.arrayContains = function arrauContains(a,s) {
+    return a.constructor === Array ? _.some(a, _.method('includes', s ? s : 'no string')) : log("You didn't pass me an array!");
+  }
+  
+  filters.querystringify = function querystringify(o) {
+    return o ? qs.stringify(o) : log('You didn\'t pass me an object');
+  };
+
+	/**
+	 * writes the context as the value of an attribute
+	 * @param  {String} v the attribute value
+	 * @param  {String} a attribute name
+	 * @return {String}
+	 */
+  filters.attr = function attr(v, a, p) {
+    return (!_.isEmpty(v) ? (p || '') + a + '="' + v + '"' : '');
   };
 
   /* ------------------------------------------------------------------
