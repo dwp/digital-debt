@@ -29,7 +29,7 @@ module.exports = function(router, config) {
       case 'create_session':         
         Object.assign(req.session.data,qs.parse(url.parse(req.url).query));
         return res.redirect('home');
-      break;      
+      break;   
     }
     
     next();
