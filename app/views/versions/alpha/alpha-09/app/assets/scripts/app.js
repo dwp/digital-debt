@@ -170,7 +170,7 @@
         
         if(currentValue.length < 1) {
           // if(e.type == "blur") {
-              this.errorHandler($module, 'Please enter an ammount');
+              this.errorHandler($module, 'Please enter an amount');
           // }
         } else {
           if(currentValueNum > minAmmount) {
