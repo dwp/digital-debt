@@ -2,17 +2,17 @@
 
 {% block body_start %}
 <script type="text/javascript">
-var cookieName  ='debt-ammount',
-    regularAmmountCookieName = 'regular-ammount',
+var cookieName  ='debt-amount',
+    regularAmountCookieName = 'regular-amount',
     locale = "en-gb",
-    defaultRegularAmmount = '48.10',
+    defaultRegularAmount = '48.10',
     paymentIntervalCookieName = "boo",
     overpaymentBenefits = "overpaid-benefits";
 
-var regularAmmount = defaultRegularAmmount;
+var regularAmount = defaultRegularAmount;
 
-if (getCookie(regularAmmountCookieName) !== ''){
- regularAmmount = getCookie(regularAmmountCookieName)
+if (getCookie(regularAmountCookieName) !== ''){
+ regularAmount = getCookie(regularAmountCookieName)
 }
 
 var totalOutstanding = getCookie(cookieName);
@@ -30,15 +30,15 @@ function edBalls(){
   var pInt = getCookie(paymentIntervalCookieName);
 
   if(pInt === "weekly"){
-    d = calculateEndDateWeekley(totalOutstanding, regularAmmount);
+    d = calculateEndDateWeekley(totalOutstanding, regularAmount);
   }else if(pInt === "fortnightly"){
-    d = calculateEndDateFortnightley(totalOutstanding, regularAmmount);
+    d = calculateEndDateFortnightley(totalOutstanding, regularAmount);
   }else if(pInt === "four-weekly"){
-    d = calculateEndDateFourWeekley(totalOutstanding, regularAmmount);
+    d = calculateEndDateFourWeekley(totalOutstanding, regularAmount);
   }else if(pInt === "monthly"){
-    d = calculateEndDateMonths(totalOutstanding, regularAmmount);
+    d = calculateEndDateMonths(totalOutstanding, regularAmount);
   }else{
-    d = calculateEndDateMonths(totalOutstanding, regularAmmount);
+    d = calculateEndDateMonths(totalOutstanding, regularAmount);
   }
 
   return d;
@@ -49,57 +49,57 @@ function edBalls(){
 function minAmount(){
 
   var pInt = getCookie(paymentIntervalCookieName);
-  var minAmmountForInterval = 99999999;
+  var minAmountForInterval = 99999999;
 
   if(pInt === "weekly"){
    
-    minAmmountForInterval = 3.70;
+    minAmountForInterval = 3.70;
   }else if(pInt === "fortnightly"){
   
-    minAmmountForInterval = 7.40;
+    minAmountForInterval = 7.40;
   }else if(pInt === "four-weekly"){
   
-    minAmmountForInterval = 14.80;
+    minAmountForInterval = 14.80;
   }else if(pInt === "monthly"){
    
-    minAmmountForInterval = 16.03;
+    minAmountForInterval = 16.03;
   }
 
 
 
-  return minAmmountForInterval;
+  return minAmountForInterval;
 }
 
-function calculateEndDateMonths(ammountTotal, ammountRepay){
+function calculateEndDateMonths(amountTotal, amountRepay){
 
-      var months = Math.ceil(ammountTotal / ammountRepay)
+      var months = Math.ceil(amountTotal / amountRepay)
       var endDate = new Date();
       endDate.setMonth(endDate.getMonth() + months);
 
       return endDate;
     }
 
-    function calculateEndDateWeekley(ammountTotal, ammountRepay){
+    function calculateEndDateWeekley(amountTotal, amountRepay){
 
-      var weeks = Math.ceil(ammountTotal / ammountRepay)
+      var weeks = Math.ceil(amountTotal / amountRepay)
       var endDate = new Date();
       endDate.setDate(weeks * 7);
 
       return endDate;
     }
 
-    function calculateEndDateFortnightley(ammountTotal, ammountRepay){
+    function calculateEndDateFortnightley(amountTotal, amountRepay){
 
-     var fortnights = Math.ceil(ammountTotal / ammountRepay)
+     var fortnights = Math.ceil(amountTotal / amountRepay)
       var endDate = new Date();
       endDate.setDate(fortnights * 14);
 
       return endDate;
     }
 
-    function calculateEndDateFourWeekley(ammountTotal, ammountRepay){
+    function calculateEndDateFourWeekley(amountTotal, amountRepay){
 
-      var fourWeeks = Math.ceil(ammountTotal / ammountRepay)
+      var fourWeeks = Math.ceil(amountTotal / amountRepay)
       var endDate = new Date();
       endDate.setDate(fourWeeks * 28);
 
@@ -150,9 +150,9 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
 
     $(document).on('keyup', '#value-adjust-1', function () {
       var that = $(this)[0];
-      if(that.value > minRepaymentAmmount){
+      if(that.value > minRepaymentAmount){
 
-          regularAmmount = that.value;
+          regularAmount = that.value;
          
           var endDate = edBalls();
 
@@ -167,9 +167,9 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
 
     $(document).on('keyup', '#value-adjust-2', function () {
       var that = $(this)[0];
-      if(that.value > regularAmmount){
+      if(that.value > regularAmount){
 
-          regularAmmount = that.value;
+          regularAmount = that.value;
          
           var endDate = edBalls();
 
@@ -189,18 +189,18 @@ function calculateEndDateMonths(ammountTotal, ammountRepay){
         $('#reduce-error').addClass('border-error');
         return false;
       } else{
-        setCookie(regularAmmountCookieName, $('#value-adjust-1')[0].value, 30);
+        setCookie(regularAmountCookieName, $('#value-adjust-1')[0].value, 30);
       }
     });
 
     $(document).on('click', '#submitButton-in', function () {
       var that = $('#value-adjust-2')[0];
-      if(that.value < regularAmmount){
+      if(that.value < regularAmount){
         $('#paid-off').removeClass('date-change');
         $('#reduce-error').addClass('border-error');
         return false;
       } else{
-        setCookie(regularAmmountCookieName, $('#value-adjust-2')[0].value, 30);
+        setCookie(regularAmountCookieName, $('#value-adjust-2')[0].value, 30);
       }
     });
     
@@ -226,7 +226,7 @@ $(document).on('click','#Start-Submit',function(e){
 
 $(document).on('click','#Start-Reset',function(){
   setCookie(cookieName, 300, 30);
-  setCookie(regularAmmountCookieName, defaultRegularAmmount, 30);
+  setCookie(regularAmountCookieName, defaultRegularAmount, 30);
   setCookie(paymentIntervalCookieName, "monthly", 30);
   setCookie(overpaymentBenefits, '', 30);
 });

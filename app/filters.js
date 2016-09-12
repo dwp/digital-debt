@@ -223,7 +223,7 @@ module.exports = function(env) {
       // we need the payment frequency
       if(!! data.payment_frequency) {
         // calculate the number of payments that will need to be made
-        var numberOfPayments = Math.ceil(data.debt_ammount / data.payment_ammount),
+        var numberOfPayments = Math.ceil(data.debt_amount / data.payment_amount),
             endDate = new Date();
         
         // use the frequency to calculate the date
@@ -254,10 +254,10 @@ module.exports = function(env) {
     }
   };
   
-  filters.getPaymentAmmount = function getPaymentAmmount(data) {
+  filters.getPaymentAmount = function getPaymentAmount(data) {
     if(data) {
-      if(!! data.payment_ammount) {
-        return parseFloat(data.payment_ammount).toFixed(2);
+      if(!! data.payment_amount) {
+        return parseFloat(data.payment_amount).toFixed(2);
       }
     } else {
       return filters.log('There is no session data!');
@@ -276,8 +276,8 @@ module.exports = function(env) {
   
   filters.getTotalDebt = function getTotalDebt(data) {
     if(data) {
-      if(!! data.debt_ammount) {
-        return data.debt_ammount;
+      if(!! data.debt_amount) {
+        return data.debt_amount;
       }
     } else {
       return filters.log('There is no session data!');
@@ -297,32 +297,32 @@ module.exports = function(env) {
     }
   };
   
-  filters.getMinimalAmmount = function getMinimalAmmount(data) {
+  filters.getMinimalAmount = function getMinimalAmount(data) {
     if(data) {
       if(!! data.payment_frequency) {
         
-        var finalAmmount,
-            minimalAmmount = 3.40;
+        var finalAmount,
+            minimalAmount = 3.40;
         
         // use the frequency to calculate the date
         switch(data.payment_frequency) {
           case 'weekly':
-            finalAmmount = minimalAmmount;
+            finalAmount = minimalAmount;
           break;        
           case 'fortnightly': 
             // console.log("It's fortnightly");
-            finalAmmount = minimalAmmount * 2;
+            finalAmount = minimalAmount * 2;
           break;
           case 'four-weekly': 
-            finalAmmount = minimalAmmount * 4;
+            finalAmount = minimalAmount * 4;
           break;
           case 'monthly': 
-            finalAmmount = (minimalAmmount * 4) + minimalAmmount;
+            finalAmount = (minimalAmount * 4) + minimalAmount;
           break;
         }
         
-        // return ammount but converted to 2 decimal places
-        return filters.toDecimal(finalAmmount);
+        // return amount but converted to 2 decimal places
+        return filters.toDecimal(finalAmount);
         
       }
     } else {
@@ -335,8 +335,8 @@ module.exports = function(env) {
     return path && session ? _.get(session,path) : 'No path or session present';
   };
   
-  filters.pct = function pct(ammount, percent) {
-    return ((parseInt(ammount)/100)* parseInt(percent)).toFixed(2);
+  filters.pct = function pct(amount, percent) {
+    return ((parseInt(amount)/100)* parseInt(percent)).toFixed(2);
   };
   
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {

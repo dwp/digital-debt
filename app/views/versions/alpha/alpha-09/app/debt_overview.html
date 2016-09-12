@@ -18,7 +18,7 @@
   <span class="heading-medium">Total debt still owed</span>
   
   <h2 class="bold-large">
-    &pound;{{ session.debt_ammount }}
+    &pound;{{ session.debt_amount }}
   </h2>
 
   <p class="form-lable-bold">
@@ -29,7 +29,7 @@
   
 </div>
 
-<!--<h3 class="heading-large">Your &pound;{{ session.debt_ammount }} debt breakdown</h3>-->
+<!--<h3 class="heading-large">Your &pound;{{ session.debt_amount }} debt breakdown</h3>-->
 <h2 class="heading-medium">Your debt in detail</h2>
   
   {% for thisDebt in session.debt_reason %}
@@ -46,19 +46,19 @@
             <tr>
               <td>Loan - 2 March 2005</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | pct(76) }}
+                &pound;{{ session.debt_amount | pct(76) }}
               </td>
             </tr>
             <tr>
               <td>Loan - 29 November 2007 </td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | pct(50) }}
+                &pound;{{ session.debt_amount | pct(50) }}
               </td>
             </tr>
             <tr>
              <td>Amount still owed</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
               </td>
             </tr>
           </tbody>
@@ -81,13 +81,13 @@
             <tr>
               <td>Overpayment amount</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | pct(60) }}
+                &pound;{{ session.debt_amount | pct(60) }}
               </td>
             </tr>
             <tr>
               <td>Amount still owed</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
               </td>
             </tr>
           </tbody>
@@ -107,12 +107,12 @@
           <tbody>
             <tr>
               <td>Overpayment amount</td>
-              <td class="numeric" scope="col">&pound;{{ session.debt_ammount | pct(70) }}</td>
+              <td class="numeric" scope="col">&pound;{{ session.debt_amount | pct(70) }}</td>
             </tr>
             <tr>
               <td>Amount still owed</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
               </td>
             </tr>
           </tbody>
@@ -130,13 +130,13 @@
             <tr>
               <td>Overpayment amount</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | pct(70) }}
+                &pound;{{ session.debt_amount | pct(70) }}
               </td>
             </tr>
             <tr>
               <td>Amount still owed</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
               </td>
             </tr>
           </tbody>
@@ -156,13 +156,13 @@
             <tr>
               <td>Overpayment amount</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | pct(60) }}
+                &pound;{{ session.debt_amount | pct(60) }}
               </td>
             </tr>
             <tr>
              <td>Amount still owed</td>
               <td class="numeric" scope="col">
-                &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
               </td>
             </tr>
           </tbody>
@@ -180,7 +180,7 @@
   {% endfor %}
   
   <h2 class="heading-medium">Your current agreement</h2>
-  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_ammount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
+  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
   <p>At this rate your debt will be <span class="bold">paid off by {{ session | calculateEndDate }}</span>.</p>
 
   <p>Would you like to <a href="reasons">change your payments?</a>    

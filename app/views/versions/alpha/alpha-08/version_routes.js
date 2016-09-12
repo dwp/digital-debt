@@ -15,10 +15,10 @@ module.exports = function(router, config) {
     // How often 
       case 'increase_value':
       	if(postData['increase'] == 'increase-v') {
-          res.redirect('increase_value');
+          return res.redirect('increase_value');
         }
         else if (postData['increase'] == 'decrease-v') {
-          res.redirect('reduce_value');
+          return res.redirect('reduce_value');
         } 
 
         break;
