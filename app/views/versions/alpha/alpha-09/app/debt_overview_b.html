@@ -14,7 +14,7 @@
 
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-<h3 class="heading-large">Your &pound;{{ session.debt_ammount }} debt breakdown</h3>
+<h3 class="heading-large">Your &pound;{{ session.debt_amount }} debt breakdown</h3>
   
   <div class="bene_foot">
   
@@ -24,7 +24,7 @@
       
         <div class="benefit_list js-benefit_list">
             <div class="benefit_titles heading-medium">Social Fund</div>
-            <div class="owed">Amount outstanding &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</div>
+            <div class="owed">Amount outstanding &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</div>
             
             <details>
                 <summary class="benefit_expand">
@@ -42,11 +42,11 @@
                         <tbody>
                           <tr>
                             <td>2/3/2005 - Stockport (Heron house) Jobcenter Plus </td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | pct(80) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | pct(80) }}</td>
                           </tr>
                           <tr>
                            <td>29/10/2007 - Marple Jobcenter Plus</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | pct(70) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | pct(70) }}</td>
                           </tr>
                           <thead>
                           <tr>
@@ -56,7 +56,7 @@
                         </thead>
                          <tr>
                             <td>&nbsp;</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</td>
                           </tr>
 
                         </tbody>
@@ -76,7 +76,7 @@
         
         <div class="benefit_list js-benefit_list" id="esa-over">
             <div class="benefit_titles heading-medium">ESA</div>
-            <div class="owed">Amount outstanding &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</div>
+            <div class="owed">Amount outstanding &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</div>
             
             <details>
                 <summary class="benefit_expand">
@@ -95,7 +95,7 @@
                      
                           <tr>
                            <td>11/8/2012 – 3/3/2013</td>
-                            <td class="numeric" scope="col">A child left household &pound;{{ session.debt_ammount | pct(20) }}</td>
+                            <td class="numeric" scope="col">A child left household &pound;{{ session.debt_amount | pct(20) }}</td>
                           </tr>
                           <thead>
                           <tr>
@@ -105,7 +105,7 @@
                         </thead>
                          <tr>
                             <td>&nbsp;</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</td>
                           </tr>
 
                         </tbody>
@@ -125,7 +125,7 @@
       
         <div class="benefit_list js-benefit_list">
             <div class="benefit_titles heading-medium">JSA</div>
-            <div class="owed">Amount outstanding &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</div>
+            <div class="owed">Amount outstanding &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</div>
             
             <details>
                 <summary class="benefit_expand">
@@ -143,7 +143,7 @@
                         <tbody>
                           <tr>
                             <td>4/4/2012 – 10/8/2012</td>
-                            <td class="numeric" scope="col">A child left household &pound;{{ session.debt_ammount | pct(70) }}</td>
+                            <td class="numeric" scope="col">A child left household &pound;{{ session.debt_amount | pct(70) }}</td>
                           </tr>
                           <thead>
                           <tr>
@@ -153,7 +153,7 @@
                         </thead>
                          <tr>
                             <td>&nbsp;</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</td>
                           </tr>
 
                         </tbody>
@@ -173,7 +173,7 @@
 
         <div class="benefit_list js-benefit_list" id="is-over">
             <div class="benefit_titles heading-medium">Income support </div>
-            <div class="owed">Amount outstanding &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</div>
+            <div class="owed">Amount outstanding &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</div>
             
             <details>
                 <summary class="benefit_expand">
@@ -191,7 +191,7 @@
                         <tbody>
                           <tr>
                            <td>6/1/2008 – 5/5/2008</td>
-                            <td class="numeric" scope="col">A change in the level of earnings &pound;{{ session.debt_ammount | pct(65) }}</td>
+                            <td class="numeric" scope="col">A change in the level of earnings &pound;{{ session.debt_amount | pct(65) }}</td>
                           </tr>
                           <thead>
                           <tr>
@@ -201,7 +201,7 @@
                         </thead>
                          <tr>
                             <td>&nbsp;</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</td>
                           </tr>
 
                         </tbody>
@@ -221,7 +221,7 @@
       
         <div class="benefit_list js-benefit_list" id="pip-over">
             <div class="benefit_titles heading-medium">PIP</div>
-            <div class="owed">Amount outstanding &pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</div>
+            <div class="owed">Amount outstanding &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</div>
             
             <details>
                 <summary class="benefit_expand">
@@ -239,7 +239,7 @@
                         <tbody>
                           <tr>
                            <td>6/1/2008 – 5/5/2008</td>
-                            <td class="numeric" scope="col">A change in the level of earnings &pound;{{ session.debt_ammount | pct(55) }}</td>
+                            <td class="numeric" scope="col">A change in the level of earnings &pound;{{ session.debt_amount | pct(55) }}</td>
                           </tr>
                           <thead>
                           <tr>
@@ -249,7 +249,7 @@
                         </thead>
                          <tr>
                             <td>&nbsp;</td>
-                            <td class="numeric" scope="col">&pound;{{ session.debt_ammount | toPercentageValue(loop.length,loop.index) }}</td>
+                            <td class="numeric" scope="col">&pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}</td>
                           </tr>
 
                         </tbody>
@@ -271,7 +271,7 @@
   {# / bene_foot #}
   
   <h2 class="heading-medium">Your current agreement</h2>
-  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_ammount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
+  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
   <p>At this rate your debt will be <span class="bold">paid off by {{ session | calculateEndDate }}</span>.</p>
 
   <p>Would you like to <a href="reasons">change your payments?</a>    

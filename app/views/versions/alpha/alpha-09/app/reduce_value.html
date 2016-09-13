@@ -10,28 +10,28 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">You're currently paying &pound;{{ 'payment_ammount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}.</h1>
+  <h1 class="heading-large">You're currently paying &pound;{{ 'payment_amount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}.</h1>
 
   <form action="contact_reduce" autocomplete="off" method="post" class="js-validate-form">
     <fieldset>
 
       <div class="form-group payment-adjust-field js-payment-adjust-field"
         data-payment-frequency="{{ 'payment_frequency' | getFromSession }}" 
-        data-debt-ammount="{{ 'debt_ammount' | getFromSession }}" 
-        data-min-ammount="{{ session | getMinimalAmmount }}" 
-        data-max-ammount="{{ session.payment_ammount }}" 
+        data-debt-amount="{{ 'debt_amount' | getFromSession }}" 
+        data-min-amount="{{ session | getMinimalAmount }}" 
+        data-max-amount="{{ session.payment_amount }}" 
         data-text-greaterthan="You have entered more than you are currently paying" 
         data-text-lessthan="You have entered less than the minimum amount" 
         data-type-delay="700"
       >
         
-        <label class="form-label-bold" for="payment_ammount">
+        <label class="form-label-bold" for="payment_amount">
           Enter new proposed decreased amount in (£)
-          <span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ session | getMinimalAmmount }}.</span>
+          <span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ session | getMinimalAmount }}.</span>
           <div><span class="payment-adjust-field__error error-message js-error-message js-hidden"></span></div>
         </label>
         
-        <input class="form-control payment payment-adjust-field__ammount js-payment-adjust-field__ammount" name="payment_ammount" id="payment_ammount" type="text">
+        <input class="form-control payment payment-adjust-field__amount js-payment-adjust-field__amount" name="payment_amount" id="payment_amount" type="text">
         
         <div class="date-change payment-adjust-field__prediction js-payment-adjust-field__prediction js-hidden">Based on the amount you entered your debt will be paid off by: <br> 
           <span style="font-weight: bold;" class="payment-adjust-field__prediction__date js-payment-adjust-field__prediction__date">{{ session | calculateEndDate }}</span>.

@@ -25,7 +25,7 @@
 ///////////////////////////////
     $(document).on('keyup', '#value-adjust-1', function () {
       var that = $(this)[0];
-      if(that.value > minRepaymentAmmount){
+      if(that.value > minRepaymentAmount){
           var months = Math.ceil(totalDebt / that.value)
           var endDate = new Date();
           endDate.setMonth(endDate.getMonth() + months);
@@ -37,7 +37,7 @@
     });
     $(document).on('click', '#submitButton-rv', function () {
       var that = $('#value-adjust-1')[0];
-      if(that.value < minRepaymentAmmount){
+      if(that.value < minRepaymentAmount){
         $('#paid-off').removeClass('date-change');
         $('#reduce-error').addClass('border-error');
         return false;

@@ -22,7 +22,7 @@
     
     var settings = {
         selector: '.js-payment-adjust-field',
-        ammountInputSel: '.js-payment-adjust-field__ammount',
+        amountInputSel: '.js-payment-adjust-field__amount',
         errorMessageSel: '.js-error-message',
         hiddenClass: 'js-hidden',
         errorClass: 'error',
@@ -70,7 +70,7 @@
         // we need the payment frequency
         if(!! data.payment_frequency) {
           // calculate the number of payments that will need to be made
-          var numberOfPayments = Math.ceil(data.debt_ammount / data.payment_ammount),
+          var numberOfPayments = Math.ceil(data.debt_amount / data.payment_amount),
               endDate = new Date();
           
           // use the frequency to calculate the date
@@ -108,13 +108,13 @@
       /**
        * displays the date of the predicted repayment based on Chris's calculations
        */
-      handleRepaymentPrediction: function handleRepaymentPrediction($module, data, ammount){
+      handleRepaymentPrediction: function handleRepaymentPrediction($module, data, amount){
         
         var $predictionContainer = $module.find(this.config.predictionSel),
             $predictionDate = $predictionContainer.find(this.config.predictionDateSel),
             predictionDateText = calculateEndDate({
-              debt_ammount: data.debtAmmount,
-              payment_ammount: ammount,
+              debt_amount: data.debtAmount,
+              payment_amount: amount,
               payment_frequency: data.paymentFrequency
             });
             
@@ -158,23 +158,23 @@
        * @method processInput
        * @param  {Object}     e             event Object
        * @param  {Object}     $module       jQuery object of the module
-       * @param  {Object}     $ammountInput jQuery object of the module's input
+       * @param  {Object}     $amountInput jQuery object of the module's input
        * @param  {Object}     moduleData    Object of the data associated with this module (via data attributes)
        */
-      processInput: function processInput(e, $module, $ammountInput, moduleData) {
+      processInput: function processInput(e, $module, $amountInput, moduleData) {
         
-        var currentValue = $ammountInput.val(),
+        var currentValue = $amountInput.val(),
             currentValueNum = this.makeCurrency(currentValue),
-            minAmmount = this.makeCurrency(moduleData.minAmmount),
-            maxAmmount = this.makeCurrency(moduleData.maxAmmount);
+            minAmount = this.makeCurrency(moduleData.minAmount),
+            maxAmount = this.makeCurrency(moduleData.maxAmount);
         
         if(currentValue.length < 1) {
           // if(e.type == "blur") {
               this.errorHandler($module, 'Please enter an amount');
           // }
         } else {
-          if(currentValueNum > minAmmount) {
-            if(currentValueNum < maxAmmount) {
+          if(currentValueNum > minAmount) {
+            if(currentValueNum < maxAmount) {
               this.errorHandler($module, 'reset');
               this.handleRepaymentPrediction($module, moduleData, currentValueNum);
             } else {
@@ -195,7 +195,7 @@
        */
       handleModule: function handleModule($module) {
         
-        var $ammountInput = $module.find(this.config.ammountInputSel),
+        var $amountInput = $module.find(this.config.amountInputSel),
             moduleData = $module.data();
             $parentForm = $module.closest("form");
         
@@ -203,8 +203,8 @@
           $parentForm.addClass(this.config.preventedClass);
         }
         
-        $ammountInput.on('keyup blur', debounce(function(e){
-          this.processInput(e, $module, $ammountInput, moduleData);
+        $amountInput.on('keyup blur', debounce(function(e){
+          this.processInput(e, $module, $amountInput, moduleData);
         }.bind(this), (moduleData.typeDelay ? moduleData.typeDelay : 700)).bind(this));
         
       },

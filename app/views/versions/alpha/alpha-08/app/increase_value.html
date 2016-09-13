@@ -10,25 +10,25 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-large">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</h1>
+  <h1 class="heading-large">You're currently paying £<script>document.write(parseFloat(regularAmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</h1>
 
             <form action="increase_finish" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</legend>
+           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmount).toFixed(2));</script> <script>document.write(getCookie(paymentIntervalCookieName));</script>.</legend>
 
               <script>
                   var totalDebt = 650.00; ///////// Total Debt /////////////
                   var locale = "en-gb";
-                  var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+                  var minRepaymentAmount = 16.03; ///////// Min Payment /////////////
               </script>
              
               <div id="reduce-error" class="form-group"><!-- border-error -->
                 <label class="form-label-bold" for="example-form-label-bold">
                   Enter new proposed increased amount in (£)
                   <span class="form-hint">
-                    Minimum <script>document.write(getCookie(paymentIntervalCookieName));</script> amount £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script>.
+                    Minimum <script>document.write(getCookie(paymentIntervalCookieName));</script> amount £<script>document.write(parseFloat(regularAmount).toFixed(2));</script>.
                   </span>
-                  <span class="off show-error-message">Minimum payment cannot be lower than £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script>.</span>
+                  <span class="off show-error-message">Minimum payment cannot be lower than £<script>document.write(parseFloat(regularAmount).toFixed(2));</script>.</span>
                 </label>
                 <input class="form-control payment" id="value-adjust-2" type="text">
 
