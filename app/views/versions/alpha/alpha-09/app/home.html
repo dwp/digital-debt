@@ -1,13 +1,15 @@
 {% set page = {
   title: 'index',
   dev: true,
-  secondary: false,
+  secondary: true,
   html_classes: ['page-class']
 } %}
 
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
+
+<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>
 
 <div class="govuk-box-highlight">
   <h2 class="bold-large">Your DWP debt today</h2>
@@ -38,3 +40,13 @@ On Monday the 5 September you proposed to decreased your weekly payments from £
 </div>
 
 {% endblock %}
+
+{% block secondary %}
+<div class="related">
+
+
+  </div>
+
+<!-- 1 Third Column -->
+{% endblock %}
+
