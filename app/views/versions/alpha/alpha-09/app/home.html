@@ -12,12 +12,12 @@
 <div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>
 
 <div class="govuk-box-highlight">
-  <h2 class="bold-large">Your DWP debt today</h2>
+  <h2 class="bold-large">You owe &pound;{{ 'debt_amount' | getFromSession }}</h2>
   <br>
-  <strong class="heading-xlarge">&pound;{{ 'debt_amount' | getFromSession }}</strong>
+  <strong class="heading-xlarge"></strong>
   <p class="form-lable-bold">
-    At the current rate your debt will be <br>
-    <span class="heading-medium">paid off by {{ session | calculateEndDate }}
+    Based on what you're repaying, you'll have<br>
+    <span class="heading-medium">paid this off by {{ session | calculateEndDate }}
     </span>
   </p>
 </div>
@@ -36,7 +36,7 @@ On Monday the 5 September you proposed to decreased your weekly payments from £
 <p class="font-xsmall">
   Reductions in payments can take up to XX working days to process
 </p>
-  
+
 </div>
 
 {% endblock %}
@@ -49,4 +49,3 @@ On Monday the 5 September you proposed to decreased your weekly payments from £
 
 <!-- 1 Third Column -->
 {% endblock %}
-
