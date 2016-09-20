@@ -15,26 +15,27 @@
 <a href="javascript:history.back()" class="link-back">Back</a>
 
 <div class="govuk-box-highlight">
-  <span class="heading-medium">Total debt still owed</span>
+  <span class="heading-medium">You owe &pound;{{ session.debt_amount }}</span>
 
-  <h2 class="bold-large">
-    &pound;{{ session.debt_amount }}
-  </h2>
 
   <p class="form-lable-bold">
-    At the current rate your debt will be
-    <span class="form-lable-bold">paid off by {{ session | calculateEndDate }}
+    Based on what you're repaying, you'll have
+    <span class="form-lable-bold">paid this back by {{ session | calculateEndDate }}
     </span>
   </p>
 
 </div>
 
 <!--<h3 class="heading-large">Your &pound;{{ session.debt_amount }} debt breakdown</h3>-->
-<h2 class="heading-medium">Your debt in detail</h2>
+<h2 class="heading-medium">The money you owe</h2>
+
+<div class="panel panel-border-wide">
+   Details of any Social Fund, Crisis or Budgeting Loans are not included here.
+</div>
 
   {% for thisDebt in session.debt_reason %}
 
-4r44
+
 
 
 
