@@ -10,21 +10,20 @@
 {% block primary %}
 
   <div class="govuk-box-highlight">
-    <h2 class="bold-large">Request approved</h2>
-    <h3 class="heading-small">Your new payment is
-    <span class="heading-medium">&pound;{{ session | getPaymentAmount }}</span><br>
-    </h3>
+    <h2 class="heading-large">Request approved
+      <br />Your repayments will now be &pound;{{ session | getPaymentAmount }}</span><br /><br />
+    </h2>
   </div>
 
   <h3 class="heading-medium">What's next</h3>
-  <p>Your request to increase the amount you're paying back has been accepted. You don't need to do anything else.</p>
-  <p>Your online account has been updated to reflect this change.</p>
+  <p>You'll get a letter in the next 10 days confirming your new repayment amount, and when.</p>
+  <p>You don't need to do anything else.</p>
 
-  <form action="home" method="post">
+  <!--<form action="home" method="post">
     <fieldset class="primary-nav form-group">
       <legend class="visuallyhidden">Form Navigation</legend>
       <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     </fieldset>
-  </form>
+  </form>-->
 
 {% endblock %}
