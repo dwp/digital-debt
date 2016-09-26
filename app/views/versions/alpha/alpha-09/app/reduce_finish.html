@@ -10,28 +10,24 @@
 {% block primary %}
 
 <div class="govuk-box-highlight">
-  <h2 class="bold-large">Request sent</h2>
-
-  <h3 class="heading-small">Your request to reduce your payments to<br>
-  <span class="heading-medium">&pound;{{ session.payment_amount }}</span><br>
-  is being reviewed</h3>
+  <h2 class="heading-large">Your request is being reviewed</h2><br />
 </div>
 
+<h3 class="heading-medium">What happens next</h3>
 
-<h4 class="heading-small">If your request is accepted</h4>
-<p>You'll receive a text message confirming the new amount you'll be paying. Your online account will also be updated to reflect this change.</p>
+<p>You've asked for your payments to be reduced to &pound;{{ session.payment_amount }}.</p>
 
-<h4 class="heading-small">If more information is needed</h4>
-<p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>
+<p>You may get a phone call to discuss your request and be asked to give more information.</p>
 
+<p>You'll get a letter within 10 days to tell you if your request has been accepted and how much you'll be paying back.</p>
 
-<form action="home" method="post">
+<!--<form action="home" method="post">
       <fieldset class="primary-nav form-group">
                       <legend class="visuallyhidden">Form Navigation</legend>
 
                       <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </fieldset>
-              </form>
+              </form>-->
 
 
 {% endblock %}
