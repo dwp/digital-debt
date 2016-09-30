@@ -1,0 +1,51 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>
+
+<div class="govuk-box-highlight">
+  <h2 class="bold-large">You owe &pound;{{ 'debt_amount' | getFromSession }}</h2>
+  <br>
+  <strong class="heading-xlarge"></strong>
+  <p class="form-lable-bold">
+    <span class="heading-medium">You'll have paid this off by {{ session | calculateEndDate }}
+    </span><br />based on what you're currently repaying
+  </p>
+</div>
+
+<h3 class="heading-medium">How you're repaying</h3>
+<p>You're <span class="bold">currently repaying &pound;{{ 'payment_amount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}</span> from benefit.</br>This money is taken directly from your main benefit payment.<br><a href="reasons">Change your payments</a></p>
+
+<p>
+  View <a href="debt_overview">what you owe in detail</a>
+</p>
+
+<div class="panel panel-border-wide alert-default">
+  <p class="font-xsmall" >
+On Monday the 5 September you proposed to decreased your weekly payments from £10 to £9. This reduction is awaiting approval
+  </p>
+<p class="font-xsmall">
+  Reductions in payments can take up to XX working days to process
+</p>
+
+</div>
+
+{% endblock %}
+
+{% block secondary %}
+<!--
+<div class="related">
+
+
+  </div>-->
+
+<!-- 1 Third Column -->
+{% endblock %}

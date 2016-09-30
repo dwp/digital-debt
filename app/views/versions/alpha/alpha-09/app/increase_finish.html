@@ -1,0 +1,29 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  <div class="govuk-box-highlight">
+    <h2 class="heading-large">Your request is accepted</h2>
+    <br />
+  </div>
+
+  <h3 class="heading-medium">What's next</h3>
+  <p>Your new regular repayments from benefit will be &pound;{{ session | getPaymentAmount }}.</></p>
+  <p>You'll get a letter in the next 10 days confirming this.</p>
+  <p>You don't need to do anything else.</p>
+
+  <!--<form action="home" method="post">
+    <fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+  </form>-->
+
+{% endblock %}

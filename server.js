@@ -79,6 +79,8 @@ nunjucks.ready(function(nj) {
       return req.session.data[name];
     });
     
+    nj.addGlobal("sessionData", req.session.data);
+    
     /**
      * makes the response locals available to templates
      * @method addGlobal

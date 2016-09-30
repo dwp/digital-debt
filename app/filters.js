@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var qs = require('qs');
 module.exports = function(env) {
   var nunjucksSafe = env.getFilter('safe');
   /**
@@ -208,6 +209,186 @@ module.exports = function(env) {
 	filters.toHyphenated = function toHyphenated(s) {
 		return s.trim().toLowerCase().replace(/\s+/g, '-');
 	};
+  
+  /**
+   * takes the session data object and calculates an end payment date based on
+   * the users answers
+   * @method calculateEndDate
+   * @param  {object}         session the users data submitted in the form-hint
+   * @return {String}                 Date string derived from the user's input
+   */
+  filters.calculateEndDate = function calculateEndDate(data) {
+    
+    if (data) {
+      // we need the payment frequency
+      if(!! data.payment_frequency) {
+        // calculate the number of payments that will need to be made
+        var numberOfPayments = Math.ceil(data.debt_amount / data.payment_amount),
+            endDate = new Date();
+        
+        // use the frequency to calculate the date
+        switch(data.payment_frequency) {
+          case 'weekly':
+            endDate.setDate(numberOfPayments * 7);
+          break;        
+          case 'fortnightly': 
+            // console.log("It's fortnightly");
+            endDate.setDate(numberOfPayments * 14);
+          break;
+          case 'four-weekly': 
+            endDate.setDate(numberOfPayments * 28);
+          break;
+          case 'monthly': 
+            endDate.setMonth(endDate.getMonth() + numberOfPayments);
+          break;
+        }
+        
+        // return the date in a formatted string
+        return ("1 " + endDate.toLocaleString("en-gb", { month: "long" }) + " " + endDate.getUTCFullYear());
+        
+      } else {
+        return filters.log('There is no payment frequency in the session data!');
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getPaymentAmount = function getPaymentAmount(data) {
+    if(data) {
+      if(!! data.payment_amount) {
+        return parseFloat(data.payment_amount).toFixed(2);
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getPaymentCycle = function getPaymentCycle(data) {
+    if(data) {
+      if(!! data.payment_frequency) {
+        return data.payment_frequency;
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getTotalDebt = function getTotalDebt(data) {
+    if(data) {
+      if(!! data.debt_amount) {
+        return data.debt_amount;
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  /**
+   * converts number to decimal 
+   * @method toDecimal
+   * @param  {Number}  num the number to be converted
+   * @param  {Number}  p   the number of decimal places (defaults to 2)
+   * @return {Number}      the converted number
+   */
+  filters.toDecimal = function toDecimal(num,p){
+    if(num && typeof num == 'number'){
+      return Number(num).toFixed(!! p ? p : 2);
+    }
+  };
+  
+  filters.getMinimalAmount = function getMinimalAmount(data) {
+    if(data) {
+      if(!! data.payment_frequency) {
+        
+        var finalAmount,
+            minimalAmount = 3.40;
+        
+        // use the frequency to calculate the date
+        switch(data.payment_frequency) {
+          case 'weekly':
+            finalAmount = minimalAmount;
+          break;        
+          case 'fortnightly': 
+            // console.log("It's fortnightly");
+            finalAmount = minimalAmount * 2;
+          break;
+          case 'four-weekly': 
+            finalAmount = minimalAmount * 4;
+          break;
+          case 'monthly': 
+            finalAmount = (minimalAmount * 4) + minimalAmount;
+          break;
+        }
+        
+        // return amount but converted to 2 decimal places
+        return filters.toDecimal(finalAmount);
+        
+      }
+    } else {
+      return filters.log('There is no session data!');
+    }
+  };
+  
+  filters.getFromSession = function getFromSession(path){
+    var session = env.globals.sessionData;
+    return path && session ? _.get(session,path) : 'No path or session present';
+  };
+  
+  filters.pct = function pct(amount, percent) {
+    return ((parseInt(amount)/100)* parseInt(percent)).toFixed(2);
+  };
+  
+  filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
+    if(total && divisions && index) {
+      
+      var splitInto = (divisions.constructor === Array ? divisions.length : parseInt(divisions)),
+          percentageSplits,
+          index = index -1;
+          
+      switch (splitInto) {
+        case 1:
+          percentageSplits = [1];
+        break;
+        case 2:
+          percentageSplits = [0.60, 0.40];
+        break;
+        case 3:
+          percentageSplits = [0.20,0.50,0.30];
+        break;
+        case 4:
+          percentageSplits = [0.20,0.20,0.30,0.30];
+        break;
+        case 5:
+          percentageSplits = [0.05,0.25,0.10,0.40,0.20];
+        break;
+        case 6:
+          percentageSplits = [0.30,0.10,0.10,0.30,0.10,0.10];
+        break;
+      }
+      
+      return parseFloat(parseInt(total) * percentageSplits[parseInt(index)]).toFixed(2);
+      
+    }
+  };
+  
+  filters.arrayContains = function arrauContains(a,s) {
+    return a.constructor === Array ? _.some(a, _.method('includes', s ? s : 'no string')) : log("You didn't pass me an array!");
+  }
+  
+  filters.querystringify = function querystringify(o) {
+    return o ? qs.stringify(o) : log('You didn\'t pass me an object');
+  };
+
+	/**
+	 * writes the context as the value of an attribute
+	 * @param  {String} v the attribute value
+	 * @param  {String} a attribute name
+	 * @return {String}
+	 */
+  filters.attr = function attr(v, a, p) {
+    return (!_.isEmpty(v) ? (p || '') + a + '="' + v + '"' : '');
+  };
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app

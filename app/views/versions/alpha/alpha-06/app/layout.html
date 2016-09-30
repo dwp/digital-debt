@@ -1,1 +1,198 @@
 {% extends "layouts/dwp_layout.html" %}
+
+{% block body_start %}
+  
+<script type="text/javascript">
+var cookieName  ='debt-amount';
+var regularAmountCookieName = 'regular-amount';
+var locale = "en-gb";
+var defaultRegularAmount = '48.10';
+var paymentIntervalCookieName = "boo";
+
+var regularAmount = defaultRegularAmount;
+
+if (getCookie(regularAmountCookieName) !== ''){
+ regularAmount = getCookie(regularAmountCookieName)
+}
+
+var totalOutstanding = getCookie(cookieName);
+
+function ed(){
+
+  var d = edBalls();
+  document.write("1 " + d.toLocaleString(locale, { month: "long" }) + " " + d.getUTCFullYear());
+}
+
+function edBalls(){
+
+  var d;
+
+var pInt = getCookie(paymentIntervalCookieName);
+
+  if(pInt === "weekly"){
+    d = calculateEndDateWeekley(totalOutstanding, regularAmount);
+  }else if(pInt === "fortnightly"){
+    d = calculateEndDateFortnightley(totalOutstanding, regularAmount);
+  }else if(pInt === "four-weekly"){
+    d = calculateEndDateFourWeekley(totalOutstanding, regularAmount);
+  }else if(pInt === "monthly"){
+    d = calculateEndDateMonths(totalOutstanding, regularAmount);
+  }else{
+    d = calculateEndDateMonths(totalOutstanding, regularAmount);
+  }
+
+  return d;
+}
+
+function calculateEndDateMonths(amountTotal, amountRepay){
+
+      var months = Math.ceil(amountTotal / amountRepay)
+      var endDate = new Date();
+      endDate.setMonth(endDate.getMonth() + months);
+
+      return endDate;
+    }
+
+    function calculateEndDateWeekley(amountTotal, amountRepay){
+
+      var weeks = Math.ceil(amountTotal / amountRepay)
+      var endDate = new Date();
+      endDate.setDate(weeks * 7);
+
+      return endDate;
+    }
+
+    function calculateEndDateFortnightley(amountTotal, amountRepay){
+
+     var fortnights = Math.ceil(amountTotal / amountRepay)
+      var endDate = new Date();
+      endDate.setDate(fortnights * 14);
+
+      return endDate;
+    }
+
+    function calculateEndDateFourWeekley(amountTotal, amountRepay){
+
+      var fourWeeks = Math.ceil(amountTotal / amountRepay)
+      var endDate = new Date();
+      endDate.setDate(fourWeeks * 28);
+
+      return endDate;
+    }
+
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+</script>
+  
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script>
+////////////////////////////////////////////
+
+  $(document).ready(function () {
+      $('span').each(function () {
+        if ($(this).attr('data-start')) {
+          $(this).html($(this).attr('data-start'));
+        }
+      });
+  });
+
+    $(document).on('keyup', '#text-area', function () {
+      var span = $(this).parents('.form-group').find('.form-hint span');
+      var start = $(this).parents('.form-group').find('.form-hint span').attr('data-start');
+      remaning = start - $(this).val().length;
+      span.html(remaning);
+    });
+
+///////////////////////////////
+
+
+    $(document).on('keyup', '#value-adjust-1', function () {
+      var that = $(this)[0];
+      if(that.value > minRepaymentAmount){
+
+          regularAmount = that.value;
+         
+          var endDate = edBalls();
+
+          $('#payed-by').css('font-weight','bold');
+          $('#payed-by').html("1 " + endDate.toLocaleString(locale, { month: "long" }) + " " + endDate.getUTCFullYear());
+          $('#paid-off').addClass('date-change');
+      } else 
+      {
+        $('#paid-off').removeClass('date-change');
+      }
+    });
+
+    $(document).on('click', '#submitButton-rv', function () {
+      var that = $('#value-adjust-1')[0];
+      if(that.value < minRepaymentAmount){
+        $('#paid-off').removeClass('date-change');
+        $('#reduce-error').addClass('border-error');
+        return false;
+      } else{
+        setCookie(regularAmountCookieName, $('#value-adjust-1')[0].value, 30);
+      }
+    });
+////////////
+
+
+  $(document).on('click', '#ho_submitButton', function () {
+      var that = $("input[name='benefits']:checked")[0];
+      
+        setCookie(paymentIntervalCookieName, that.value, 30);
+      
+    });  
+    
+///////////////////////////////////
+
+$(document).on('click','#Start-Submit',function(){
+  var amount = $('#Debt-Start')[0].value;
+  setCookie(cookieName,amount, 30);
+});
+
+$(document).on('click','#Start-Reset',function(){
+ 
+  setCookie(cookieName, 300, 30);
+  setCookie(regularAmountCookieName, defaultRegularAmount, 30);
+  setCookie(paymentIntervalCookieName, "monthly", 30);
+});
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Welcome again " + user);
+    } else {
+        user = prompt("Please enter your name:", "");
+        if (user != "" && user != null) {
+            setCookie("username", user, 365);
+        }
+    }
+}
+
+</script>
+  
+{% endblock %}

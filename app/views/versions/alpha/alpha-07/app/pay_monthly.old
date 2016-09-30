@@ -10,16 +10,16 @@
 {% block primary %}
 <a href="how_often" class="link-back">Back</a>
 
-  <h1 class="heading-large">You're currently paying £<script>document.write(regularAmmount);</script> a month.</h1>
+  <h1 class="heading-large">You're currently paying £<script>document.write(regularAmount);</script> a month.</h1>
 
             <form action="contact" autocomplete="off" method="post">
                 <fieldset class="">
-           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmmount).toFixed(2));</script> a month.</legend>
+           <legend class="visuallyhidden">You're currently paying £<script>document.write(parseFloat(regularAmount).toFixed(2));</script> a month.</legend>
 
               <script>
                   var totalDebt = totalOutstanding; ///////// Total Debt /////////////
 
-                  var minRepaymentAmmount = 16.03; ///////// Min Payment /////////////
+                  var minRepaymentAmount = 16.03; ///////// Min Payment /////////////
               </script>
 
               <div id="reduce-error" class="form-group"><!-- border-error -->
