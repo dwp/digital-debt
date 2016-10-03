@@ -1,0 +1,59 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<a href="javascript:history.back()" class="link-back">Back</a>
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Change your payment</h1>
+<p>You need to pay back £300 of your Income support. Your Income support has been reduced by £48 a month.</p>
+<div class="chart-block">
+  <div class="graph-title">You'll have paid this money back by 20 August 2017.</div>
+  <div class="graph">
+    <li>
+      <div class="amount" style="width: 38%;"></div><div class="complete-date">20 August 2017</div>
+    </li>
+  </div>
+</div>
+
+
+
+
+<h3 class="heading-medium">Choose amount</h3>
+<form method="post">
+<div class="form-group">
+  <label id="total-question" class="form-label" for="total01">Minimum is &pound;34</label>
+  <span class="c-form-input-denote">£</span>
+  <input id="total01" class="form-control c-form-input-denote__input form-control-1-4" type="text" name="total" value="">
+</div>
+
+
+<button type="submit" class="button">Continue</button>
+</form>
+<!--<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
+<a href="reasons">Change your payments</a>.
+</p>
+
+<p>View your <a href="debt_overview1">debt in detail</a>.</p>-->
+
+<!--<div class="panel panel-border-wide alert-default">
+      <p class="font-xsmall">On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval.</p>
+      <p class="font-xsmall">Reductions in payments can take up to XX working days to process.</p>
+    </div>-->
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

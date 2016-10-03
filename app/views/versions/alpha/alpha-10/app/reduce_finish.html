@@ -1,0 +1,38 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="govuk-box-highlight">
+  <br/>
+  <h2 class="bold-large">Request sent</h2>
+  <h3 class="heading-small">Your request to reduce your payments to &pound;32</span> is being reviewed</h3>
+  <br/>
+</div>
+
+
+<h4 class="heading-small">If your request is accepted</h4>
+<p>You'll receive a text message confirming the new amount you'll be paying.</p>
+
+<h4 class="heading-small">If more information is needed</h4>
+<p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>
+
+<br/>
+<p><img src="/public/images/icon-file-download.png" style="position: relative; float: left; margin-top: -5px;">&nbsp; <a href="download" target="_new" class="heading-medium">Save this page</a></p>
+<p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: -5px;">&nbsp; <a href="#" onclick="window.print();" class="heading-medium">Print this page</a></p>
+
+<a href="#" value="Submit">What did you think of this service?</a><br/>
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
