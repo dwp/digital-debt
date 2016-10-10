@@ -9,17 +9,13 @@
 
 {% block primary %}
 
-<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>
+<!--<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>-->
 
 <div class="govuk-box-highlight">
-  <h2 class="bold-large">Your DWP debt today</h2>
+  <h2 class="bold-medium">Your DWP debt today</h2>
   <br>
   <strong class="heading-xlarge">&pound;{{ 'debt_amount' | getFromSession }}</strong>
-  <p class="form-lable-bold">
-    At the current rate your debt will be <br>
-    <span class="heading-medium">paid off by {{ session | calculateEndDate }}
-    </span>
-  </p>
+  <p class="form-lable-bold">At the current rate your debt will be paid off by {{ session | calculateEndDate }}</p>
 </div>
 
 <h3 class="heading-medium">About this debt</h3>
@@ -29,24 +25,23 @@
   View your <a href="debt_overview">debt in detail</a>
 </p>
 
-<div class="panel panel-border-wide alert-default">
+<!--<div class="panel panel-border-wide alert-default">
   <p class="font-xsmall" >
 On Monday the 5 September you proposed to decreased your weekly payments from £10 to £9. This reduction is awaiting approval
   </p>
 <p class="font-xsmall">
   Reductions in payments can take up to XX working days to process
 </p>
-  
-</div>
+
+</div>-->
 
 {% endblock %}
 
 {% block secondary %}
-<div class="related">
+<!--<div class="related">
 
 
-  </div>
+</div>-->
 
 <!-- 1 Third Column -->
 {% endblock %}
-

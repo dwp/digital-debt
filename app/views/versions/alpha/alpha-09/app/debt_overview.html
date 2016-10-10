@@ -4,7 +4,7 @@
   secondary: false,
   html_classes: ['page-class'],
   primary: {
-    col: 'one-whole'
+    col: 'two-thirds'
   }
 } %}
 
@@ -16,8 +16,8 @@
 
 <div class="govuk-box-highlight">
   <span class="heading-medium">Total debt still owed</span>
-  
-  <h2 class="bold-large">
+  <br/><br/>
+  <h2 class="bold-xlarge">
     &pound;{{ session.debt_amount }}
   </h2>
 
@@ -26,20 +26,20 @@
     <span class="form-lable-bold">paid off by {{ session | calculateEndDate }}
     </span>
   </p>
-  
+
 </div>
 
 <!--<h3 class="heading-large">Your &pound;{{ session.debt_amount }} debt breakdown</h3>-->
 <h2 class="heading-medium">Your debt in detail</h2>
-  
+
   {% for thisDebt in session.debt_reason %}
-    
+
     <div class="whole-border breakdown-item">
-    
+
       {% if thisDebt == 'social-fund' %}
-      
+
         <h3 class="heading-medium breakdown-item__title">Budgeting Loans</h3>
-      
+
         <p class="explination-of-benefits">You would of got a Social fund loan to help pay for essential things like furniture, clothes, moving costs or hire purchase debts. </p>
         <table>
           <tbody>
@@ -66,16 +66,16 @@
 
         <div class="more-info">
           If you think this information is inaccurate contact the Budgeting Loans for more information on 0345 6036967.
-        </div>  
-        
+        </div>
+
       {% endif %}
-      
+
       {% if thisDebt == 'esa' %}
-        
+
         <h3 class="heading-medium breakdown-item__title">ESA</h3>
-        
+
         <p class="explination-of-benefits">An overpayment was made from 4 April 2012 to 10 August 2012 because you were working full time.</p>
-        
+
         <table>
           <tbody>
             <tr>
@@ -96,11 +96,11 @@
         <div class="more-info">
         If you think this information is inaccurate visit the <a href="https://www.gov.uk/employment-support-allowance/overview">Employment and Support Allowance (ESA)</a> section for more information.
         </div>
-        
+
       {% endif %}
-      
+
       {% if thisDebt == 'jsa' %}
-      
+
         <h3 class="heading-medium breakdown-item__title ">JSA</h3>
         <p class="explination-of-benefits">An overpayment was made from 4 April 2012 to 10 August 2012 because you were working full time.</p>
         <table>
@@ -119,9 +119,9 @@
         </table>
 
         <div class="more-info">If you think this information is inaccurate visit the <a href="https://www.gov.uk/jobseekers-allowance">Jobseeker's Allowance</a> section for more information.</div>
-        
+
       {% endif %}
-      
+
       {% if thisDebt == 'is' %}
         <h3 class="heading-medium breakdown-item__title">Income Support</h3>
         <p class="explination-of-benefits">An overpayment was made from 6 January 2008 to 5 March 2008 because you were working full time.</p>
@@ -146,9 +146,9 @@
            If you think this information is inaccurate visit the <a href="https://www.gov.uk/income-support/overview">Income Support</a> section for more information.
           </div>
       {% endif %}
-      
+
       {% if thisDebt == 'pip' %}
-      
+
         <h3 class="heading-medium breakdown-item__title">PIP</h3>
         <p class="explination-of-benefits">An overpayment was made from 6 January 2008 to 5 March 2008 because you were working full time.</p>
           <table>
@@ -171,25 +171,25 @@
           <div class="more-info">
              If you think this information is inaccurate visit the <a href="https://www.gov.uk/pip/overview">Personal Independence Payment (PIP)</a> section for more information.
           </div>
-          
+
       {% endif %}
-      
+
     </div>
     {# / whole-border #}
 
   {% endfor %}
-  
+
   <h2 class="heading-medium">Your current agreement</h2>
   <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
   <p>At this rate your debt will be <span class="bold">paid off by {{ session | calculateEndDate }}</span>.</p>
 
-  <p>Would you like to <a href="reasons">change your payments?</a>    
+  <p>Would you like to <a href="reasons">change your payments?</a>
 
-  <form action="home" method="post">
+<!--  <form action="home" method="post">
     <fieldset class="primary-nav form-group">
     <legend class="visuallyhidden">Form Navigation</legend>
     <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     </fieldset>
-  </form>
+  </form>-->
 
-{% endblock %} 
+{% endblock %}

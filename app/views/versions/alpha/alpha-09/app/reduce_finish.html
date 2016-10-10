@@ -10,11 +10,8 @@
 {% block primary %}
 
 <div class="govuk-box-highlight">
-  <h2 class="bold-large">Request sent</h2>
-
-  <h3 class="heading-small">Your request to reduce your payments to<br>
-  <span class="heading-medium">&pound;{{ session.payment_amount }}</span><br>
-  is being reviewed</h3>
+  <h1 class="bold-xlarge">Request sent</h1>
+  <h3 class="heading-medium">Your request to reduce your payments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
 </div>
 
 
@@ -25,14 +22,14 @@
 <p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>
 
 
-<form action="home" method="post">
+<!--<form action="home" method="post">
       <fieldset class="primary-nav form-group">
                       <legend class="visuallyhidden">Form Navigation</legend>
 
                       <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </fieldset>
               </form>
-
+-->
 
 {% endblock %}
 
