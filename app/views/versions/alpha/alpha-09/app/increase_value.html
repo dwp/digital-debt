@@ -21,18 +21,21 @@
         data-min-amount="{{ 'payment_amount' | getFromSession }}"
         data-max-amount="{{ 'debt_amount' | getFromSession }}"
         data-text-greaterthan="You have entered too much for proposed amount"
-        data-text-lessthan="You have entered less than the minimum amount"
+        data-text-lessthan="Enter more than you're paying now"
       >
+<!--data-text-lessthan="You have entered less than the minimum amount"-->
+
+
 
         <label class="form-label-bold" for="payment_amount">
-          Enter new proposed increased amount in (£)
-          <span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ 'payment_amount' | getFromSession }}.</span>
+          New payment amount (£)
+          <!--<span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ 'payment_amount' | getFromSession }}.</span>-->
           <div><span class="payment-adjust-field__error error-message js-error-message js-hidden"></span></div>
         </label>
 
         <input class="form-control payment payment-adjust-field__amount js-payment-adjust-field__amount" name="payment_amount" id="payment_amount" type="text">
 
-        <div class="date-change payment-adjust-field__prediction js-payment-adjust-field__prediction js-hidden">Based on the amount you entered your debt will be paid off by: <br>
+        <div class="date-change payment-adjust-field__prediction js-payment-adjust-field__prediction js-hidden">Based on this, you'll have paid everything back by
           <span style="font-weight: bold;" class="payment-adjust-field__prediction__date js-payment-adjust-field__prediction__date">{{ session | calculateEndDate }}</span>.
         </div>
 
