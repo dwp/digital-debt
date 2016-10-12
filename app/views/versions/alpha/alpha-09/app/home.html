@@ -12,17 +12,17 @@
 <!--<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>-->
 
 <div class="govuk-box-highlight">
-  <h2 class="bold-medium">Your DWP debt today</h2>
+  <h2 class="bold-medium">Total you still owe</h2>
   <br>
   <strong class="heading-xlarge">&pound;{{ 'debt_amount' | getFromSession }}</strong>
-  <p class="form-lable-bold">At the current rate your debt will be paid off by {{ session | calculateEndDate }}</p>
+  <p class="form-lable-bold">At the current rate you'll have paid everything back by {{ session | calculateEndDate }}</p>
 </div>
 
-<h3 class="heading-medium">About this debt</h3>
+<h3 class="heading-medium">About what you owe</h3>
 <p>You're <span class="bold">currently repaying &pound;{{ 'payment_amount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}</span> from benefit.</br>This money is taken directly from your main benefit payment.<br><a href="reasons">Change your payments</a></p>
 
 <p>
-  View your <a href="debt_overview">debt in detail</a>
+  View <a href="debt_overview">what you owe in detail</a>
 </p>
 
 <!--<div class="panel panel-border-wide alert-default">
