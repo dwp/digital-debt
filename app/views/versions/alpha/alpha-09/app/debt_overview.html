@@ -180,7 +180,7 @@
   {% endfor %}
 
   <h2 class="heading-medium">Your current agreement</h2>
-  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.
+  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.</p>
   <p>At this rate you'll have paid everything back by <span class="bold">{{ session | calculateEndDate }}</span>.</p>
 
   <p>Would you like to <a href="reasons">change your payments?</a>
