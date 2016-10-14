@@ -1,16 +1,13 @@
 {% set page = {
   title: 'index',
   dev: true,
-  secondary: true,
-  html_classes: ['page-class']
+  secondary: false,
+  hideSignoutLink: true
 } %}
 
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
-
-
-
 
 <h1 class="heading-xlarge">
    Check your benefits

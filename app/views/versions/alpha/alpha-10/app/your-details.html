@@ -1,0 +1,39 @@
+{% set page = {
+  title: 'Your details',
+  dev: true,
+  secondary: false,
+  hideSignoutLink: true
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  <a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Your details</h1>
+  
+  <form method="post" action="home">
+    
+    <div class="form-group">
+      <p>
+        To get to your information, first we need to check some details.
+      </p>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="invite_code">Invite code</label>
+      <span class="form-hint">This can be found on the letter that you received from us</span>
+      <input class="form-control" id="invite_code" type="text" name="invite_code">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="postcode">Post code</label>
+      <input class="form-control" id="postcode" type="text" name="postcode">
+    </div>
+
+    <button type="submit" class="button">Continue</button>
+  
+  </form>
+
+{% endblock %}
