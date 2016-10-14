@@ -16,12 +16,25 @@
     <h2 class="heading-medium">{{ stage | upper }}</h2>
 
     {% if prototype.versions %}
+    
+      {% if stage == "archive" %}
+      <details>
+        <summary><span class="summary">Show archived versions</span></summary>
+        <div class="panel panel-border-narrow">
+      {% endif %}
 
       <ul class="list list-bullet">
           {% for version in prototype.versions %}
             {% if version.url | contains(stage) %}<li><a href="{{ version.url }}">{{ version.title }}</a></li>{% endif %}
           {% endfor %}
   		</ul>
+    
+      {% if stage == "archive" %}
+        </div>
+
+      </details>
+        
+      {% endif %}
 
     {% else %}
 
