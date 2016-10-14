@@ -1,16 +1,13 @@
 {% set page = {
   title: 'index',
   dev: true,
-  secondary: true,
-  html_classes: ['page-class']
+  secondary: false,
+  hideSignoutLink: true
 } %}
 
 {% extends page.layout | d(prototype.current.layout) %}
 
 {% block primary %}
-
-
-
 
 <h1 class="heading-xlarge">
    Check your benefits
@@ -27,7 +24,7 @@
 </ul>
 
 <p>
-  <a class="button button-start" href="home" role="button">Start now</a>
+  <a class="button button-start" href="your-details" role="button">Start now</a>
 </p>
 
 <h2 class="heading-medium">Other ways to check your benefits</h2>
@@ -40,18 +37,6 @@ Monday to Friday 8am to 8pm, Saturday 9am to 4pm<br />
 {% endblock %}
 
 {% block secondary %}
-
-
-    <!--  <aside class="govuk-related-items" role="complementary">
-        <h2 class="heading-medium" id="subsection-title">Subsection</h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="font-xsmall">
-            <li><a href="#">Related link</a></li>
-            <li><a href="#">Related link</a></li>
-            <li><a href="#" class="bold-xsmall">More <span class="visuallyhidden">in Subsection</span></a></li>
-          </ul>
-        </nav>
-      </aside>-->
 
 
 {% endblock %}

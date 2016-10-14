@@ -71,9 +71,11 @@ router.use(function(req, res, next){
   // protoypes config obj
   var prototype = { versions: [], stages: appConfig.stages }
   // using glob pattern for the predefined folder structure to grep url and title
+  // console.log(prototypePaths.appsGlob);
   glob.sync(prototypePaths.appsGlob).forEach(function(p){
     var v = utils.getVersionName(p);
     prototype.versions.push({ url: '/versions/' + v.computedPath, title: formatTitle(v.title) });
+    console.log(prototype.versions);
   });
   // update locals so this data is accessible
   _.merge(res.locals,{
@@ -117,14 +119,5 @@ router.all(prototypePaths.step, function(req,res,next){
   res.locals.prototype ? _.merge(res.locals.prototype, p) : res.locals.prototype = p;
   next();
 });
-
-router.post('/versions/alpha/alpha-10/app/change-your-payments', function(req,res) {
-  var total=req.body.total
-  if (total>34){
-    res.redirect('/versions/alpha/alpha-10/app/what-this-means')
-  } else {
-    res.redirect('/versions/alpha/alpha-10/app/what-this-means-lower')
-  }
-})
 
 module.exports = router;
