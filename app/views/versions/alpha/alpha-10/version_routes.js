@@ -3,7 +3,6 @@ module.exports = function(router, config) {
   // routing for all pages directly below version/app/
   router.all(config.routes.step, function(req,res,next){
 
-    
     var requestedPage = req.params.step,    // this is the page requested or posted-to
         postData = req.body || {};          // this is any data in the request
     

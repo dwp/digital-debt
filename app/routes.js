@@ -71,11 +71,9 @@ router.use(function(req, res, next){
   // protoypes config obj
   var prototype = { versions: [], stages: appConfig.stages }
   // using glob pattern for the predefined folder structure to grep url and title
-  // console.log(prototypePaths.appsGlob);
   glob.sync(prototypePaths.appsGlob).forEach(function(p){
     var v = utils.getVersionName(p);
     prototype.versions.push({ url: '/versions/' + v.computedPath, title: formatTitle(v.title) });
-    console.log(prototype.versions);
   });
   // update locals so this data is accessible
   _.merge(res.locals,{
