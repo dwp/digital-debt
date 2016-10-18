@@ -1,0 +1,242 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Satisfaction survey</h1>
+
+  <form>
+
+    <h2 class="heading-medium">How easy was it to use this service?</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">How easy was it to use this service?</legend>
+
+        <label class="block-label" data-target="how-easy" for="example-how-easy-very">
+          <input id="example-how-easy-very" type="radio" name="radio-how-easy-group" value="No">
+          Very easy
+        </label>
+        <label class="block-label" data-target="how-easy" for="example-how-easy-easy">
+          <input id="example-how-easy-easy" type="radio" name="radio-how-easy-group" value="No">
+          Easy
+        </label>
+        <label class="block-label" data-target="how-easy" for="example-how-easy-difficult">
+          <input id="example-how-easy-difficult" type="radio" name="radio-how-easy-group" value="No">
+          Difficult
+        </label>
+        <label class="block-label" data-target="how-easy" for="example-how-easy-vdifficult">
+          <input id="example-how-easy-vdifficult" type="radio" name="radio-how-easy-group" value="No">
+          Very difficult
+        </label>
+
+      </fieldset>
+      <br />
+    </div>
+
+
+    <h2 class="heading-medium">When you used it, did you:</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">When you used it</legend>
+
+        <label class="block-label" data-target="how-used" for="example-how-used-yourself">
+          <input id="example-how-used-yourself" type="radio" name="radio-how-used-group" value="No">
+          Use it by yourself
+        </label>
+        <label class="block-label" data-target="how-used" for="example-how-used-with">
+          <input id="example-how-used-with" type="radio" name="radio-how-used-group" value="No">
+          Use it with someone's help
+        </label>
+        <label class="block-label" data-target="how-used" for="example-how-used-someoneelse">
+          <input id="example-how-used-someoneelse" type="radio" name="radio-how-used-group" value="No">
+          Have someone use it for you
+        </label>
+
+      </fieldset>
+      <br />
+    </div>
+
+
+    <h2 class="heading-medium">How likely are you to use this again?</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">How likely are you to use this again?</legend>
+
+        <label class="block-label" data-target="how-likely" for="example-how-likely-very">
+          <input id="example-how-likely-very" type="radio" name="radio-how-likely-group" value="No">
+          Very likely
+        </label>
+        <label class="block-label" data-target="how-likely" for="example-how-likely-likely">
+          <input id="example-how-likely-likely" type="radio" name="radio-how-likely-group" value="No">
+          Likely
+        </label>
+        <label class="block-label" data-target="how-likely" for="example-how-likely-unlikely">
+          <input id="example-how-likely-unlikely" type="radio" name="radio-how-likely-group" value="No">
+          Unlikely
+        </label>
+        <label class="block-label" data-target="how-likely" for="example-how-likely-very-unlikely">
+          <input id="example-how-likely-very-unlikely" type="radio" name="radio-how-likely-group" value="No">
+          Very unlikely
+        </label>
+
+      </fieldset>
+      <br />
+    </div>
+
+
+    <h2 class="heading-medium">After using this do you have:</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">After using this</legend>
+
+        <label class="block-label" data-target="understanding" for="example-understanding-better">
+          <input id="example-understanding-better" type="radio" name="radio-understanding-group" value="No">
+          A better understanding of what you owe
+        </label>
+        <label class="block-label" data-target="understanding" for="example-understanding-less">
+          <input id="example-understanding-less" type="radio" name="radio-understanding-group" value="No">
+          Less understanding of what you owe
+        </label>
+        <label class="block-label" data-target="understanding" for="example-understanding-same">
+          <input id="example-understanding-same" type="radio" name="radio-understanding-group" value="No">
+          No change in understanding
+        </label>
+
+      </fieldset>
+      <br />
+    </div>
+
+
+    <h2 class="heading-medium">What are you most likely to do next?</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">What are you most likely to do next?</legend>
+
+        <label class="block-label" data-target="do-next" for="example-do-next-financial-advisor">
+          <input id="example-do-next-financial-advisor" type="radio" name="radio-do-next-group" value="No">
+          Speak to a financial advisor or a free advice service
+        </label>
+        <label class="block-label" data-target="do-next" for="example-do-next-dwp">
+          <input id="example-do-next-dwp" type="radio" name="radio-do-next-group" value="No">
+          Speak to DWP
+        </label>
+        <label class="block-label" data-target="do-next" for="example-do-next-friends">
+          <input id="example-do-next-friends" type="radio" name="radio-do-next-group" value="No">
+          Speak to friends or family
+        </label>
+        <label class="block-label" data-target="do-next" for="example-do-next-other-debt">
+          <input id="example-do-next-other-debt" type="radio" name="radio-do-next-group" value="No">
+          Find out about other debts or benefits
+        </label>
+        <label class="block-label" data-target="do-next" for="example-do-next-other">
+          <input id="example-do-next-other" type="radio" name="radio-do-next-group" value="No">
+          Other
+        </label>
+
+      </fieldset>
+      <br />
+    </div>
+
+
+    <h2 class="heading-medium">Would you like to take part in future research to help improve this service?</h2>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">Would you like to take part in future research to help improve this service?</legend>
+
+        <label class="block-label" data-target="help-yes" for="example-help-yes">
+          <input id="example-help-yes" type="radio" name="radio-help-group" value="No">
+          Yes
+        </label>
+        <div class="panel panel-border-narrow js-hidden" id="help-yes">
+          <label class="form-label" for="help-yes">Your email address</label>
+          <input class="form-control" name="help-yes" type="text" id="help-yes">
+        </div>
+        <label class="block-label" data-target="help" for="example-help">
+          <input id="example-help" type="radio" name="radio-help-group" value="No">
+          No
+        </label>
+
+
+
+        <!-- <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+          <label class="form-label" for="contact-text-message">Mobile phone number</label>
+          <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+        </div>
+
+
+        <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+          <input id="example-contact-by-email" type="checkbox" name="checkbox-contact-group" value="Yes">
+          Email
+        </label>
+        <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+          <label class="form-label" for="contact-email">Email address</label>
+          <input class="form-control" name="contact-email" type="text" id="contact-email">
+        </div>
+
+
+        <label class="block-label" data-target="contact-by-phone" for="example-contact-by-phone">
+          <input id="example-contact-by-phone" type="checkbox" name="checkbox-contact-group" value="No">
+          Phone call
+        </label>
+        <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+          <label class="form-label" for="contact-phone">Phone number</label>
+          <input class="form-control" name="contact-phone" type="text" id="contact-phone">
+        </div> -->
+
+
+
+
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<fieldset>
+      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
+      <div class="form-group">
+        <label class="form-label" for="mobile">Preferred telephone number</label>
+        <input class="form-control" name="mobile" type="text" id="mobile">
+        <p></p>
+        <label class="form-label" for="email-address">Email address</label>
+        <input class="form-control" name="email-address" type="text" id="email-address">
+      </div>
+    </fieldset>-->
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+    <a class="button" href="increase_finish">Send feedback</a>
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}
