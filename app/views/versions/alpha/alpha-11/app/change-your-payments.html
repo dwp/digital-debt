@@ -1,0 +1,30 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  <a href="javascript:history.back()" class="link-back">Back</a>
+  <!-- 3 Third Column -->
+  <h1 class="heading-xlarge">Change your repayments</h1>
+  <p>You need to pay back £350 of your Income Support. Your Income Support has been reduced by £35 a month.</p>
+  <div class="chart-block">
+    <div class="graph-title">You'll have paid this money back by 7 March 2017.</div>
+  </div>
+
+  <h3 class="heading-medium">Choose amount</h3>
+  <form method="post" action="process-payment-change">
+  <div class="form-group">
+    <label id="total-question" class="form-label" for="total01">Minimum is &pound;28</label>
+    <span class="c-form-input-denote">£</span>
+    <input id="total01" class="form-control c-form-input-denote__input form-control-1-4" type="text" name="total" value="">
+  </div>
+
+  <button type="submit" class="button">Continue</button>
+  </form>
+
+{% endblock %}
