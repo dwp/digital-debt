@@ -1,0 +1,74 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">How does your current repayment affect you?</h1>
+
+  <p>Select all that apply:</p>
+
+  <form>
+    <div class="form-group">
+      <fieldset>
+
+        <legend class="visuallyhidden">How does your current repayment affect you?</legend>
+
+        <label class="block-label" data-target="contact-by-text" for="example-contact-by-text">
+          <input id="example-contact-by-text" type="checkbox" name="checkbox-contact-group" value="No">
+          Difficulty paying essential living costs for me, my children or others who depend on me
+        </label>
+
+        <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+          <input id="example-contact-by-email" type="checkbox" name="checkbox-contact-group" value="Yes">
+          Difficulty paying a loan, credit card or other debt repayment
+        </label>
+
+      </fieldset>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<fieldset>
+      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
+      <div class="form-group">
+        <label class="form-label" for="mobile">Preferred telephone number</label>
+        <input class="form-control" name="mobile" type="text" id="mobile">
+        <p></p>
+        <label class="form-label" for="email-address">Email address</label>
+        <input class="form-control" name="email-address" type="text" id="email-address">
+      </div>
+    </fieldset>-->
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+    <a class="button" href="hardship-income">Continue</a>
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}
