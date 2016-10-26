@@ -1,0 +1,36 @@
+{% set page = {
+  title: 'Your details',
+  dev: true,
+  secondary: false,
+  hideSignoutLink: true
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  <a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Your details</h1>
+
+  <form method="post" action="setpassword">
+
+    <div class="form-group">
+      <p>To view your information, please enter the username and password provided on the letter you received.</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label-bold" for="username">Username</label>
+      <input class="form-control" id="username" type="text" name="username">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label-bold" for="password">Password</label>
+      <input class="form-control" id="password" type="text" name="password">
+    </div>
+
+    <button type="submit" class="button">Login</button>
+
+  </form>
+
+{% endblock %}

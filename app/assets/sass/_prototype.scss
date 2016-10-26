@@ -3,9 +3,20 @@
 
 .alpha{
 
-  &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-08, &-09, &-10, &-11 {
+  &-01,
+  &-02,
+  &-03,
+  &-04,
+  &-05,
+  &-06,
+  &-07,
+  &-08,
+  &-09,
+  &-10,
+  &-11 {
+    
   		.money-ad{
-  		margin-bottom: 25px;
+  		  margin-bottom: 25px;
   		}
 
       .fr { text-align: right; }
@@ -259,11 +270,12 @@ clear:both;
      clear: both;
      height: 0;
      }
-     }
+}
 
 .amount-left{
 	font-weight: normal!important;
 }
+
 .alpha{
 	&-07, &-06{
 		.debt-history{
@@ -277,7 +289,9 @@ clear:both;
 }
 
 .alpha {
+  
   &-08, &-09 {
+    
     .whole-border{
     	padding: 30px;
     	margin-bottom: 30px;
@@ -312,8 +326,7 @@ clear:both;
 			  margin-top:0px;
 			}
     }
+    
   }
 
-
-
-}
+} // outer .alpha- selector
