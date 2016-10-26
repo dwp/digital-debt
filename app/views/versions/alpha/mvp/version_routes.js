@@ -29,7 +29,19 @@ module.exports = function(router, config) {
       case 'create_session':         
         Object.assign(req.session.data,qs.parse(url.parse(req.url).query));
         return res.redirect('home');
-      break;   
+      break;
+      
+      // this creates a session with particular data 
+      case 'start_session':
+        var debt_amount = 350;
+        Object.assign(req.session.data,{
+          debt_amount: debt_amount,
+          payment_amount: parseFloat(Math.floor(debt_amount/100*10)).toFixed(2),
+          payment_frequency: "fortnightly",
+          debt_reason: ['is','pip']
+        });
+        return res.redirect('index');
+      break;  
     }
     
     next();
