@@ -1,5 +1,5 @@
 {% set page = {
-  title: 'Configure your debts',
+  title: 'Configure this session',
   dev: true,
   secondary: false,
   html_classes: ['debt-history'] }
@@ -20,6 +20,11 @@
     <div class="form-group">
         <label class="form-label-bold" for="debt">Example total debt</label>
         <input name="debt_amount" class="form-control input-debt" type="text" {{ 'value=' + session.debt_amount if session.debt_amount }}>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label-bold" for="debt">Payment amount</label>
+        <input name="payment_amount" class="form-control input-debt" type="text" {{ 'value=' + session.payment_amount if session.payment_amount }}>
         <p>&nbsp;</p>
     </div>
 
