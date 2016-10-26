@@ -38,7 +38,7 @@ module.exports = function(router, config) {
           username: "",
           password: "",
           debt_amount: debt_amount,
-          payment_amount: parseFloat(Math.floor(debt_amount/100*10)).toFixed(2),
+          payment_amount: parseFloat(Math.floor(debt_amount/100*5)).toFixed(2),
           payment_frequency: "fortnightly",
           debt_reason: ['is','pip']
         });
