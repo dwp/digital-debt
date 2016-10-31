@@ -11,15 +11,12 @@
 
 <div class="govuk-box-highlight">
   <h1 class="bold-xlarge">Request sent</h1>
-  <h3 class="heading-medium">Your request to reduce your payments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
+  <h3 class="heading-medium">Your request to lower repayments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
 </div>
 
-
-<h4 class="heading-small">If your request is accepted</h4>
-<p>You'll receive a text message confirming the new amount you'll be paying. Your online account will also be updated to reflect this change.</p>
-
-<h4 class="heading-small">If more information is needed</h4>
-<p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>
+<h4 class="heading-medium">What happens next</h4>
+<p>You’ll get a notification when a decision has been made.</p>
+<p>You may be asked to give more information about your circumstances or to send some evidence.</p>
 
 
 <!--<form action="home" method="post">
@@ -30,6 +27,12 @@
                     </fieldset>
               </form>
 -->
+
+<br/>
+<p><img src="/public/images/icon-file-download.png" style="position: relative; float: left; margin-top: -5px;">&nbsp; <a href="#" class="heading-medium">Save this page</a></p>
+<p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: -5px;">&nbsp; <a href="#" onclick="window.print();" class="heading-medium">Print this page</a></p>
+
+<a href="feedback" value="Submit">What did you think of this service?</a><br/>
 
 {% endblock %}
 
