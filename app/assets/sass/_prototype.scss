@@ -1,7 +1,7 @@
 // import resources
 @import 'prototype/imports';
 
-.alpha{
+.alpha {
 
   &-01,
   &-02,
@@ -13,7 +13,8 @@
   &-08,
   &-09,
   &-10,
-  &-11 {
+  &-11,
+  &.mvp {
     
   		.money-ad{
   		  margin-bottom: 25px;
