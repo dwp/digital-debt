@@ -12,7 +12,8 @@
 
   <h1 class="heading-xlarge">Do you have any savings?</h1>
 
-  <form>
+  <form action="handle_savings" method="post">
+    
     <div class="form-group">
       <fieldset>
 
@@ -21,8 +22,8 @@
           Yes
         </label>
         <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
-          <label class="form-label" for="contact-text-message">How much?</label>
-          <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+          <label class="form-label" for="total-savings">How much?</label>
+          <input class="form-control" name="total_savings" type="text" id="total-savings">
         </div>
 
 
@@ -30,46 +31,17 @@
           <input id="example-contact-by-email" type="radio" name="checkbox-contact-group" value="Yes">
           No
         </label>
-        <!--<div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-          <label class="form-label" for="contact-email">Email address</label>
-          <input class="form-control" name="contact-email" type="text" id="contact-email">
-        </div>-->
-
 
     </fieldset>
+    
     </div>
-  </form>
 
-
-
-
-
-
-
-
-
-
-
-
-    <!--<fieldset>
-      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
-      <div class="form-group">
-        <label class="form-label" for="mobile">Preferred telephone number</label>
-        <input class="form-control" name="mobile" type="text" id="mobile">
-        <p></p>
-        <label class="form-label" for="email-address">Email address</label>
-        <input class="form-control" name="email-address" type="text" id="email-address">
-      </div>
-    </fieldset>-->
-
-    <!--<fieldset class="primary-nav form-group">
-      <legend class="visuallyhidden">Form Navigation</legend>
-      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-    </fieldset>-->
-    <a class="button" href="hardship-medical">Continue</a>
-
-
-
+    <div class="form-group">
+      <input type="submit" class="button" value="continue">
+    </div>    
+    
+    
+  </form>  
 
 {% endblock %}
 
