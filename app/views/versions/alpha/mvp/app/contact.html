@@ -13,46 +13,52 @@
 
 
 
-      <h1 class="heading-xlarge">Your contact details</h1>
+      <h1 class="heading-xlarge">How do you want to be contacted?</h1>
 
-          <form action="change_finish" method="post">
+      <p>Select how you want to get updates about your request</p>
+
+          <form action="increase_finish" method="post">
             <fieldset>
 
-              <legend class="visuallyhidden">If we need to contact you, how do you want to be contacted?</legend>
-              <div class="form-group">
-
-                <label class="form-label" for="mobile">Mobile number</label>
-                <input class="form-control" name="mobile" type="text" id="mobile">
-                <p></p>
-                <label class="form-label" for="tel-number">Telephone number</label>
-                <input class="form-control" name="tel-number" type="text" id="tel-number">
-
-               <!--<label class="block-label" data-target="sms-open"  for="sms">
-                  <input id="sms" type="radio" name="contact" value="sms">
-                  Mobile phone - including text messages
-                </label>
-                <div class="panel panel-border-narrow js-hidden" id="sms-open">
-                  <label class="form-label" for="mobile">Mobile number</label>
-                  <input class="form-control" name="mobile" type="text" id="mobile">
-                </div>
-
-
-                <label class="block-label" data-target="call-only-open"  for="call-only">
-                  <input id="call-only" type="radio" name="contact" value="phone">
-                  Landline - for voice calls only
-                </label>
-                <div class="panel panel-border-narrow js-hidden" id="call-only-open">
-                  <label class="form-label" for="tel-number">Telephone number</label>
-                  <input class="form-control" name="tel-number" type="text" id="tel-number">
-                </div>-->
-
-
+              <label class="block-label" data-target="contact-by-text" for="example-contact-by-text">
+                <input id="example-contact-by-text" type="checkbox" name="checkbox-contact-group" value="No">
+                Text message
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
               </div>
 
+
+              <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+                <input id="example-contact-by-email" type="checkbox" name="checkbox-contact-group" value="Yes">
+                Email
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                <label class="form-label" for="contact-email">Email address</label>
+                <input class="form-control" name="contact-email" type="text" id="contact-email">
+              </div>
+
+
+              <label class="block-label" data-target="contact-by-phone" for="example-contact-by-phone">
+                <input id="example-contact-by-phone" type="checkbox" name="checkbox-contact-group" value="No">
+                Phone call
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+                <label class="form-label" for="contact-phone">Phone number</label>
+                <input class="form-control" name="contact-phone" type="text" id="contact-phone">
+              </div>
+
+
+
+
+
             </fieldset>
+
+        <br />
         <fieldset class="primary-nav form-group">
           <legend class="visuallyhidden">Form Navigation</legend>
-          <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         </fieldset>
 
 
