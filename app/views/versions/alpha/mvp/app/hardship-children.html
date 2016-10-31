@@ -10,24 +10,22 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-xlarge">Do you have any children?</h1>
+  <h1 class="heading-xlarge">About your household</h1>
 
   <form>
     <div class="form-group">
-      <fieldset class="inline">
+      <div id="contact-by-text">
+        <label class="form-label" for="contact-text-message">How many people live with you?</label>
+        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+      </div>
 
-      <legend class="visuallyhidden">Do you have any children?</legend>
+      <br />
 
-      <label class="block-label" for="radio-inline-1">
-        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-        Yes
-      </label>
-      <label class="block-label" for="radio-inline-2">
-        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-        No
-      </label>
+      <div id="contact-by-text">
+        <label class="form-label" for="contact-text-message">How many of these are children?</label>
+        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+      </div>
 
-    </fieldset>
     </div>
   </form>
 

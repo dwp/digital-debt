@@ -10,14 +10,15 @@
 {% block primary %}
 <a href="javascript:history.back()" class="link-back">Back</a>
 
-  <h1 class="heading-xlarge">What living expenses are you struggling to pay?</h1>
+  <h1 class="heading-xlarge">About your essential living costs</h1>
 
-  <p>Select all that apply to you</p>
+  <p>Give details of the things you are struggling to pay for</p>
+
   <form>
     <div class="form-group">
       <fieldset>
-
-      <legend class="visuallyhidden">Loans, credit cards and other debt</legend>
+          <textarea class="form-control form-control-3-4" rows="7" id="hardshipDetails" name="hardshipDetails"></textarea>
+      <!--<legend class="visuallyhidden">Loans, credit cards and other debt</legend>
 
       <label class="block-label" for="option-food">
         <input id="option-food" type="checkbox" name="checkbox-group" value="No">
@@ -57,7 +58,7 @@
         <input class="form-control" name="something-else-describe" type="text" id="something-else-describe">
       </div>
 
-
+    -->
     </fieldset>
     </div>
   </form>
