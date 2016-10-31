@@ -9,39 +9,109 @@
 
 {% block primary %}
 
-<!--<div class="login-display form-hint">DARREN SILCOX, you signed in at 11:00am, Friday the 16 September</div>-->
-
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Benefits you're paying back</h1>
+<!--<h2 class="heading-medium">Summary</h2>-->
 <div class="govuk-box-highlight">
-  <h2 class="bold-medium">Total you still owe</h2>
+  <h2 class="bold-medium">Total you need to repay</h2>
   <br>
-  <strong class="heading-xlarge">&pound;{{ 'debt_amount' | getFromSession }}</strong>
-  <p class="form-lable-bold">At the current rate you'll have paid everything back by {{ session | calculateEndDate }}</p>
+  <div class="total-amount">£{{ session.debt_amount }}</div>
+  <!--<p class="form-lable-bold">
+    At the current rate your debt will be <br>
+    <span class="heading-medium">paid off by <script>ed()</script>
+    </span>
+  </p>-->
 </div>
 
-<h3 class="heading-medium">About what you owe</h3>
-<p>You're <span class="bold">currently repaying &pound;{{ 'payment_amount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}</span> from benefit.</br>This money is taken directly from your main benefit payment.<br><a href="reasons">Change your payments</a></p>
+<h3 class="heading-medium">Paying back now</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Benefit</th>
+        <th>Amount</th>
+        <th>Final repayment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <td>Income Support</td>
+        <td>&pound;35 every 2 weeks</td>
+        <td>7 March 2017</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
 
-<p>
-  View <a href="debt_overview">what you owe in detail</a>
+  <div class="panel panel-border-narrow">
+    <h4 class="heading-small">Why you're repaying this money</h3>
+    <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+    <p>You didn't report the change until 29 September 2016, which means you were paid £350 too much. Your benefit has been reduced to pay this back.</p>
+  </div>
+
+  <!-- <details>
+
+    <summary><span class="summary">Why you're repaying this money</span></summary>
+
+    <div class="panel panel-border-narrow">
+      <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+
+      <p>You didn't report the change until 29 September 2016, which means you were paid £350 too much. Your benefit has been reduced to pay this back.</p>
+    </div>
+
+  </details> -->
+
+<br /><br />
+  <h4 class="heading-small">Paying back later</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>What you owe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Carers Allowance</td>
+          <td>&pound;150</td>
+        </tr>
+        <tr>
+          <td>Employment and Support Allowance</td>
+          <td>&pound;80</td>
+        </tr>
+        <tr>
+          <td>Personal Independence Payment</td>
+          <td>&pound;200</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  <!--<h3 class="heading-medium">Why you're getting less</h3>
+  <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+  <p>You didn't report the change until 29 September 2016, which means you've been paid too much. Your benefit has been reduced to pay this back.</p>
+  <a class="button" href="change-your-payments">Change your repayments</a>-->
+
+<!--<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
+<a href="reasons">Change your payments</a>.
 </p>
+
+<p>View your <a href="debt_overview1">debt in detail</a>.</p>-->
 
 <!--<div class="panel panel-border-wide alert-default">
-  <p class="font-xsmall" >
-On Monday the 5 September you proposed to decreased your weekly payments from £10 to £9. This reduction is awaiting approval
-  </p>
-<p class="font-xsmall">
-  Reductions in payments can take up to XX working days to process
-</p>
+      <p class="font-xsmall">On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval.</p>
+      <p class="font-xsmall">Reductions in payments can take up to XX working days to process.</p>
+    </div>-->
+<br /><br />
 
-</div>-->
+<div>
+   <a class="button" href="change-your-payments">Change your repayments</a>
+</div>
+
+
 
 {% endblock %}
 
 {% block secondary %}
-<!--<div class="related">
-
-
-</div>-->
-
 <!-- 1 Third Column -->
 {% endblock %}
