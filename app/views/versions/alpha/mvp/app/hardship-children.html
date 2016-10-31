@@ -1,0 +1,71 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Do you have any children?</h1>
+
+  <form>
+    <div class="form-group">
+      <fieldset class="inline">
+
+      <legend class="visuallyhidden">Do you have any children?</legend>
+
+      <label class="block-label" for="radio-inline-1">
+        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="radio-inline-2">
+        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+        No
+      </label>
+
+    </fieldset>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<fieldset>
+      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
+      <div class="form-group">
+        <label class="form-label" for="mobile">Preferred telephone number</label>
+        <input class="form-control" name="mobile" type="text" id="mobile">
+        <p></p>
+        <label class="form-label" for="email-address">Email address</label>
+        <input class="form-control" name="email-address" type="text" id="email-address">
+      </div>
+    </fieldset>-->
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+    <a class="button" href="hardship-other-debt">Continue</a>
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

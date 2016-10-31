@@ -1,0 +1,102 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">What living expenses are you struggling to pay?</h1>
+
+  <p>Select all that apply to you:</p>
+  <form>
+    <div class="form-group">
+      <fieldset>
+
+      <legend class="visuallyhidden">Loans, credit cards and other debt</legend>
+
+      <label class="block-label" for="option-food">
+        <input id="option-food" type="checkbox" name="checkbox-group" value="No">
+        Food
+      </label>
+      <label class="block-label" for="option-rent">
+        <input id="option-rent" type="checkbox" name="checkbox-group" value="No">
+        Rent or mortgage payment
+      </label>
+      <label class="block-label" for="option-clothing">
+        <input id="option-clothing" type="checkbox" name="checkbox-group" value="No">
+        Clothing
+      </label>
+      <label class="block-label" for="option-medicine">
+        <input id="option-medicine" type="checkbox" name="checkbox-group" value="No">
+        Medicine
+      </label>
+      <label class="block-label" for="option-bills">
+        <input id="option-bills" type="checkbox" name="checkbox-group" value="No">
+        Utility bills (includes gas, water and electicity)
+      </label>
+      <label class="block-label" for="option-phone">
+        <input id="option-phone" type="checkbox" name="checkbox-group" value="No">
+        Phone
+      </label>
+      <label class="block-label" for="option-transport">
+        <input id="option-transport" type="checkbox" name="checkbox-group" value="No">
+        Transport
+      </label>
+
+      <label class="block-label" data-target="other-expense" for="option-other">
+        <input id="option-other" type="checkbox" name="checkbox-group" value="No">
+        Something else
+      </label>
+      <div class="panel panel-border-narrow js-hidden" id="other-expense">
+        <label class="form-label" for="something-else-describe">Give as much information as you can</label>
+        <input class="form-control" name="something-else-describe" type="text" id="something-else-describe">
+      </div>
+
+
+    </fieldset>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<fieldset>
+      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
+      <div class="form-group">
+        <label class="form-label" for="mobile">Preferred telephone number</label>
+        <input class="form-control" name="mobile" type="text" id="mobile">
+        <p></p>
+        <label class="form-label" for="email-address">Email address</label>
+        <input class="form-control" name="email-address" type="text" id="email-address">
+      </div>
+    </fieldset>-->
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+    <a class="button" href="contact-lower">Continue</a>
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}
