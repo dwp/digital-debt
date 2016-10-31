@@ -4,7 +4,7 @@
     <nav id="proposition-menu">
       <a href="/" id="proposition-name">{% if serviceName %} {{ appServiceName | d(serviceName) }} {% endif %}</a>
       {% if not page.hideSignoutLink %}
-        <a href="/versions/alpha/alpha-10/app/signout" class="signout">Sign out</a>
+        <a href="{{ prototype.current.path }}signout" class="signout">Sign out</a>
       {% endif %}
       <!--
       <ul id="proposition-links">
