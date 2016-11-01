@@ -1,0 +1,194 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class'],
+  primary: {
+    col: 'two-thirds'
+  }
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<div class="govuk-box-highlight">
+  <span class="heading-medium">Total you still owe</span>
+  <br/><br/>
+  <h2 class="bold-xlarge">
+    &pound;{{ session.debt_amount }}
+  </h2>
+
+  <p class="form-lable-bold">
+      At the current rate you'll have paid everything back by <span class="form-lable-bold">{{ session | calculateEndDate }}
+    </span>
+  </p>
+
+</div>
+
+<!--<h3 class="heading-large">Your &pound;{{ session.debt_amount }} debt breakdown</h3>-->
+<h2 class="heading-medium">What you owe in detail</h2>
+
+  {% for thisDebt in session.debt_reason %}
+
+    <div class="whole-border breakdown-item">
+
+      {% if thisDebt == 'social-fund' %}
+
+        <h3 class="heading-medium breakdown-item__title">Budgeting Loans</h3>
+
+        <p class="explination-of-benefits">Your Budegting Loan was to help pay for essential things like furniture, clothes, moving costs or repay other loans.</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>Loan - 2 March 2005</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | pct(76) }}
+              </td>
+            </tr>
+            <tr>
+              <td>Loan - 29 November 2007 </td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | pct(50) }}
+              </td>
+            </tr>
+            <tr>
+             <td>You still owe</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more-info">
+          If you think this isn't correct, call 0345 6036967 for help.
+        </div>
+
+      {% endif %}
+
+      {% if thisDebt == 'esa' %}
+
+        <h3 class="heading-medium breakdown-item__title">ESA</h3>
+
+        <p class="explination-of-benefits">You were paid too much between 4 April 2012 and 10 August 2012. This was because you were working full time.</p>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>You were overpaid</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | pct(60) }}
+              </td>
+            </tr>
+            <tr>
+              <td>You still owe</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more-info">
+            If you think this isn't correct, call 0345 608 8545.
+        </div>
+
+      {% endif %}
+
+      {% if thisDebt == 'jsa' %}
+
+        <h3 class="heading-medium breakdown-item__title ">JSA</h3>
+        <p class="explination-of-benefits">You were paid too much between 4 April 2012 and 10 August 2012. This was because you were working full time.</p>
+        <table>
+          <tbody>
+            <tr>
+              <td>You were overpaid</td>
+              <td class="numeric" scope="col">&pound;{{ session.debt_amount | pct(70) }}</td>
+            </tr>
+            <tr>
+              <td>You still owe</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="more-info">If you think this isn't correct, call 0345 608 8545.</div>
+
+      {% endif %}
+
+      {% if thisDebt == 'is' %}
+        <h3 class="heading-medium breakdown-item__title">Income Support</h3>
+        <p class="explination-of-benefits">You were paid too much between 6 January 2008 and 5 March 2008. This was because you were working full time.</p>
+          <table>
+          <tbody>
+            <tr>
+              <td>You were overpaid</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | pct(70) }}
+              </td>
+            </tr>
+            <tr>
+              <td>You still owe</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+          </table>
+
+          <div class="more-info">
+           If you think this isn't correct, call 0345 608 8545.
+          </div>
+      {% endif %}
+
+      {% if thisDebt == 'pip' %}
+
+        <h3 class="heading-medium breakdown-item__title">PIP</h3>
+        <p class="explination-of-benefits">You were paid too much between 6 January 2008 and 5 March 2008. This was because you were working full time.</p>
+          <table>
+          <tbody>
+            <tr>
+              <td>You were overpaid</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | pct(60) }}
+              </td>
+            </tr>
+            <tr>
+             <td>You still owe</td>
+              <td class="numeric" scope="col">
+                &pound;{{ session.debt_amount | toPercentageValue(loop.length,loop.index) }}
+              </td>
+            </tr>
+          </tbody>
+          </table>
+
+          <div class="more-info">
+             If you think this isn't correct, call 0800 917 2222.
+          </div>
+
+      {% endif %}
+
+    </div>
+    {# / whole-border #}
+
+  {% endfor %}
+
+  <h2 class="heading-medium">Your current agreement</h2>
+  <p>You're <span class="bold">currently repaying &pound;{{ session.payment_amount }}</span> {{ session.payment_frequency }} from benefit.<br>You'll receive notification of any recent changes.</p>
+  <p>At this rate you'll have paid everything back by <span class="bold">{{ session | calculateEndDate }}</span>.</p>
+
+  <p>Would you like to <a href="reasons">change your payments?</a>
+
+<!--  <form action="home" method="post">
+    <fieldset class="primary-nav form-group">
+    <legend class="visuallyhidden">Form Navigation</legend>
+    <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+  </form>-->
+
+{% endblock %}

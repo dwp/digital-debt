@@ -1,0 +1,43 @@
+{% set page = {
+  title: 'Overview',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class'],
+  hideSignoutLink: true
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<h1 class="heading-xlarge">
+   Manage your benefit repayments
+</h1>
+
+<p>With this service you can:</p>
+
+<ul class="list list-bullet">
+  <li>view details of benefits that you have to pay back</li>
+  <li>view what you’re paying back and when the final repayment will be</li>
+  <li>ask for your repayments to be increased or reduced</li>
+</ul>
+
+<div class="panel panel-border-wide">
+  <p>
+    You can only use this service if you've been given a username and password from the Department for Work and Pensions.
+  </p>
+</div>
+
+<p>
+  <a class="button button-start" href="your-details" role="button">Start now</a>
+</p>
+
+<h2 class="heading-medium">Other ways to manage repayments</h2>
+
+<p>You can get information and manage your repayments by phone:</p>
+
+<p>Telephone: 0845 850 0293<br />
+Monday to Friday 8am to 8pm, Saturday 9am to 4pm<br />
+<a href="">Find out about call charges</a></p>
+
+{% endblock %}

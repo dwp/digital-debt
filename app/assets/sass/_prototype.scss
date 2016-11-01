@@ -1,12 +1,107 @@
 // import resources
 @import 'prototype/imports';
 
-.alpha{
-  
-  &-01, &-02, &-03, &-04, &-05, &-06, &-07, &-08, &-09{
+.alpha {
+
+  &-01,
+  &-02,
+  &-03,
+  &-04,
+  &-05,
+  &-06,
+  &-07,
+  &-08,
+  &-09,
+  &-10,
+  &-11,
+  &.mvp {
+    
   		.money-ad{
-  		margin-bottom: 25px;
+  		  margin-bottom: 25px;
   		}
+
+      .fr { text-align: right; }
+
+      .total-amount { font-size: 80px; font-weight: bold; }
+
+      .chart-block {
+          clear: both;
+          margin-top: 25px;
+          margin-bottom: 80px;
+      }
+
+      .graph {
+          float: left;
+          width: 100%;
+          margin-top: -2px;
+      }
+
+      .graph li {
+          position: relative;
+          display: block;
+          background: #C1DFE4;
+          height: 37px;
+      }
+
+      .graph li .amount {
+          display: block;
+          float: left;
+          height: 100%;
+          background: #28a197;
+          line-height: 1.6em;
+          color: #fff;
+          text-align: right;
+          font-size: 1.3em;
+          font-weight: 800;
+      }
+
+      .graph li .complete-date {
+        display: block;
+        line-height: 1.8em;
+        height: 100%;
+        color: #28a197;
+        text-align: right;
+        font-size: 1.1em;
+        font-weight: 800;
+      }
+
+      .graph li .amount > * {
+          padding-right: 10px;
+      }
+
+      li .amount, li .complete-date {
+        padding-right: 10px;
+      }
+
+
+      .c-form-input-denote,
+      div.panel .c-form-input-denote {
+        position: absolute;
+        background-color: rgb(222, 224, 226);
+        line-height: 1;
+        margin: 2px 0px 0px 2px;
+        padding: 7px 12px;
+        z-index: 0;
+      }
+
+      .c-form-input-denote__input {
+        margin: 0;
+        padding-left: 40px;
+        background-color: transparent !important;
+        overflow: hidden;
+        z-index: 2;
+        position: relative;
+      }
+
+      .error .c-form-input-denote {
+        background-color: $error-colour;
+        color: $page-colour;
+        padding: 9px 12px;
+      }
+
+      .error .c-form-input-denote__input {
+        border-width: 4px !important;
+      }
 
 		.payment{
 			width: 70px;
@@ -31,7 +126,7 @@
 			border-left: 10px solid #2b8cc4;
 			padding: 15px;
 			margin-top: 15px;
-			}	
+			}
 
 		.off{
 			display: none;
@@ -49,11 +144,11 @@
 				font-weight: bold;
 			}
 		}
-    
+
 		.off.date-change{
 			display:block;
 		}
-		
+
 		.bold{
 			font-weight:bold;
 		}
@@ -88,7 +183,7 @@
 			display:block;
 		}
 		.benefit_expand{
-			
+
 		    width: 100%;
 		    height: 40px;
 		    padding-top: 15px;
@@ -115,21 +210,21 @@
 			     padding: 15px 0px 50px 0px;
 			     }
 		}
-    
+
     .js-hidden.error-message {
       display: none;
     }
-    
+
     .error-message {
       display: inline-block;
     }
-    
+
 		.js-benefit_list{
 			h3{
 			margin-top:0px;
 			}
 		}
-			    
+
   }
   .signout{
    	color: white;
@@ -159,7 +254,7 @@
     display: block;
     margin-top: 20px;
     }
-  
+
 }
 
 .hide{
@@ -176,11 +271,12 @@ clear:both;
      clear: both;
      height: 0;
      }
-     }
+}
 
 .amount-left{
 	font-weight: normal!important;
 }
+
 .alpha{
 	&-07, &-06{
 		.debt-history{
@@ -194,7 +290,9 @@ clear:both;
 }
 
 .alpha {
+  
   &-08, &-09 {
+    
     .whole-border{
     	padding: 30px;
     	margin-bottom: 30px;
@@ -203,26 +301,26 @@ clear:both;
 
     .more-info{
       margin-top: 30px;
-      width: 66.6%;  
+      width: 66.6%;
     }
     .explination-of-benefits{
-      margin-top: 15px; 
-      margin-top: 15px;  
-      width: 66.6%; 
+      margin-top: 15px;
+      margin-top: 15px;
+      width: 66.6%;
     }
-    
+
     .breakdown-item {
-      
+
       &__title {
         margin-top: 0;
       }
-      
+
     }
-       
+
   }
-  
+
   &-09 {
-    
+
     .benefit_list {
       display: block;
 			h3{
@@ -231,6 +329,5 @@ clear:both;
     }
     
   }
-  
-}
 
+} // outer .alpha- selector

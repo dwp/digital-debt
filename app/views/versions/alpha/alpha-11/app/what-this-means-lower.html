@@ -1,0 +1,76 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Lowering your repayments</h1>
+<p>You've chosen to change your amount to &pound;32. It will take 2 weeks longer to pay the money back.</p>
+<p>You'll have paid this money back by 21 March 2017.</p>
+<!--<div class="chart-block">
+  <div class="graph-title">You'll have paid this money back by 20 January 2018.</div>
+  <div class="graph">
+    <li>
+      <div class="amount" style="width: 56%;"></div><div class="complete-date">20 January 2018</div>
+    </li>
+  </div>
+</div>-->
+
+<!--<h1 class="heading-medium">What are you struggling to do?</h1>
+
+<form>
+<div class="form-group">
+  <fieldset>
+    <legend class="visuallyhidden">What are you struggling to do?</legend>
+
+    <label class="block-label" for="radio-1">
+      <input id="radio-1" type="radio" name="radio-group" value="Pay off debts">
+      Pay off debts, loans or credit cards
+    </label>
+    <label class="block-label" for="radio-2">
+      <input id="radio-2" type="radio" name="radio-group" value="Take care of myself">
+      Take care of myself
+    </label>
+    <label class="block-label" for="radio-3">
+      <input id="radio-3" type="radio" name="radio-group" value="Take care of my Children">
+      Take care of my children or others who rely on me
+    </label>
+    <label class="block-label" for="radio-4">
+      <input id="radio-4" type="radio" name="radio-group" value="Pay my rent">
+      Pay my rent, mortgage or other essential bills
+    </label>
+
+  </fieldset>
+</div>
+</form>-->
+
+<a class="button" href="hardship-why">Continue</a>
+
+<!--<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
+<a href="reasons">Change your payments</a>.
+</p>
+
+<p>View your <a href="debt_overview1">debt in detail</a>.</p>-->
+
+<!--<div class="panel panel-border-wide alert-default">
+      <p class="font-xsmall">On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval.</p>
+      <p class="font-xsmall">Reductions in payments can take up to XX working days to process.</p>
+    </div>-->
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

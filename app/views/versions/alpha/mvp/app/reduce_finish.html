@@ -1,0 +1,41 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="govuk-box-highlight">
+  <h1 class="bold-xlarge">Request sent</h1>
+  <h3 class="heading-medium">Your request to lower repayments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
+</div>
+
+<h4 class="heading-medium">What happens next</h4>
+<p>You’ll get a notification when a decision has been made.</p>
+<p>You may be asked to give more information about your circumstances or to send some evidence.</p>
+
+
+<!--<form action="home" method="post">
+      <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+-->
+
+<br/>
+<p><img src="/public/images/icon-file-download.png" style="position: relative; float: left; margin-top: -5px;">&nbsp; <a href="#" class="heading-medium">Save this page</a></p>
+<p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: -5px;">&nbsp; <a href="#" onclick="window.print();" class="heading-medium">Print this page</a></p>
+
+<a href="feedback" value="Submit">What did you think of this service?</a><br/>
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

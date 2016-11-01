@@ -3,7 +3,7 @@
 {% extends "layouts/layout.html" %}
 
 {% block page_title %}
-  {{ (page.title + ' &ndash; ') | safe if page.title }}{{ serviceName }}
+  {{ (page.title + ' &ndash; ') | safe if page.title }}{{ appServiceName | d(serviceName) }}
 {% endblock %}
 
 {% block body_classes %}{% if page.body_classes %}{% for class in page.body_classes %}{{ class }}{% if not loop.last and loop.length > 1 %} {% endif %}{% endfor %}{% endif %} {{ prototype.current.body_class }}{% endblock %}

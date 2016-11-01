@@ -2,14 +2,10 @@
   <div class="content">
     <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
     <nav id="proposition-menu">
-      <a href="/" id="proposition-name">{% if serviceName %} {{ serviceName }} {% endif %}</a>
-      <a href="/versions/alpha/alpha-09/app/signout" class="signout">Sign out</a>
-      <!--
-      <ul id="proposition-links">
-        <li><a href="url-to-page-1" class="active">Navigation item #1</a></li>
-        <li><a href="url-to-page-2">Navigation item #2</a></li>
-      </ul>
-      -->
+      <a href="/" id="proposition-name">{% if serviceName %} {{ appServiceName | d(serviceName) }} {% endif %}</a>
+      {% if not page.hideSignoutLink %}
+        <a href="{{ prototype.current.path }}signout" class="signout">Sign out</a>
+      {% endif %}
     </nav>
   </div>
 </div>

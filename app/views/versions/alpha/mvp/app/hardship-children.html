@@ -1,0 +1,69 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">About your household</h1>
+
+  <form>
+    <div class="form-group">
+      <div id="contact-by-text">
+        <label class="form-label" for="contact-text-message">How many people live with you?</label>
+        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+      </div>
+
+      <br />
+
+      <div id="contact-by-text">
+        <label class="form-label" for="contact-text-message">How many of these are children?</label>
+        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+      </div>
+
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<fieldset>
+      <legend class="visuallyhidden">These details will only be used if we need more information.</legend>
+      <div class="form-group">
+        <label class="form-label" for="mobile">Preferred telephone number</label>
+        <input class="form-control" name="mobile" type="text" id="mobile">
+        <p></p>
+        <label class="form-label" for="email-address">Email address</label>
+        <input class="form-control" name="email-address" type="text" id="email-address">
+      </div>
+    </fieldset>-->
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+    <a class="button" href="hardship-other-debt">Continue</a>
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

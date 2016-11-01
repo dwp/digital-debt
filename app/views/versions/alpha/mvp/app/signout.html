@@ -1,0 +1,406 @@
+{% set page = {
+  title: 'You’ve signed out of your account',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<article class="content__body">
+
+<h1 class="heading-large top-title-heading"> You’ve signed out of your account </h1>
+<p>Give us feedback to help us improve. It'll take no more than 2&nbsp;minutes.</p>
+
+<form action="/" method="POST">
+
+<fieldset class="feeback-block">
+
+    <legend class="heading-medium">
+        How easy was it to use this service?
+    </legend>
+
+
+
+
+
+        <label for="easytouse-0" class="block-label">
+
+            <input type="radio" id="easytouse-0" name="easytouse" value="0">
+
+                 Very easy
+
+        </label>
+
+
+
+        <label for="easytouse-1" class="block-label">
+
+            <input type="radio" id="easytouse-1" name="easytouse" value="1">
+
+                 Easy
+
+        </label>
+
+
+
+        <label for="easytouse-2" class="block-label">
+
+            <input type="radio" id="easytouse-2" name="easytouse" value="2">
+
+                 Difficult
+
+        </label>
+
+
+
+        <label for="easytouse-3" class="block-label">
+
+            <input type="radio" id="easytouse-3" name="easytouse" value="3">
+
+                 Very difficult
+
+        </label>
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+<fieldset class="feeback-block">
+
+    <legend class="heading-medium">
+        When you used this service, did you:
+    </legend>
+
+
+
+
+
+        <label for="useitbyyourself-0" class="block-label">
+
+            <input type="radio" id="useitbyyourself-0" name="useitbyyourself" value="0">
+
+                 Use it by yourself
+
+        </label>
+
+
+
+        <label for="useitbyyourself-1" class="block-label">
+
+            <input type="radio" id="useitbyyourself-1" name="useitbyyourself" value="1">
+
+                 Use it with someone's help
+
+        </label>
+
+
+
+        <label for="useitbyyourself-2" class="block-label">
+
+            <input type="radio" id="useitbyyourself-2" name="useitbyyourself" value="2">
+
+                 Have someone use it for you
+
+        </label>
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+<fieldset class="feeback-block">
+
+    <legend class="heading-medium">
+        How likely are you to use this service again?
+    </legend>
+
+
+
+
+
+        <label for="likelytouse-0" class="block-label">
+
+            <input type="radio" id="likelytouse-0" name="likelytouse" value="0">
+
+                 Very likely
+
+        </label>
+
+
+
+        <label for="likelytouse-1" class="block-label">
+
+            <input type="radio" id="likelytouse-1" name="likelytouse" value="1">
+
+                 Likely
+
+        </label>
+
+
+
+        <label for="likelytouse-2" class="block-label">
+
+            <input type="radio" id="likelytouse-2" name="likelytouse" value="2">
+
+                 Unlikely
+
+        </label>
+
+
+
+        <label for="likelytouse-3" class="block-label">
+
+            <input type="radio" id="likelytouse-3" name="likelytouse" value="3">
+
+                 Very unlikely
+
+        </label>
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset class="feeback-block">
+
+    <legend class="heading-medium">
+        After using this service, do you have:
+    </legend>
+
+
+
+
+
+        <label for="understanding-0" class="block-label">
+
+            <input type="radio" id="understanding-0" name="understanding" value="0">
+
+                 A better understanding of the money you owe
+
+        </label>
+
+
+
+        <label for="understanding-1" class="block-label">
+
+            <input type="radio" id="understanding-1" name="understanding" value="1">
+
+                 Less understanding of the money you owe
+
+        </label>
+
+
+
+        <label for="understanding-2" class="block-label">
+
+            <input type="radio" id="understanding-2" name="understanding" value="2">
+
+                 No change in your understanding
+
+        </label>
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+<fieldset class="feeback-block">
+
+    <legend class="heading-medium">
+        What are you most likely to do next:
+    </legend>
+
+
+
+
+
+        <label for="whatWillYouDoNext-0" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-0" name="whatWillYouDoNext" value="0">
+
+                 Contact a financial advisor or a free advice service
+
+        </label>
+
+
+
+        <label for="whatWillYouDoNext-1" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-1" name="whatWillYouDoNext" value="1">
+
+                 Contact DWP
+
+        </label>
+
+
+
+
+
+
+
+        <label for="whatWillYouDoNext-3" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-3" name="whatWillYouDoNext" value="3">
+
+                 Ask friends and family for help
+
+        </label>
+
+
+
+        <label for="whatWillYouDoNext-4" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-4" name="whatWillYouDoNext" value="4">
+
+                 Look into other debts and benefits
+
+        </label>
+
+
+
+
+
+
+
+        <label for="whatWillYouDoNext-7" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-7" name="whatWillYouDoNext" value="7">
+
+                 Nothing
+
+        </label>
+
+
+
+        <label for="whatWillYouDoNext-8" class="block-label">
+
+            <input type="radio" id="whatWillYouDoNext-8" name="whatWillYouDoNext" value="8">
+
+                 Other
+
+        </label>
+
+
+</fieldset>
+
+
+<fieldset>
+    <legend class="heading-medium">How could we improve this service?</legend>
+    <label for="improvement-comments" class="visuallyhidden">Your comments</label>
+    <textarea name="service_feedback[improvement_comments]" class="full-size counted" id="improvement-comments">
+    </textarea>
+     <p id="improvement-commentscounter" class="hint" aria-live="polite" aria-atomic="false">(Limit is 1200 characters)</p>
+
+      <p>Please don't include any personal or financial information, for example your National Insurance or credit card numbers.</p>
+  </fieldset>
+
+
+
+<fieldset class="inline feeback-block">
+
+    <legend class="heading-medium research">
+        Will you take part in future research to help us improve the service?
+    </legend>
+
+
+
+
+
+        <label for="research-0" class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+
+            <input type="radio" id="research-0" name="research" value="0">
+
+                 Yes
+
+        </label>
+
+
+
+        <label for="research-1" class="block-label">
+
+            <input type="radio" id="research-1" name="research" value="1">
+
+                 No
+
+        </label>
+
+
+<div id="contact-by-email" class="panel panel-border-narrow  js-hidden">
+      <label for="example-contact-by-email"  class="form-label ">
+
+        Please leave your email address so we can contact you   </label>
+
+      <input type="text" class="form-control" name="email" id="email" value="" maxlength="255">
+
+</div>
+
+
+
+
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="heading-small">
+        <input class="button" type="submit" value="Send feedback">
+    </div>
+
+</form>
+
+
+
+</article>
+
+{% endblock %}
+
+{% block secondary %}
+<div class="related">
+
+
+  </div>
+
+<!-- 1 Third Column -->
+{% endblock %}

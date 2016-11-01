@@ -1,6 +1,7 @@
 {% set page = {
   title: prototype.current.version,
-  dev: false
+  dev: false,
+  hideSignoutLink: true
 } %}
 
 {% extends "layouts/dwp_layout.html" %}
@@ -14,7 +15,7 @@
   {% endblock %}
   
   {% block version_cta %}
-    <p><a class="button" href="{{ prototype.current.path | d('#path-not-set') }}" role="button">Launch {{ prototype.current.version }}</a></p>
+    <p><a class="button" href="{{ version_cta | d(prototype.current.path | d('#path-not-set')) }}" role="button">Launch {{ prototype.current.version }}</a></p>
   {% endblock %}
   
 {% endblock %}
