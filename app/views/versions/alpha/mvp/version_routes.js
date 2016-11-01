@@ -42,7 +42,7 @@ module.exports = function(router, config) {
           payment_frequency: "fortnightly",
           debt_reason: ['is','pip']
         });
-        return res.redirect('index');
+        return res.redirect('your-details');
       break; 
       
       // this creates a session with particular data 
