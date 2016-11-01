@@ -33,7 +33,7 @@
           <div><span class="payment-adjust-field__error error-message js-error-message js-hidden"></span></div>
         </label>
 
-        <input class="form-control payment payment-adjust-field__amount js-payment-adjust-field__amount" name="payment_amount" id="payment_amount" type="text">
+        <input class="form-control payment payment-adjust-field__amount js-payment-adjust-field__amount" name="payment_amount" id="payment_amount" type='number' step='0.01'>
 
         <div class="date-change payment-adjust-field__prediction js-payment-adjust-field__prediction js-hidden">You'll have paid everything back by
           <span style="font-weight: bold;" class="payment-adjust-field__prediction__date js-payment-adjust-field__prediction__date">{{ session | calculateEndDate }}</span>.
