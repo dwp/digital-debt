@@ -47,11 +47,16 @@ module.exports = function(router, config) {
       
       // this creates a session with particular data 
       case 'handle_savings':
+        var route_medical = false;
         var totalsavings = parseFloat(Math.floor(postData.total_savings)).toFixed(2);
-        if(totalsavings >= 500) {
+        if (!route_medical) {
           return res.redirect('hardship-medical');
         } else {
-          return res.redirect('hardship-children');
+          if(totalsavings >= 500) {
+            return res.redirect('hardship-medical');
+          } else {
+            return res.redirect('hardship-children');
+          }  
         }
       break; 
        
