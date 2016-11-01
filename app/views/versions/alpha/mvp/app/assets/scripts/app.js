@@ -173,7 +173,7 @@
               this.errorHandler($module, 'Please enter an amount');
           // }
         } else {
-          if(currentValueNum > minAmount) {
+          if(currentValueNum >= minAmount) {
             if(currentValueNum < maxAmount) {
               this.errorHandler($module, 'reset');
               this.handleRepaymentPrediction($module, moduleData, currentValueNum);
