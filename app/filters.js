@@ -1,5 +1,7 @@
 var _ = require('lodash');
 var qs = require('qs');
+var utils = require(__dirname + '/utils');
+
 module.exports = function(env) {
   var nunjucksSafe = env.getFilter('safe');
   /**
@@ -217,42 +219,7 @@ module.exports = function(env) {
    * @param  {object}         session the users data submitted in the form-hint
    * @return {String}                 Date string derived from the user's input
    */
-  filters.calculateEndDate = function calculateEndDate(data) {
-    
-    if (data) {
-      // we need the payment frequency
-      if(!! data.payment_frequency) {
-        // calculate the number of payments that will need to be made
-        var numberOfPayments = Math.ceil(data.debt_amount / data.payment_amount),
-            endDate = new Date();
-        
-        // use the frequency to calculate the date
-        switch(data.payment_frequency) {
-          case 'weekly':
-            endDate.setDate(numberOfPayments * 7);
-          break;        
-          case 'fortnightly': 
-            // console.log("It's fortnightly");
-            endDate.setDate(numberOfPayments * 14);
-          break;
-          case 'four-weekly': 
-            endDate.setDate(numberOfPayments * 28);
-          break;
-          case 'monthly': 
-            endDate.setMonth(endDate.getMonth() + numberOfPayments);
-          break;
-        }
-        
-        // return the date in a formatted string
-        return ("1 " + endDate.toLocaleString("en-gb", { month: "long" }) + " " + endDate.getUTCFullYear());
-        
-      } else {
-        return filters.log('There is no payment frequency in the session data!');
-      }
-    } else {
-      return filters.log('There is no session data!');
-    }
-  };
+  filters.calculateEndDate = utils.calculateEndDate;
   
   filters.getPaymentAmount = function getPaymentAmount(data) {
     if(data) {
@@ -291,44 +258,9 @@ module.exports = function(env) {
    * @param  {Number}  p   the number of decimal places (defaults to 2)
    * @return {Number}      the converted number
    */
-  filters.toDecimal = function toDecimal(num,p){
-    if(num && typeof num == 'number'){
-      return Number(num).toFixed(!! p ? p : 2);
-    }
-  };
+  filters.toDecimal = utils.toDecimal;
   
-  filters.getMinimalAmount = function getMinimalAmount(data) {
-    if(data) {
-      if(!! data.payment_frequency) {
-        
-        var finalAmount,
-            minimalAmount = 3.40;
-        
-        // use the frequency to calculate the date
-        switch(data.payment_frequency) {
-          case 'weekly':
-            finalAmount = minimalAmount;
-          break;        
-          case 'fortnightly': 
-            // console.log("It's fortnightly");
-            finalAmount = minimalAmount * 2;
-          break;
-          case 'four-weekly': 
-            finalAmount = minimalAmount * 4;
-          break;
-          case 'monthly': 
-            finalAmount = (minimalAmount * 4) + minimalAmount;
-          break;
-        }
-        
-        // return amount but converted to 2 decimal places
-        return filters.toDecimal(finalAmount);
-        
-      }
-    } else {
-      return filters.log('There is no session data!');
-    }
-  };
+  filters.getMinimalAmount = utils.getMinimalAmount;
   
   filters.getFromSession = function getFromSession(path){
     var session = env.globals.sessionData;
