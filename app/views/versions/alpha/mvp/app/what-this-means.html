@@ -1,0 +1,48 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">What this means</h1>
+<p>You've chosen to change your amount to &pound;{{ session.payment_amount | d('XX')}}.</p>
+<p>You'll have paid this money back by 24 January 2017.</p>
+<!--<div class="chart-block">
+  <div class="graph-title">You'll have paid this money back by 20 March 2017.</div>
+  <div class="graph">
+    <li>
+      <div class="amount" style="width: 56%;"></div><div class="complete-date">20 March 2017</div>
+    </li>
+  </div>
+</div>-->
+
+<a class="button" href="contact">Continue</a>
+
+<!--<p>You're <span class="bold">currently repaying £<script>document.write(parseFloat(regularAmmount).toFixed(2) + " " + getCookie(paymentIntervalCookieName));</script> </span>from benefit.</br>This money is taken directly from your main benefit payment.<br>
+<a href="reasons">Change your payments</a>.
+</p>
+
+<p>View your <a href="debt_overview1">debt in detail</a>.</p>-->
+
+<!--<div class="panel panel-border-wide alert-default">
+      <p class="font-xsmall">On Monday the 5 September you decreased your weekly payments from £10 to £9. This reduction is awaiting approval.</p>
+      <p class="font-xsmall">Reductions in payments can take up to XX working days to process.</p>
+    </div>-->
+
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

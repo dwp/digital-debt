@@ -1,0 +1,24 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Lowering your repayments</h1>
+<p>You've chosen to change your amount to {{ session.payment_amount | d('XX')}}. It will take 2 weeks longer to pay the money back.</p>
+<p>You'll have paid this money back by 21 March 2017.</p>
+
+<a class="button" href="hardship-why">Continue</a>
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
