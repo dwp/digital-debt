@@ -12,10 +12,13 @@
 <!-- 3 Third Column -->
 <h1 class="heading-xlarge">Benefits you're paying back</h1>
 <!--<h2 class="heading-medium">Summary</h2>-->
+
+
 <div class="govuk-box-highlight">
-  <h2 class="bold-medium">Total you need to repay</h2>
+  <h2 class="bold-medium">Total you still need to repay</h2>
   <br>
-  <div class="total-amount">£{{ session.debt_amount }}</div>
+  <!--<div class="total-amount">£{{ session.debt_amount }}</div>-->
+  <div class="total-amount">£550</div>
 </div>
 
 <h3 class="heading-medium">Paying back now</h3>
@@ -24,14 +27,16 @@
       <tr>
         <th>Benefit</th>
         <th>Amount</th>
-        <th>Final repayment</th>
+        <th>Starts</th>
+        <th>Ends</th>
       </tr>
     </thead>
     <tbody>
       <tr>
        <td>Income Support</td>
-        <td>&pound;17 every 2 weeks</td>
-        <td>7 March 2017</td>
+        <td>&pound;52.50 every 2 weeks</td>
+        <td>29 Nov 2016</td>
+        <td>21 Feb 2017</td>
       </tr>
     </tbody>
   </table>
@@ -42,8 +47,7 @@
     <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
     <p>You didn't report the change until 29 September 2016, which means you were paid £350 too much. Your benefit has been reduced to pay this back.</p>
   </div>
-
-<br /><br />
+  <br />
   <h4 class="heading-small">Paying back later</h3>
     <table>
       <thead>
