@@ -5,13 +5,14 @@ var utils = require('../../../../utils');
 var defaultSession = {
   username: "",
   password: "",
+  allowance: 146.20,
   debt_amount: 350,
   payment_frequency: "fortnightly",
   debt_reason: ['is','pip'],
 }
 
 // calculate the payment amount based on debt amount
-defaultSession.payment_amount = parseFloat(Math.floor(defaultSession.debt_amount/100*5)).toFixed(2);
+defaultSession.payment_amount = parseFloat(defaultSession.allowance/100*15).toFixed(2);
 
 module.exports = function(router, config) {
   

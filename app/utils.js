@@ -57,6 +57,32 @@ exports.getMinimalAmount = function(data) {
   }
 };
 
+exports.humanInterval = function(data) {
+  
+  if (data) {
+    // we need the payment frequency
+    if(!! data.payment_frequency) {
+    
+      // use the frequency to calculate the date
+      switch(data.payment_frequency) {
+        case 'weekly':
+          return data.payment_frequency;
+        break;        
+        case 'fortnightly': 
+          return 'every two weeks';
+        break;
+        case 'four-weekly': 
+          return 'Every four weeks';
+        break;
+        case 'monthly': 
+          return data.payment_frequency;
+        break;
+      }
+    };
+   
+   }
+}
+
   /**
    * takes the session data object and calculates an end payment date based on
    * the users answers

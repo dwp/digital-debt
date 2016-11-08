@@ -3,6 +3,7 @@ var qs = require('qs');
 var utils = require(__dirname + '/utils');
 
 module.exports = function(env) {
+
   var nunjucksSafe = env.getFilter('safe');
   /**
    * Instantiate object used to store the methods registered as a
@@ -270,6 +271,8 @@ module.exports = function(env) {
   filters.pct = function pct(amount, percent) {
     return ((parseInt(amount)/100)* parseInt(percent)).toFixed(2);
   };
+  
+  filters.humanInterval = utils.humanInterval;
   
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
     if(total && divisions && index) {

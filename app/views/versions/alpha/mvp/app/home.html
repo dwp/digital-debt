@@ -17,8 +17,8 @@
 <div class="govuk-box-highlight">
   <h2 class="bold-medium">Total you still need to repay</h2>
   <br>
-  <!--<div class="total-amount">£{{ session.debt_amount }}</div>-->
-  <div class="total-amount">£550</div>
+  <div class="total-amount">£{{ session.debt_amount }}</div>
+  <!-- <div class="total-amount">£550</div> -->
 </div>
 
 <h3 class="heading-medium">Paying back now</h3>
@@ -34,9 +34,9 @@
     <tbody>
       <tr>
        <td>Income Support</td>
-        <td>&pound;52.50 every 2 weeks</td>
+        <td>&pound;{{ session.payment_amount }} {{ session | humanInterval }}</td>
         <td>29 Nov 2016</td>
-        <td>21 Feb 2017</td>
+        <td>{{ session | calculateEndDate }}</td>
       </tr>
     </tbody>
   </table>
