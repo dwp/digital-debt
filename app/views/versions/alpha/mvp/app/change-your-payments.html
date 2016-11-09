@@ -13,7 +13,7 @@
   <h1 class="heading-xlarge">Change your repayments</h1>
   <p>You need to pay back &pound;{{ session.debt_amount }} of your Income Support. Your Income Support has been reduced by £{{ session.payment_amount }} every 2 weeks.</p>
   <div class="chart-block">
-    <div class="graph-title">You'll have paid this money back by 7 March 2017.</div>
+    <div class="graph-title">You'll have paid this money back by {{ session | calculateEndDate }}.</div>
   </div>
 
   <h3 class="heading-medium">Choose amount</h3>

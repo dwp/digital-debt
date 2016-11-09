@@ -13,6 +13,7 @@ var defaultSession = {
 
 // calculate the payment amount based on debt amount
 defaultSession.payment_amount = parseFloat(defaultSession.allowance/100*15).toFixed(2);
+defaultSession.minimum_amount = parseFloat(defaultSession.allowance/100*5).toFixed(2);
 
 module.exports = function(router, config) {
   
@@ -72,7 +73,7 @@ module.exports = function(router, config) {
         
         // get the minimum amount based on the session as the minimum amount
         // is dependant on the user's payment interval (fortnightly, etc)
-        var minimumPayment = utils.getMinimalAmount(req.session.data);
+        var minimumPayment = defaultSession.minimum_amount;
         
         // store the new amount the user has offered
         var newPaymentAmountRequested = req.session.data.payment_amount;

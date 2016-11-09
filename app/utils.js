@@ -26,47 +26,20 @@ exports.toDecimal = toDecimal;
 
 exports.getMinimalAmount = function(data) {
   if(data) {
-    if(!! data.payment_frequency) {
-      
-      var finalAmount,
-          minimalAmount = 3.40;
-      
-      // use the frequency to calculate the date
-      switch(data.payment_frequency) {
-        case 'weekly':
-          finalAmount = minimalAmount;
-        break;        
-        case 'fortnightly': 
-          // console.log("It's fortnightly");
-          finalAmount = minimalAmount * 2;
-        break;
-        case 'four-weekly': 
-          finalAmount = minimalAmount * 4;
-        break;
-        case 'monthly': 
-          finalAmount = (minimalAmount * 4) + minimalAmount;
-        break;
-      }
-      
+    if(!! data.allowance) {
       // return amount but converted to 2 decimal places
-      return toDecimal(finalAmount);
-      
+      return toDecimal((data.allownace/100*5));
     }
   } else {
     return console.log('There is no session data!');
   }
 };
 
-exports.humanInterval = function(data) {
-  
-  if (data) {
-    // we need the payment frequency
-    if(!! data.payment_frequency) {
-    
-      // use the frequency to calculate the date
-      switch(data.payment_frequency) {
+exports.humanise = function(string) {
+  if (string) {
+      switch(string) {
         case 'weekly':
-          return data.payment_frequency;
+          return 'weekly';
         break;        
         case 'fortnightly': 
           return 'every two weeks';
@@ -75,11 +48,11 @@ exports.humanInterval = function(data) {
           return 'Every four weeks';
         break;
         case 'monthly': 
-          return data.payment_frequency;
+          return 'monthly';
         break;
       }
-    };
-   
+   } else {
+     console.log('You did not pass in a string');
    }
 }
 

@@ -272,7 +272,7 @@ module.exports = function(env) {
     return ((parseInt(amount)/100)* parseInt(percent)).toFixed(2);
   };
   
-  filters.humanInterval = utils.humanInterval;
+  filters.humanise = utils.humanise;
   
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
     if(total && divisions && index) {
