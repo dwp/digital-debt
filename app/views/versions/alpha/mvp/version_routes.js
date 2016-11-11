@@ -12,6 +12,7 @@ var defaultSession = {
 }
 
 // calculate the payment amount based on debt amount
+defaultSession.payment_amount_original = parseFloat(defaultSession.allowance/100*15).toFixed(2);
 defaultSession.payment_amount = parseFloat(defaultSession.allowance/100*15).toFixed(2);
 defaultSession.minimum_amount = parseFloat(defaultSession.allowance/100*5).toFixed(2);
 
@@ -73,10 +74,10 @@ module.exports = function(router, config) {
         
         // get the minimum amount based on the session as the minimum amount
         // is dependant on the user's payment interval (fortnightly, etc)
-        var minimumPayment = defaultSession.minimum_amount;
+        var minimumPayment = parseFloat(defaultSession.minimum_amount);
         
         // store the new amount the user has offered
-        var newPaymentAmountRequested = req.session.data.payment_amount;
+        var newPaymentAmountRequested = parseFloat(req.session.data.payment_amount);
         
         // if less than minimum then redirect to page that deals with that    
         if (newPaymentAmountRequested < minimumPayment) {
@@ -90,6 +91,25 @@ module.exports = function(router, config) {
             return res.redirect('what-this-means-lower');
           }  
         }
+        
+      break;
+      
+      case 'process_minimum_payment_choice':
+        
+        // get the minimum amount based on the session as the minimum amount
+        // is dependant on the user's payment interval (fortnightly, etc)
+        var minimumPayment = parseFloat(defaultSession.minimum_amount);
+        
+        // store the new amount the user has offered
+        var newPaymentAmountRequested = parseFloat(req.session.data.payment_amount);
+        
+        // if less than minimum then redirect to page that deals with that    
+        if (newPaymentAmountRequested < minimumPayment) {
+          return res.redirect('requested-below-minimum');
+        } else {
+          return res.redirect('what-this-means-lower');
+        }
+        
       break;
        
     }

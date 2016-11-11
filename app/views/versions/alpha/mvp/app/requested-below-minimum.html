@@ -1,0 +1,29 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+  <a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Talk to us about managing your benefits</h1>
+  
+  <p>If you are struggling we are here to help you manage your benefits.</p>
+  
+  <p>If you can't afford for the minimum deduction of &pound;{{ session.minimum_amount }} to be taken from your benefits, talk to an advisor about your circumstances.</p>
+  
+  <p class="heading-large">Call us on 0800 123 123</p>
+  
+  <!-- <div class="govuk-box-highlight" style="padding: 1.5em;">
+    <h2 class="bold-medium">Call us on 0161 688 4500</h2>
+  </div> -->
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
