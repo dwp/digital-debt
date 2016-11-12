@@ -84,7 +84,7 @@ module.exports = function(router, config) {
           return res.redirect('what-this-means-below-minimum');
         } else {
           // redirect if greater than their original payment amount (stored in previous version of the session)
-          if (req.session.data.payment_amount > req.session.dataPrev.payment_amount){
+          if (parseFloat(req.session.data.payment_amount).toFixed(2) >= parseFloat(req.session.data.payment_amount_original).toFixed(2)){
             return res.redirect('what-this-means');
           // else redirect if lower
           } else {
@@ -98,13 +98,13 @@ module.exports = function(router, config) {
         
         // get the minimum amount based on the session as the minimum amount
         // is dependant on the user's payment interval (fortnightly, etc)
-        var minimumPayment = parseFloat(defaultSession.minimum_amount);
+        var minimumPayment = parseFloat(defaultSession.minimum_amount).toFixed(2);
         
         // store the new amount the user has offered
-        var newPaymentAmountRequested = parseFloat(req.session.data.payment_amount);
+        var newPaymentAmountRequested = parseFloat(req.session.data.payment_amount).toFixed(2);
         
         // if less than minimum then redirect to page that deals with that    
-        if (newPaymentAmountRequested < minimumPayment) {
+        if (parseFloat(newPaymentAmountRequested).toFixed(2) < parseFloat(minimumPayment).toFixed(2)) {
           return res.redirect('requested-below-minimum');
         } else {
           return res.redirect('what-this-means-lower');

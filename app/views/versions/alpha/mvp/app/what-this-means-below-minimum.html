@@ -2,7 +2,8 @@
   title: 'index',
   dev: true,
   secondary: true,
-  html_classes: ['page-class']
+  html_classes: ['page-class'],
+  paymentDiff: session | diffInWeeks((session | calculateEndDate(session_prev.payment_amount_original)),(session | calculateEndDate))
 } %}
 
 {% extends page.layout | d(prototype.current.layout) %}

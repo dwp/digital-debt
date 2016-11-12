@@ -1,6 +1,19 @@
 var _ = require('lodash');
 var qs = require('qs');
 var utils = require(__dirname + '/utils');
+var moment = require('moment');
+moment.locale('en-GB');
+
+moment.fn.durationInWeeks = function(fromDate, toDate) {
+    var days    = toDate.diff(fromDate, 'days');    
+    var weeks   = toDate.diff(fromDate, 'weeks');
+    if (weeks === 0) {
+        return days + ' ' + (days > 1 ? 'days' : 'day');
+    } else {
+        return weeks + ' ' + (Math.round(days / 7) > 1 ? 'weeks' : 'week');
+    }
+}
+
 
 module.exports = function(env) {
 
@@ -273,6 +286,20 @@ module.exports = function(env) {
   };
   
   filters.humanise = utils.humanise;
+  
+  filters.formatDate = utils.formatDate;
+  
+  filters.diffInWeeks = function diffInWeeks(data, date1, date2) {
+    var d1 = moment(date1, 'll');
+    var d2 = moment(date2, 'll');
+    var diff = moment().durationInWeeks(d1,d2);
+    diff = diff + ' ' + (diff.indexOf('-') ? 'longer' : 'less');
+    if(!diff.indexOf('-')) { 
+      diff = diff.replace("-","");
+      diff = diff.replace("week","weeks");
+    }
+    return diff;
+  },
   
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
     if(total && divisions && index) {

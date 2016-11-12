@@ -35,7 +35,7 @@
       <tr>
        <td>Income Support</td>
         <td>&pound;{{ session.payment_amount }} {{ session.payment_frequency | humanise }}</td>
-        <td>29 Nov 2016</td>
+        <td>{{ '10/11/2016' | formatDate }}</td>
         <td>{{ session | calculateEndDate }}</td>
       </tr>
     </tbody>
