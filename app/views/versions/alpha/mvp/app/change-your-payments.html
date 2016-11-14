@@ -10,13 +10,14 @@
 
   <a href="javascript:history.back()" class="link-back">Back</a>
   <!-- 3 Third Column -->
-  <h1 class="heading-xlarge">Change your repayments</h1>
-  <p>You need to pay back &pound;{{ session.debt_amount }} of your Income Support. Your Income Support is currently reduced by £{{ session.payment_amount }} every 2 weeks.</p>
-  <div class="chart-block">
-    <div class="graph-title">You'll have paid this money back by {{ session | calculateEndDate }}.</div>
-  </div>
+  <h1 class="heading-xlarge">Change your Income Support repayments</h1>
+  <p>You still owe &pound;{{ session.debt_amount }}. You're currently paying back £{{ session.payment_amount }} every 2 weeks.
+  You'll have paid this money back by {{ session | calculateEndDate }}.</p>
+  <!--<div class="chart-block">
+    <div class="graph-title"></div>
+  </div>-->
 
-  <h3 class="heading-medium">Enter amount</h3>
+  <h2 class="heading-medium">Enter a new amount</h3>
   <form method="post" action="process_payment_change">
   <div class="form-group">
     <span class="c-form-input-denote">£</span>
