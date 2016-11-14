@@ -79,6 +79,11 @@ module.exports = function(router, config) {
         // store the new amount the user has offered
         var newPaymentAmountRequested = parseFloat(req.session.data.payment_amount);
         
+        // quick fix to handle posting with no amount entered
+        if(postData.payment_amount == '') {
+          Object.assign(req.session.data, { payment_amount: parseFloat(req.session.data.payment_amount_original).toFixed(2) });
+        }
+        
         // if less than minimum then redirect to page that deals with that    
         if (newPaymentAmountRequested < minimumPayment) {
           return res.redirect('what-this-means-below-minimum');

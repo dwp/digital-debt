@@ -8,6 +8,8 @@
 
 {% block primary %}
 
+  {{ session.payment_amount | log }}
+
   <a href="javascript:history.back()" class="link-back">Back</a>
   <!-- 3 Third Column -->
   <h1 class="heading-xlarge">Change Income Support repayments</h1>
