@@ -1,0 +1,33 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  hideSignoutLink: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+
+  <h1 class="heading-xlarge">You are signed out</h1>
+  <p>To check your benefits or change your payments again, you will need to <a href="#">create an account</a>.</p>
+
+
+    <!--<fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Send request" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>-->
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

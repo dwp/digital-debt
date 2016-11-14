@@ -1,0 +1,36 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+  <a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Call DWP to complete your request</h1>
+
+  <p>You're asking to reduce your Income Support repayments to &pound;{{ session.payment_amount | d('XX')}} every 2 weeks.</p>
+  <p>You'll need to call and talk to an advisor about your circumstances.</p>
+
+  <div class="contact">
+  <p><strong><abbr title="Department for Work and Pensions">DWP</abbr> Debt Management contact centre</strong><br>
+  Telephone: 0345 850 0293<br>
+  Textphone: 0345 604 6697<br>
+  Calling from abroad: +44 (0)161 904 1233 <br>
+  Monday to Friday, 8am to 8pm <br>
+  Saturday, 9am to 4pm<br>
+  <a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+  </div>
+
+  <!-- <div class="govuk-box-highlight" style="padding: 1.5em;">
+    <h2 class="bold-medium">Call us on 0161 688 4500</h2>
+  </div> -->
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

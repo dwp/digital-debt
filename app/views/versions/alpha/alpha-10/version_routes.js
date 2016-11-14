@@ -14,6 +14,19 @@ module.exports = function(router, config) {
       }  
     }
     
+    if(requestedPage == 'start_session') {
+      var debt_amount = 350;
+      Object.assign(req.session.data,{
+        username: "",
+        password: "",
+        debt_amount: debt_amount,
+        payment_amount: parseFloat(Math.floor(debt_amount/100*5)).toFixed(2),
+        payment_frequency: "fortnightly",
+        debt_reason: ['is','pip']
+      });
+      return res.redirect('index');  
+    }
+
     next();
   
   });

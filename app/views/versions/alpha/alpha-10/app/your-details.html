@@ -13,46 +13,23 @@
 
   <h1 class="heading-xlarge">Your details</h1>
 
-  <form method="post" action="home">
+  <form method="post" action="setpassword">
 
     <div class="form-group">
-      <p>
-        To view your information, you need to confirm some details.
-      </p>
+      <p>To view your information, please enter the username and password provided on the letter you received.</p>
     </div>
 
     <div class="form-group">
-      <label class="form-label-bold" for="invite_code">Access code</label>
-      <span class="form-hint">This can be found on the letter you received</span>
-      <input class="form-control" id="invite_code" type="text" name="invite_code">
+      <label class="form-label-bold" for="username">Username</label>
+      <input class="form-control" id="username" type="text" name="username">
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label-bold" for="password">Password</label>
+      <input class="form-control" id="password" type="password" name="password">
     </div>
 
-    <div class="form-group">
-     <fieldset>
-       <legend>
-         <span class="form-label-bold">
-           Your date of birth
-         </span>
-         <span class="form-hint" id="dob-hint">For example, 31 3 1980</span>
-       </legend>
-       <div class="form-date">
-         <div class="form-group form-group-day">
-           <label class="form-label" for="dob-day">Day</label>
-           <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
-         </div>
-         <div class="form-group form-group-month">
-           <label class="form-label" for="dob-month">Month</label>
-           <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
-         </div>
-         <div class="form-group form-group-year">
-           <label class="form-label" for="dob-year">Year</label>
-           <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
-         </div>
-       </div>
-     </fieldset>
-   </div>
-
-    <button type="submit" class="button">Continue</button>
+    <button type="submit" class="button">Login</button>
 
   </form>
 

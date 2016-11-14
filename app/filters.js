@@ -1,6 +1,22 @@
 var _ = require('lodash');
 var qs = require('qs');
+var utils = require(__dirname + '/utils');
+var moment = require('moment');
+moment.locale('en-GB');
+
+moment.fn.durationInWeeks = function(fromDate, toDate) {
+    var days    = toDate.diff(fromDate, 'days');    
+    var weeks   = toDate.diff(fromDate, 'weeks');
+    if (weeks === 0) {
+        return days + ' ' + (days > 1 ? 'days' : 'day');
+    } else {
+        return weeks + ' ' + (Math.round(days / 7) > 1 ? 'weeks' : 'week');
+    }
+}
+
+
 module.exports = function(env) {
+
   var nunjucksSafe = env.getFilter('safe');
   /**
    * Instantiate object used to store the methods registered as a
@@ -217,42 +233,7 @@ module.exports = function(env) {
    * @param  {object}         session the users data submitted in the form-hint
    * @return {String}                 Date string derived from the user's input
    */
-  filters.calculateEndDate = function calculateEndDate(data) {
-    
-    if (data) {
-      // we need the payment frequency
-      if(!! data.payment_frequency) {
-        // calculate the number of payments that will need to be made
-        var numberOfPayments = Math.ceil(data.debt_amount / data.payment_amount),
-            endDate = new Date();
-        
-        // use the frequency to calculate the date
-        switch(data.payment_frequency) {
-          case 'weekly':
-            endDate.setDate(numberOfPayments * 7);
-          break;        
-          case 'fortnightly': 
-            // console.log("It's fortnightly");
-            endDate.setDate(numberOfPayments * 14);
-          break;
-          case 'four-weekly': 
-            endDate.setDate(numberOfPayments * 28);
-          break;
-          case 'monthly': 
-            endDate.setMonth(endDate.getMonth() + numberOfPayments);
-          break;
-        }
-        
-        // return the date in a formatted string
-        return ("1 " + endDate.toLocaleString("en-gb", { month: "long" }) + " " + endDate.getUTCFullYear());
-        
-      } else {
-        return filters.log('There is no payment frequency in the session data!');
-      }
-    } else {
-      return filters.log('There is no session data!');
-    }
-  };
+  filters.calculateEndDate = utils.calculateEndDate;
   
   filters.getPaymentAmount = function getPaymentAmount(data) {
     if(data) {
@@ -291,44 +272,9 @@ module.exports = function(env) {
    * @param  {Number}  p   the number of decimal places (defaults to 2)
    * @return {Number}      the converted number
    */
-  filters.toDecimal = function toDecimal(num,p){
-    if(num && typeof num == 'number'){
-      return Number(num).toFixed(!! p ? p : 2);
-    }
-  };
+  filters.toDecimal = utils.toDecimal;
   
-  filters.getMinimalAmount = function getMinimalAmount(data) {
-    if(data) {
-      if(!! data.payment_frequency) {
-        
-        var finalAmount,
-            minimalAmount = 3.40;
-        
-        // use the frequency to calculate the date
-        switch(data.payment_frequency) {
-          case 'weekly':
-            finalAmount = minimalAmount;
-          break;        
-          case 'fortnightly': 
-            // console.log("It's fortnightly");
-            finalAmount = minimalAmount * 2;
-          break;
-          case 'four-weekly': 
-            finalAmount = minimalAmount * 4;
-          break;
-          case 'monthly': 
-            finalAmount = (minimalAmount * 4) + minimalAmount;
-          break;
-        }
-        
-        // return amount but converted to 2 decimal places
-        return filters.toDecimal(finalAmount);
-        
-      }
-    } else {
-      return filters.log('There is no session data!');
-    }
-  };
+  filters.getMinimalAmount = utils.getMinimalAmount;
   
   filters.getFromSession = function getFromSession(path){
     var session = env.globals.sessionData;
@@ -338,6 +284,22 @@ module.exports = function(env) {
   filters.pct = function pct(amount, percent) {
     return ((parseInt(amount)/100)* parseInt(percent)).toFixed(2);
   };
+  
+  filters.humanise = utils.humanise;
+  
+  filters.formatDate = utils.formatDate;
+  
+  filters.diffInWeeks = function diffInWeeks(data, date1, date2) {
+    var d1 = moment(date1, 'll');
+    var d2 = moment(date2, 'll');
+    var diff = moment().durationInWeeks(d1,d2);
+    diff = diff + ' ' + (diff.indexOf('-') ? 'longer' : 'less');
+    if(!diff.indexOf('-')) { 
+      diff = diff.replace("-","");
+      diff = diff.replace("week","weeks");
+    }
+    return diff;
+  },
   
   filters.toPercentageValue = function toPercentageValue(total,divisions,index) {
     if(total && divisions && index) {
