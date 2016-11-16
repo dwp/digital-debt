@@ -9,12 +9,13 @@ var defaultSession = {
   debt_amount: 350,
   payment_frequency: "fortnightly",
   debt_reason: ['is','pip'],
+  minimum_amount: parseFloat(3.70),
+  standard_amount: parseFloat(11.10)
 }
 
 // calculate the payment amount based on debt amount
 defaultSession.payment_amount_original = parseFloat(defaultSession.allowance/100*15).toFixed(2);
 defaultSession.payment_amount = parseFloat(defaultSession.allowance/100*15).toFixed(2);
-defaultSession.minimum_amount = parseFloat(defaultSession.allowance/100*5).toFixed(2);
 
 module.exports = function(router, config) {
   
@@ -81,20 +82,23 @@ module.exports = function(router, config) {
         
         // quick fix to handle posting with no amount entered
         if(postData.payment_amount == '') {
-          Object.assign(req.session.data, { payment_amount: parseFloat(req.session.data.payment_amount_original).toFixed(2) });
+          Object.assign(req.session.data, { payment_amount: parseFloat(req.session.data.payment_amount_original) });
         }
         
         // if less than minimum then redirect to page that deals with that    
         if (newPaymentAmountRequested < minimumPayment) {
+          console.log('user entered an amount below minimum acceptable payment of £' + minimumPayment.toFixed(2));
           return res.redirect('what-this-means-below-minimum');
         } else {
-          // redirect if greater than their original payment amount (stored in previous version of the session)
-          if (parseFloat(req.session.data.payment_amount).toFixed(2) >= parseFloat(req.session.data.payment_amount_original).toFixed(2)){
-            return res.redirect('what-this-means');
-          // else redirect if lower
-          } else {
-            return res.redirect('what-this-means-lower');
-          }  
+            console.log(newPaymentAmountRequested);
+            console.log(req.session.data.standard_amount);
+            if (newPaymentAmountRequested >= req.session.data.standard_amount) {
+                console.log('user entered an above the minimum and above the standard amount of £' + req.session.data.standard_amount.toFixed(2));
+                return res.redirect('what-this-means');
+            } else {
+                console.log('user entered an amount above the minimum but below standard amount of £' + req.session.data.standard_amount.toFixed(2));
+                return res.redirect('what-this-means-lower'); 
+            }
         }
         
       break;
