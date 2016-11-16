@@ -1,0 +1,84 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Benefits you're paying back</h1>
+<!--<h2 class="heading-medium">Summary</h2>-->
+
+
+<!--<div class="govuk-box-highlight">
+  <h2 class="bold-medium">Total you still need to repay</h2>
+  <br>
+  <div class="total-amount">£{{ session.debt_amount }}</div>
+</div>-->
+
+<h2 class="heading-medium">Income Support</h3>
+
+  <!--<div class="panel panel-border-narrow">-->
+    <h3 class="heading-small">Why you're repaying this money</h3>
+    <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+    <p>You didn't report the change until 29 September 2016, which means you were paid £350 too much. Your benefit has been reduced to pay this back.</p>
+  <!--</div>-->
+  <table>
+    <thead>
+      <tr>
+        <th>Benefit</th>
+        <th>Paying back</th>
+        <th>Starts</th>
+        <th>Ends</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <td>Income Support</td>
+        <td>&pound;{{ session.payment_amount }} {{ session.payment_frequency | humanise }}</td>
+        <td>{{ '10/11/2016' | formatDate }}</td>
+        <td>{{ session | calculateEndDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+
+  <h2 class="heading-medium">Benefits to pay back later</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>What you owe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Personal Independence Payment</td>
+          <td>&pound;200</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>Jobseeker's Allowance</td>
+          <td>&pound;50</td>
+        </tr>
+      </tbody>
+    </table>
+
+<br /><br />
+
+<div>
+   <a class="button" href="change-your-payments">Change your repayments</a>
+</div>
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

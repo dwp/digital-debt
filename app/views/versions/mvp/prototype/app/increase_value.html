@@ -1,0 +1,53 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+  <a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">You're currently paying &pound;{{ 'payment_amount' | getFromSession }} {{ 'payment_frequency' | getFromSession }}.</h1>
+
+  <form action="contact" autocomplete="off" method="post" class="js-validate-form">
+    <fieldset>
+
+      <div class="form-group payment-adjust-field js-payment-adjust-field"
+        data-payment-frequency="{{ 'payment_frequency' | getFromSession }}"
+        data-debt-amount="{{ 'debt_amount' | getFromSession }}"
+        data-min-amount="{{ 'payment_amount' | getFromSession }}"
+        data-max-amount="{{ 'debt_amount' | getFromSession }}"
+        data-text-greaterthan="You have entered too much for proposed amount"
+        data-text-lessthan="Enter more than you're paying now"
+      >
+<!--data-text-lessthan="You have entered less than the minimum amount"-->
+
+
+
+        <label class="form-label-bold" for="payment_amount">
+          New payment amount (£)
+          <!--<span class="form-hint">Minimum {{ 'payment_frequency' | getFromSession }} amount &pound;{{ 'payment_amount' | getFromSession }}.</span>-->
+          <div><span class="payment-adjust-field__error error-message js-error-message js-hidden"></span></div>
+        </label>
+
+        <input class="form-control payment payment-adjust-field__amount js-payment-adjust-field__amount" name="payment_amount" id="payment_amount" type='number' step='0.01'>
+
+        <div class="date-change payment-adjust-field__prediction js-payment-adjust-field__prediction js-hidden">You'll have paid everything back by
+          <span style="font-weight: bold;" class="payment-adjust-field__prediction__date js-payment-adjust-field__prediction__date">{{ session | calculateEndDate }}</span>.
+        </div>
+
+      </div>
+
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <legend class="visuallyhidden">Form Navigation</legend>
+      <input type="submit" value="Continue" class="button" id="submitButton-in" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </fieldset>
+
+  </form>
+
+{% endblock %}

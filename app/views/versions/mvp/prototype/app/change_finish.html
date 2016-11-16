@@ -1,0 +1,38 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<div class="govuk-box-highlight">
+  <h1 class="bold-xlarge">Request sent</h1>
+  <h3 class="heading-medium">Your request to change your payments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
+</div>
+
+
+<h4 class="heading-medium">What happens next</h4>
+<p>You'll get a text message with a decision in the next 24 hours. You may be asked to give more information to support your request.</p>
+
+<!--<h4 class="heading-small">If more information is needed</h4>
+<p>You'll receive a phone call to discuss your request. You may be asked to give more information about your circumstances or provide evidence.</p>-->
+
+
+<!--<form action="home" method="post">
+      <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+-->
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
