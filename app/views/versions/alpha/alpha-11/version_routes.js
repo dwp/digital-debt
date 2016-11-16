@@ -90,8 +90,6 @@ module.exports = function(router, config) {
           console.log('user entered an amount below minimum acceptable payment of £' + minimumPayment.toFixed(2));
           return res.redirect('what-this-means-below-minimum');
         } else {
-            console.log(newPaymentAmountRequested);
-            console.log(req.session.data.standard_amount);
             if (newPaymentAmountRequested >= req.session.data.standard_amount) {
                 console.log('user entered an above the minimum and above the standard amount of £' + req.session.data.standard_amount.toFixed(2));
                 return res.redirect('what-this-means');
