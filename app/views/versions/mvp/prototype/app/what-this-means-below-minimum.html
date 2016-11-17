@@ -1,0 +1,48 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class'],
+  paymentDiff: session | diffInWeeks((session | calculateEndDate(session_prev.payment_amount_original)),(session | calculateEndDate))
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<!-- 3 Third Column -->
+<h1 class="heading-xlarge">Your offer of &pound;{{ session.payment_amount | toDecimal }} is too low</h1>
+
+<p>The minimum you can change Income Support repayments to online is &pound;{{ session.minimum_amount | toDecimal }}</span>. Can you afford this?</p>
+
+<form action="process_minimum_payment_choice" method="post">
+
+  <div class="form-group">
+    <fieldset class="">
+
+
+
+      <label class="block-label" for="change-to-min-yes">
+        <input id="change-to-min-yes" type="radio" name="payment_amount" value="{{ session.minimum_amount }}">
+        Yes - change my repayments to &pound;{{ session.minimum_amount | toDecimal }}
+      </label>
+      <label class="block-label" for="change-to-min-no">
+        <input id="change-to-min-no" type="radio" name="payment_amount" value="{{ session.payment_amount }}">
+        No - I can't afford to pay &pound;{{ session.minimum_amount | toDecimal }}
+      </label>
+
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="button" value="Continue">
+  </div>
+
+</form>
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}

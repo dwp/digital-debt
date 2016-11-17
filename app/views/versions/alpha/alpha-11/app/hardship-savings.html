@@ -1,0 +1,52 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Do you have any savings?</h1>
+
+  <form action="handle_savings" method="post">
+
+    <div class="form-group">
+      <fieldset>
+
+        <label class="block-label" data-target="contact-by-text" for="example-contact-by-text">
+          <input id="example-contact-by-text" type="radio" name="checkbox-contact-group" value="No">
+          Yes
+        </label>
+        <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+          <label class="form-label" for="total-savings">How much?</label>
+          <input class="form-control" name="total_savings" type="text" id="total-savings">
+        </div>
+
+
+        <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+          <input id="example-contact-by-email" type="radio" name="checkbox-contact-group" value="Yes">
+          No
+        </label>
+
+    </fieldset>
+
+    </div>
+
+    <div class="form-group">
+      <input type="submit" class="button" value="Continue">
+    </div>
+
+
+  </form>
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

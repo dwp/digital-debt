@@ -1,0 +1,74 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+
+
+
+      <h1 class="heading-xlarge">How do you want to be contacted?</h1>
+
+      <p>Select how you want to get updates about your request:</p>
+
+          <form action="reduce_finish" method="post">
+            <fieldset>
+
+              <label class="block-label" data-target="contact-by-text" for="example-contact-by-text">
+                <input id="example-contact-by-text" type="checkbox" name="checkbox-contact-group" value="No">
+                Text message
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+                <label class="form-label" for="contact-text-message">Mobile phone number</label>
+                <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
+              </div>
+
+
+              <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+                <input id="example-contact-by-email" type="checkbox" name="checkbox-contact-group" value="Yes">
+                Email
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+                <label class="form-label" for="contact-email">Email address</label>
+                <input class="form-control" name="contact-email" type="text" id="contact-email">
+              </div>
+
+
+              <!--<label class="block-label" data-target="contact-by-phone" for="example-contact-by-phone">
+                <input id="example-contact-by-phone" type="checkbox" name="checkbox-contact-group" value="No">
+                Phone call
+              </label>
+              <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+                <label class="form-label" for="contact-phone">Phone number</label>
+                <input class="form-control" name="contact-phone" type="text" id="contact-phone">
+              </div>-->
+
+
+
+
+
+            </fieldset>
+
+        <br />
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+
+
+
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

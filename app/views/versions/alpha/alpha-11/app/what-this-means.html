@@ -1,0 +1,19 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false,
+  html_classes: ['page-class'],
+  paymentDiff: session | diffInWeeks((session | calculateEndDate(session_prev.payment_amount_original)),(session | calculateEndDate))
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+<h1 class="heading-xlarge">Change Income Support repayments to &pound;{{ session.payment_amount | toDecimal }}</h1>
+<p>You're asking to change your repayments to &pound;{{ session.payment_amount | toDecimal }} every 2 weeks. It'll take {{ page.paymentDiff }} to pay the money back.</p>
+<p>You'll have paid this money back by {{ session | calculateEndDate }}.</p>
+<a class="button" href="contact">Continue</a>
+
+{% endblock %}

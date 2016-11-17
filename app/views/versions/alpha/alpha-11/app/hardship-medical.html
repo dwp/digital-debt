@@ -1,0 +1,51 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+<a href="javascript:history.back()" class="link-back">Back</a>
+
+  <h1 class="heading-xlarge">Do you have any medical conditions?</h1>
+
+  <form>
+    <div class="form-group">
+      <fieldset>
+
+        <label class="block-label" data-target="contact-by-text" for="example-contact-by-text">
+          <input id="example-contact-by-text" type="radio" name="checkbox-contact-group" value="Yes">
+          Yes
+        </label>
+        <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+          <label class="form-label" for="medicalDetails">How do these affect your finances?</label>
+          <textarea class="form-control form-control-3-4" rows="7" id="medicalDetails" name="medicalDetails"></textarea>
+        </div>
+
+
+        <label class="block-label" data-target="contact-by-email" for="example-contact-by-email">
+          <input id="example-contact-by-email" type="radio" name="checkbox-contact-group" value="No">
+          No
+        </label>
+        <!--<div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+          <label class="form-label" for="contact-email">Email address</label>
+          <input class="form-control" name="contact-email" type="text" id="contact-email">
+        </div>-->
+
+
+    </fieldset>
+    </div>
+  </form>
+
+    <a class="button" href="hardship-children">Continue</a>
+
+{% endblock %}
+
+{% block secondary %}
+
+
+<!-- 1 Third Column -->
+{% endblock %}

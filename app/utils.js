@@ -19,13 +19,16 @@ exports.getVersionName = function(path) {
 };
 
 var toDecimal = function(num,p){
-  if(num && typeof num == 'number'){
-    return Number(num).toFixed(!! p ? p : 2);
+  if(num){
+    if(num % 1 == 0) {
+      return parseInt(num,10);
+    } else {
+      return parseFloat(num).toFixed(!! p ? p : 2);
+    }
   }
 };
 
 exports.toDecimal = toDecimal;
-
 
 exports.getMinimalAmount = function(data) {
   if(data) {

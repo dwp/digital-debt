@@ -1,0 +1,32 @@
+{% set page = {
+  title: 'index',
+  dev: true,
+  secondary: false
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+  {{ session.payment_amount | log }}
+
+  <a href="javascript:history.back()" class="link-back">Back</a>
+  <!-- 3 Third Column -->
+  <h1 class="heading-xlarge">Change Income Support repayments</h1>
+  <p>You still owe &pound;{{ session.debt_amount | toDecimal }}. You're currently paying back £{{ session.payment_amount | toDecimal }} every 2 weeks.
+  You'll have paid this money back by {{ session | calculateEndDate }}.</p>
+  <!--<div class="chart-block">
+    <div class="graph-title"></div>
+  </div>-->
+
+  <h2 class="heading-medium">Enter a new amount</h3>
+  <form method="post" action="process_payment_change">
+  <div class="form-group">
+    <span class="c-form-input-denote">£</span>
+    <input id="total01" class="form-control c-form-input-denote__input form-control-1-4" name="payment_amount" type='number' step='0.01'>
+  </div>
+
+  <button type="submit" class="button">Continue</button>
+  </form>
+
+{% endblock %}
