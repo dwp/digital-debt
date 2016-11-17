@@ -1,22 +1,8 @@
 // import resources
 @import 'prototype/imports';
 
-.alpha,
-.mvp {
-
-  &-01,
-  &-02,
-  &-03,
-  &-04,
-  &-05,
-  &-06,
-  &-07,
-  &-08,
-  &-09,
-  &-10,
-  &-11,
-  &.mvp,
-  &.prototype {
+  body[class*="alpha"],
+  body[class*="mvp"] {
     
   		.money-ad{
   		  margin-bottom: 25px;
@@ -227,7 +213,6 @@
 			}
 		}
 
-  }
   .signout{
    	color: white;
    	font-size: 16px;
@@ -240,44 +225,44 @@
     padding-right: 15px;
   }
 
+  .hide{
+  	display: none;
+  }
+
+  .clear {
+    background: aqua;
+    clear:both;
+  	&:after {
+       visibility: hidden;
+       display: block;
+       font-size: 0;
+       content: " ";
+       clear: both;
+       height: 0;
+     }
+  }
+
+  .amount-left{
+  	font-weight: normal!important;
+  }
+
   .related {
     border-top: 10px solid #005ea5;
     padding-top: 5px;
     margin-top: 50px;
-    }
+  }
 
-    .feeback-block{
+  .feeback-block{
     margin-top: 50px;
+  }
 
-    }
-
-    .login-display{
+  .login-display{
     font-size: 16px;
     display: block;
     margin-top: 20px;
-    }
+  }
 
-}
-
-.hide{
-	display: none;
-}
-.clear {
-background: aqua;
-clear:both;
-	&:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
-}
-
-.amount-left{
-	font-weight: normal!important;
-}
+} // end of outer selector
 
 .alpha{
 	&-07, &-06{
@@ -290,46 +275,3 @@ clear:both;
 .column-one-whole{
 	padding: 0 15px 0 15px;
 }
-
-.alpha {
-  
-  &-08, &-09 {
-    
-    .whole-border{
-    	padding: 30px;
-    	margin-bottom: 30px;
-    	border: 1px solid #a1acb2;
-    }
-
-    .more-info{
-      margin-top: 30px;
-      width: 66.6%;
-    }
-    .explination-of-benefits{
-      margin-top: 15px;
-      margin-top: 15px;
-      width: 66.6%;
-    }
-
-    .breakdown-item {
-
-      &__title {
-        margin-top: 0;
-      }
-
-    }
-
-  }
-
-  &-09 {
-
-    .benefit_list {
-      display: block;
-			h3{
-			  margin-top:0px;
-			}
-    }
-    
-  }
-
-} // outer .alpha- selector
