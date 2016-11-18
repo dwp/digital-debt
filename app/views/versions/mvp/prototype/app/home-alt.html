@@ -1,0 +1,68 @@
+{% set page = {
+  title: 'index-alt',
+  dev: true,
+  secondary: true,
+  html_classes: ['page-class']
+} %}
+
+{% extends page.layout | d(prototype.current.layout) %}
+
+{% block primary %}
+
+<h1 class="heading-xlarge">Benefits you're paying back</h1>
+
+<p>The total amount of benefits you're paying back is &pound;{{ session.debt_amount | toDecimal }}.</p>
+
+<h3 class="heading-medium">Breakdown</h3>
+
+<table>
+    <thead>
+      <tr>
+        <th>Benefit</th>
+        <th>Paying back</th>
+        <th>Starts</th>
+        <th>Ends</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <td>Income Support</td>
+        <td>&pound;{{ session.payment_amount | toDecimal }} {{ session.payment_frequency | humanise }}</td>
+        <td>{{ '10/11/2016' | formatDate }}</td>
+        <td>{{ session | calculateEndDate }}</td>
+      </tr>
+
+      <tr>
+       <td><a href="#">Personal Independence Payment</a></td>
+        <td>&pound;100 total</td>
+        <td>Pending</td>
+        <td>Pending</td>
+      </tr>
+
+      <tr>
+       <td><a href="#">Jobseeker's Allowance</a></td>
+        <td>&pound;100 total</td>
+        <td>Pending</td>
+        <td>Pending</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+
+
+
+<br /><br />
+
+<!--<p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+<p>You didn't report the change until 29 September 2016, which means you were paid &pound;{{ session.debt_amount | toDecimal }} too much. Your benefit has been reduced to pay this back.</p>-->
+<div>
+   <a class="button" href="change-your-payments">Change your repayments</a>
+</div>
+
+
+
+{% endblock %}
+
+{% block secondary %}
+<!-- 1 Third Column -->
+{% endblock %}
