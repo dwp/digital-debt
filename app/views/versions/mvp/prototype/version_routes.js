@@ -9,13 +9,13 @@ var defaultSession = {
   debt_amount: 350,
   payment_frequency: "fortnightly",
   debt_reason: ['is','pip'],
-  minimum_amount: parseFloat(3.70),
-  standard_amount: parseFloat(11.10)
+  minimum_amount: parseFloat(3.70 * 2),
+  standard_amount: parseFloat(11.10 * 2)
 }
 
 // calculate the payment amount based on debt amount
-defaultSession.payment_amount_original = parseFloat(defaultSession.allowance/100*15);
-defaultSession.payment_amount = parseFloat(defaultSession.allowance/100*15);
+defaultSession.payment_amount_original = parseFloat(defaultSession.standard_amount);
+defaultSession.payment_amount = parseFloat(defaultSession.standard_amount);
 
 module.exports = function(router, config) {
   
