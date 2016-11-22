@@ -3,7 +3,7 @@
 
   body[class*="alpha"],
   body[class*="mvp"] {
-    
+
   		.money-ad{
   		  margin-bottom: 25px;
   		}
@@ -275,3 +275,57 @@
 .column-one-whole{
 	padding: 0 15px 0 15px;
 }
+
+
+//accordion
+
+.accordion dd, .ni-table dd {
+ padding-top: 10px;
+ padding-bottom: 5px; }
+
+.accordion2 dt  {
+
+ }
+
+.low-row {
+  border-bottom: 0;
+  border-top: 1px solid #bfc1c3;
+}
+
+.lowest-row {
+  display: block;
+  height: auto;
+  border-bottom: 1px solid #bfc1c3;
+  border-top: 1px solid #bfc1c3;
+}
+
+.lowest-sub-text {
+  border-bottom: 1px solid #bfc1c3;
+}
+
+.row-wrapper {
+ display: inline-block;
+ clear: both;
+ width: 100%;
+ padding: 15px 0 5px 0; }
+
+.dd-wrapper {
+ display: inline-block;
+ clear: both;
+ width: 100%;
+ padding: 5px 0 5px 0;
+ border: none; }
+
+.dd-title {
+ width: 40%;
+ float: left; }
+
+.dd-col {
+ width: 20%;
+ float: left; }
+
+.title {
+ cursor: pointer;
+ margin: 0;
+ color: #005ea5 ;
+ border: none; }

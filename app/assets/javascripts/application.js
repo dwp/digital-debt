@@ -125,3 +125,43 @@ $(document).ready(function() {
   toggleContent.showHideCheckboxToggledContent();
 
 });
+
+
+    var allPanels = $('.accordion2 > dd').hide(),
+          allHeaders = $('.accordion2 > dt');
+
+      $('.accordion2 > dt').click(function() {
+        // $(this).parent().children("dd")
+        //   // .hide()
+        //   // .removeClass('active');
+
+        // $(this).parent().children("dt")
+        //   .children('span')
+        //   .removeClass('down');
+
+        if(!$(this).hasClass('active')) {
+          // $(this).parent().children("dt")
+          //   .removeClass('active');
+
+          $(this)
+            .addClass('active')
+            .next()
+            .show();
+
+          $(this).find("a");
+
+        $(this)
+          .children('span')
+          .addClass('down');
+        }
+        else{
+          $(this)
+            .removeClass('active')
+            .next()
+            .hide();
+
+          $(this).find("a");
+        }
+
+        return false;
+      });

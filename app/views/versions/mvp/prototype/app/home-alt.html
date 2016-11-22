@@ -15,47 +15,62 @@
 
 <h3 class="heading-medium">Breakdown</h3>
 
-<table>
-    <thead>
-      <tr>
-        <th>Benefit</th>
-        <th>Paying back</th>
-        <th>Starts</th>
-        <th>Ends</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-       <td>Income Support</td>
-        <td>&pound;{{ session.payment_amount | toDecimal }} {{ session.payment_frequency | humanise }}</td>
-        <td>{{ '10/11/2016' | formatDate }}</td>
-        <td>{{ session | calculateEndDate }}</td>
-      </tr>
+  <dl class="accordion2">
+    <dt>
+      <div class="dd-wrapper">
+        <div class="dd-title heading-small">Benefit</div>
+        <div class="dd-col heading-small">Paying back</div>
+        <div class="dd-col heading-small">Starts</div>
+        <div class="dd-col heading-small">Ends</div>
+      </div>
+    </dt>
 
-      <tr>
-       <td><a href="#">Personal Independence Payment</a></td>
-        <td>&pound;100 total</td>
-        <td>Pending</td>
-        <td>Pending</td>
-      </tr>
+    <dt class="low-row">
+      <div class="row-wrapper">
+        <div class="dd-title"><a href="#">Income Support</a></div>
+        <div class="dd-col">&pound;{{ session.payment_amount | toDecimal }} {{ session.payment_frequency | humanise }}</div>
+        <div class="dd-col">{{ '10/11/2016' | formatDate }}</div>
+        <div class="dd-col">{{ session | calculateEndDate }}</div>
+      </div>
+    </dt>
+    <dd>
+      <div class="sub-text">
+        <p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
+        <p>You didn't report the change until 29 September 2016, which means you were paid &pound;{{ session.debt_amount | toDecimal }} too much. Your benefit has been reduced to pay this back.</p>
+      </div>
+    </dd>
 
-      <tr>
-       <td><a href="#">Jobseeker's Allowance</a></td>
-        <td>&pound;100 total</td>
-        <td>Pending</td>
-        <td>Pending</td>
-      </tr>
-    </tbody>
-  </table>
-  <br />
+    <dt class="low-row">
+      <div class="row-wrapper">
+        <div class="dd-title"><a href="#">Personal Independence Payment</a></div>
+        <div class="dd-col">&pound;100 total</div>
+        <div class="dd-col">Pending</div>
+        <div class="dd-col">Pending</div>
+      </div>
+    </dt>
+    <dd>
+      <div class="sub-text">
+        <p>On 4 January 2016 you reported a change in the amount of help you need to carry out daily activities. Because of the delay in telling DWP, you were paid &pound;100 too much. Your benefit was reduced to pay this back.</p>
+      </div>
+    </dd>
+
+    <dt class="low-row">
+      <div class="row-wrapper">
+        <div class="dd-title"><a href="#">Jobseeker's Allowance</a></div>
+        <div class="dd-col">&pound;100 total</div>
+        <div class="dd-col">Pending</div>
+        <div class="dd-col">Pending</div>
+      </div>
+    </dt>
+    <dd>
+      <div class="lowest-sub-text">
+        <p>You started working more than 16 hours on 20 February 2016. You told DWP in time, but because of processing delays you were paid &pound;100 too much. Your benefit was reduced to pay this back.</p>
+      </div>
+    </dd>
+  </dl>
 
 
-
-<br /><br />
-
-<!--<p>You started working on 10 June 2016. This means you're entitled to less Income Support.</p>
-<p>You didn't report the change until 29 September 2016, which means you were paid &pound;{{ session.debt_amount | toDecimal }} too much. Your benefit has been reduced to pay this back.</p>-->
-<div>
+<div style="margin-top: 30px;">
    <a class="button" href="change-your-payments">Change your repayments</a>
 </div>
 
