@@ -11,7 +11,7 @@
 
 <div class="govuk-box-highlight">
   <h1 class="bold-xlarge">Request sent</h1>
-  <h3 class="heading-medium">Your request to lower Income Support repayments to<br/> &pound;{{ session.payment_amount }} is being reviewed</h3>
+  <h3 class="heading-medium">Your request to lower Income Support repayments to<br/> &pound;{{ session.payment_amount | toDecimal }} is being reviewed</h3>
 </div>
 
 <h4 class="heading-medium">What happens next</h4>
